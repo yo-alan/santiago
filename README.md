@@ -3,8 +3,8 @@ Proyecto de Asistencia UDC
 
 ## Proyecto de Ingeniería de Software 2014
 
-** Usando Git en tres simples pasos: **
+**Descripción**
+Este proyecto es realizado por los alumnos de 2 años de la carrera de Desarrollo de Software de la Universidad del Chubut.
 
-1) ``` git add . ```
-Opcional) ``` git status ```
-2) ``` git commit -m "{algun mensaje para el commit}"
+**Objetivo**
+Crear un sistema de control de asistencia para Bedelía.
