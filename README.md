@@ -1,4 +1,4 @@
-Proyecto de Asistencia UDC
+Proyecto de Registro de Asistencia UDC
 ==========================
 
 ## Ingeniería de Software 2014
