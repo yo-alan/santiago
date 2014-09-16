@@ -1,18 +1,17 @@
 ﻿BEGIN; 
 
 CREATE TABLE carrera (
-	codigo text NOT NULL,
-	nombre text NOT NULL,
+	codigo varchar(3) NOT NULL,
+	nombre varchar(100) NOT NULL,
 
 	CONSTRAINT pk_carrera PRIMARY KEY (codigo)
 );
 CREATE TABLE materia (
-	carrera text NOT NULL,
-	codigo text NOT NULL,
-	nombre text NOT NULL,
+	carrera varchar(3) NOT NULL,
+	codigo int NOT NULL,
+	nombre varchar(100) NOT NULL,
 	anio int,
 	cuatrimestre int,
-
 
 	CONSTRAINT pk_materia PRIMARY KEY (carrera, codigo),
 	CONSTRAINT fk_materia FOREIGN KEY (carrera)
@@ -20,8 +19,8 @@ CREATE TABLE materia (
 	REFERENCES carrera (codigo)
 );
 CREATE TABLE cursada (
-	carrera text NOT NULL,
-	materia text NOT NULL,
+	carrera varchar(3) NOT NULL,
+	materia int NOT NULL,
 	anio int,
 	f_inicio date NOT NULL,
 	f_fin date NOT NULL,
@@ -30,14 +29,13 @@ CREATE TABLE cursada (
 	
 	CONSTRAINT pk_cursada PRIMARY KEY (carrera, materia, anio),
 	CONSTRAINT fk_cursada FOREIGN KEY (carrera, materia)
-
-	REFERENCES materia (carrera, codigo)
+		REFERENCES materia (carrera, codigo)
 	
 );
 CREATE TABLE comision (
-	id serial,
-	carrera text  NOT NULL,
-	materia text NOT NULL,
+	id int AUTO_INCREMENT,
+	carrera varchar(3)  NOT NULL,
+	materia int NOT NULL,
 	anio int, 
 	numero int,
 
@@ -48,10 +46,11 @@ CREATE TABLE comision (
 
 );
 CREATE TABLE persona (
-	nombre text NOT NULL,
-	apellido text NOT NULL,
+	
+	nombre varchar(50) NOT NULL,
+	apellido varchar(50) NOT NULL,
 	f_nacimiento date,
-	direccion text NOT NULL,
+	direccion varchar(100) NOT NULL,
 	documento int not null,
 	CONSTRAINT pk_persona
 		PRIMARY KEY (documento),
@@ -59,7 +58,6 @@ CREATE TABLE persona (
 		CHECK (documento between 10000000 and 99999999 )
 );
 CREATE TABLE profesor (
-
 	documento int NOT NULL,
 	CONSTRAINT pk_profesor
 		PRIMARY KEY (documento),
@@ -67,23 +65,20 @@ CREATE TABLE profesor (
 		FOREIGN KEY (documento)
 		REFERENCES persona (documento)
 
-
 );
 CREATE TABLE alumno (
 	documento  int NOT NULL,
-	legajo text,
+	legajo varchar(6),
 	CONSTRAINT pk_alumno
 		PRIMARY KEY (legajo),
-	CONSTRAINT chk_legajo_valido
-		CHECK (legajo ~ E'[A-Z]{3}\\d{3}'),
 	CONSTRAINT fk_documento
 		FOREIGN KEY (documento)
 		REFERENCES persona (documento)	
 
 );
 CREATE TABLE prof_comision (
-	profesor int NOt NULL,
-	comision serial NOT NULL,
+	profesor int NOT NULL,
+	comision int NOT NULL AUTO_INCREMENT,
 	f_desde date NOT NULL,
 	f_hasta date NOT NULL,
 
@@ -98,7 +93,7 @@ CREATE TABLE prof_comision (
 
 );
 CREATE TABLE clase (
-	id serial,
+	id int AUTO_INCREMENT,
 	obligatorio BOOLEAN,
 	hora_inicio time NOT NULL,
 	hora_fin time NOT NULL,
@@ -118,7 +113,7 @@ CREATE TABLE clase (
 );
 CREATE TABLE asistencia (
 	comision int,
-	alumno	text,
+	alumno text,
 	clase int,
 	id serial,
 	presente BOOLEAN,
@@ -126,11 +121,11 @@ CREATE TABLE asistencia (
 
 	CONSTRAINT pk_asistencia PRIMARY KEY(id),
 	CONSTRAINT fk_comision FOREIGN KEY(comision)
-	REFERENCES comision(id),
+		REFERENCES comision(id),
 	CONSTRAINT fk_anio FOREIGN KEY(alumno)
-	REFERENCES alumno(legajo),
+		REFERENCES alumno(legajo),
 	CONSTRAINT fk_clase FOREIGN KEY(clase)
-	REFERENCES clase(id)
+		REFERENCES clase(id)
 );
 
 
