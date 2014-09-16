@@ -1,25 +1,25 @@
 ﻿BEGIN; 
 
 CREATE TABLE carrera (
-	codigo varchar(3) NOT NULL,
+	id_carrera varchar(3) NOT NULL,/*ids numeros unsigned y autoincrementales*/
 	nombre varchar(100) NOT NULL,
 
-	CONSTRAINT pk_carrera PRIMARY KEY (codigo)
+	CONSTRAINT pk_carrera PRIMARY KEY (id_carrera)
 );
 CREATE TABLE materia (
-	carrera varchar(3) NOT NULL,
+	id_carrera varchar(3) NOT NULL,
 	codigo int NOT NULL,
 	nombre varchar(100) NOT NULL,
 	anio int,
 	cuatrimestre int,
 
-	CONSTRAINT pk_materia PRIMARY KEY (carrera, codigo),
-	CONSTRAINT fk_materia FOREIGN KEY (carrera)
+	CONSTRAINT pk_materia PRIMARY KEY (id_carrera, codigo),
+	CONSTRAINT fk_materia FOREIGN KEY (id_carrera)
 
 	REFERENCES carrera (codigo)
 );
 CREATE TABLE cursada (
-	carrera varchar(3) NOT NULL,
+	id_carrera varchar(3) NOT NULL,
 	materia int NOT NULL,
 	anio int,
 	f_inicio date NOT NULL,
@@ -27,19 +27,19 @@ CREATE TABLE cursada (
 	cuatrimestre int,
 	porc_asistencia real NOT NULL,
 	
-	CONSTRAINT pk_cursada PRIMARY KEY (carrera, materia, anio),
-	CONSTRAINT fk_cursada FOREIGN KEY (carrera, materia)
+	CONSTRAINT pk_cursada PRIMARY KEY (id_carrera, materia, anio),
+	CONSTRAINT fk_cursada FOREIGN KEY (id_carrera, materia)
 		REFERENCES materia (carrera, codigo)
 	
 );
 CREATE TABLE comision (
-	id int AUTO_INCREMENT,
+	id_comision int AUTO_INCREMENT,
 	carrera varchar(3)  NOT NULL,
 	materia int NOT NULL,
 	anio int, 
 	numero int,
 
-	CONSTRAINT pk_comision PRIMARY KEY (id),
+	CONSTRAINT pk_comision PRIMARY KEY (id_comision),
 	CONSTRAINT fk_comison FOREIGN KEY (carrera, materia, anio)
 	REFERENCES cursada (carrera, materia, anio),
 	CONSTRAINT unq_comision UNIQUE (carrera, materia, anio, numero)
@@ -78,7 +78,7 @@ CREATE TABLE alumno (
 );
 CREATE TABLE prof_comision (
 	profesor int NOT NULL,
-	comision int NOT NULL AUTO_INCREMENT,
+	id_comision int NOT NULL AUTO_INCREMENT,
 	f_desde date NOT NULL,
 	f_hasta date NOT NULL,
 
@@ -88,12 +88,12 @@ CREATE TABLE prof_comision (
 		FOREIGN KEY (profesor)
 		REFERENCES profesor (documento),
 	CONSTRAINT fk_comision
-		FOREIGN KEY (comision)
-		REFERENCES comision (id)	
+		FOREIGN KEY (id_comision)
+		REFERENCES comision (id_comision)	
 
 );
 CREATE TABLE clase (
-	id int AUTO_INCREMENT,
+	id_clase int AUTO_INCREMENT,
 	obligatorio BOOLEAN,
 	hora_inicio time NOT NULL,
 	hora_fin time NOT NULL,
@@ -105,27 +105,27 @@ CREATE TABLE clase (
 	hora_ingreso_profesor time,
 	hora_salida_profesor time,
 	
-	CONSTRAINT pk_clase PRIMARY KEY(id),
-	CONSTRAINT fk_comision FOREIGN KEY(comision)
-	REFERENCES comision(id),
+	CONSTRAINT pk_clase PRIMARY KEY(id_clase),
+	CONSTRAINT fk_comision FOREIGN KEY(id_comision)
+	REFERENCES comision(id_comision),
 	CONSTRAINT fk_recuperatoria_de FOREIGN KEY(recuperatoria_de)
-	REFERENCES clase(id)
+	REFERENCES clase(id_clase)
 );
 CREATE TABLE asistencia (
 	comision int,
 	alumno text,
 	clase int,
-	id serial,
+	id serial,/*modificar este serial*/
 	presente BOOLEAN,
 	justificada BOOLEAN,
 
-	CONSTRAINT pk_asistencia PRIMARY KEY(id),
-	CONSTRAINT fk_comision FOREIGN KEY(comision)
-		REFERENCES comision(id),
+	CONSTRAINT pk_asistencia PRIMARY KEY(id),/*este id corresponde al*/
+	CONSTRAINT fk_comision FOREIGN KEY(id_comision)
+		REFERENCES comision(id_comision),
 	CONSTRAINT fk_anio FOREIGN KEY(alumno)
 		REFERENCES alumno(legajo),
-	CONSTRAINT fk_clase FOREIGN KEY(clase)
-		REFERENCES clase(id)
+	CONSTRAINT fk_clase FOREIGN KEY(id_clase)
+		REFERENCES clase(id_clase)
 );
 
 
