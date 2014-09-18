@@ -1,0 +1,96 @@
+* { padding: 0; margin: 0; }
+
+body {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 13px;
+ background-color:#FFFFCC;
+}
+
+/* Maquetación */
+#wrapper { 
+ margin: 0 auto;
+ width: 100%;
+}
+
+#header {
+ width: 100%;
+ float: left;
+ height: 120px;
+ background:#0099CC;
+ 	border-bottom:1px solid #D9E3E5;	
+}
+
+#leftcolumn { 
+  height:inherit;
+ width: 20%;
+ float: left;
+}
+
+#content { 
+ float: left;
+ color: #333;
+ background:#CCCCCC;
+ width:76%;
+ height:inherit:
+ display: inline;
+}
+/* end: maquetación */
+
+/* estilo de texto */
+.t{
+	font-size:18px; font-weight:bold; margin:10px 0 10px 0; padding-left:20px;
+}
+
+/*------------- ESTILOS TABLA -----------------*/
+.tabla th {
+padding: 5px;
+font-size: 16px;
+background-color: #83aec0;
+color: #FFFFFF;
+border-width: 1px;
+border-style: solid;
+border-color: #ffffff;
+font-family: “Trebuchet MS”, Arial;
+text-transform: uppercase;
+}
+
+.tabla td {
+padding: 5px;
+border-width: 1px;
+border-style: solid;
+border-color: #ffffff;
+text-align:right;
+} 
+
+
+/*------------------------- MENU IZQUIERDA ----------------------------*/
+#menu {
+	width: 200px;
+	margin: 10px;
+}
+	
+#menu li a {
+	height: 32px;
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	height: 24px;
+	text-decoration: none;
+}	
+	
+#menu li a:link, #menu5 li a:visited {
+	color: #FFF;
+	display: block;
+	background:  url(../images/menu.gif);
+	padding: 8px 0 0 10px;
+}
+	
+#menu li a:hover {
+	color: #FFF;
+	background:  url(../images/menu.gif) 0 -32px;
+	padding: 8px 0 0 10px;
+}
+#menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
