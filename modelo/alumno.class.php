@@ -1,6 +1,8 @@
 <?php
 
-class Alumno(){
+include "conexion.class.php";
+
+class Alumno{
 	
 	private var $_nuevo;
 	private var $_cambios;
@@ -11,7 +13,7 @@ class Alumno(){
 	private var $direccion;
 	private var $legajo;
 	
-	function Alumno(){
+	function __construct(){
 		$this->_nuevo = true;
 		$this->_cambios = true;
 		$this->nombre = "";
@@ -43,6 +45,9 @@ class Alumno(){
 	
 	function guardar(){
 		//Metodo de clase que guarda un alumno en la base
+		$conn = new Conexion();
+		
+		
 		
 	}
 	
