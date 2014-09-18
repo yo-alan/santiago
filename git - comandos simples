@@ -3,7 +3,7 @@ Para clonar el proyecto:
 	
 Para aplicar los cambios realizados:
 	1) Agregamos los archivos que vamos a actualizar (el punto significa "actualizar todo")
-		git add . 
+		git add -A . 
 	2) Verificamos el estado (opcional)
 		git status
 	3) Commiteamos los cambios, y le agregamos un mensaje
