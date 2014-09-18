@@ -25,9 +25,8 @@ CREATE TABLE cursada (
 	f_fin date NOT NULL,
 	cuatrimestre int,
 	porc_asistencia real NOT NULL,
-	
 	CONSTRAINT pk_cursada PRIMARY KEY (id_carrera, materia, anio),
-	CONSTRAINT fk_cursada FOREIGN KEY (id_carrera, materia) REFERENCES materia (carrera, codigo_materia)
+	CONSTRAINT fk_cursada FOREIGN KEY (id_carrera, materia) REFERENCES materia (id_carrera, codigo_materia)
 	
 );
 CREATE TABLE comision (
@@ -38,8 +37,8 @@ CREATE TABLE comision (
 	numero int,
 
 	CONSTRAINT pk_comision PRIMARY KEY (id_comision),
-	CONSTRAINT fk_comision FOREIGN KEY (carrera, materia, anio)
-	REFERENCES cursada (carrera, materia, anio),
+	CONSTRAINT fk_comisionCarrera FOREIGN KEY (carrera, materia, anio)
+	REFERENCES cursada (id_carrera, materia, anio),
 	CONSTRAINT unq_comision UNIQUE (carrera, materia, anio, numero)
 
 );
@@ -64,11 +63,11 @@ CREATE TABLE profesor (
 
 );
 CREATE TABLE alumno (
-	documento  int NOT NULL,/*deberia ser pk tambien?*/
-	legajo varchar(6),
+	documento  int NOT NULL,
+	legajo varchar(6) UNIQUE,
 	CONSTRAINT pk_alumno
-		PRIMARY KEY (legajo),
-	CONSTRAINT fk_documento
+		PRIMARY KEY (documento),
+	CONSTRAINT fk_docAlumno
 		FOREIGN KEY (documento)
 		REFERENCES persona (documento)	
 
@@ -103,26 +102,25 @@ CREATE TABLE clase (
 	hora_salida_profesor time,
 	
 	CONSTRAINT pk_clase PRIMARY KEY(id_clase),
-	CONSTRAINT fk_comision FOREIGN KEY(comision)
+	CONSTRAINT fk_comisionClase FOREIGN KEY(comision)
 	REFERENCES comision(id_comision),
-	CONSTRAINT fk_recuperatoria_de FOREIGN KEY(recuperatoria_de)/*Esto a que hace referencia?*/
-	REFERENCES clase(id_clase)/*estamos dentro de la tabla clase, deberia hacer referncia a otra tabla*/
-	/*Eliminamos este ultimo foreign?*/
+	CONSTRAINT fk_recuperatoria_de FOREIGN KEY(recuperatoria_de)
+	REFERENCES clase(id_clase)
 
 );
 CREATE TABLE asistencia (
 	comision int,
-	alumno varchar(6),
+	alumno int,
 	clase int,
 	id_asistencia int AUTO_INCREMENT,/*modificado*/
 	presente BOOLEAN,
 	justificada BOOLEAN,
 
 	CONSTRAINT pk_asistencia PRIMARY KEY(id_asistencia),
-	CONSTRAINT fk_comision FOREIGN KEY(comision)
+	CONSTRAINT fk_comisionAsistencia FOREIGN KEY(comision)
 		REFERENCES comision(id_comision),
-	CONSTRAINT fk_anio FOREIGN KEY(alumno)
-		REFERENCES alumno(legajo),
+	CONSTRAINT fk_AlumnoAsistencia FOREIGN KEY(alumno)
+		REFERENCES alumno(documento),
 	CONSTRAINT fk_clase FOREIGN KEY(clase)
 		REFERENCES clase(id_clase)
 );
