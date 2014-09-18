@@ -2,15 +2,12 @@
  class Conexion extends PDO{ 
    private $tipo_de_base = 'mysql';
    private $host = 'localhost';
-   private $nombre_de_base = 'esquema';
+   private $nombre_de_base = 'santiago';
    private $usuario = 'root';
-   private $contrasena = ''; 
+   private $contrasena = 'udc'; 
    
-   public function __construct($usuar,$pass){
+   public function __construct(){
       try{
-            $this->usuario = $usuar;
-            $this->contrasena = $pass;
-            
             parent::__construct($this->tipo_de_base.':host='.$this->host.';dbname='.$this->nombre_de_base, $this->usuario, $this->contrasena);
          
       }catch(PDOException $e){
