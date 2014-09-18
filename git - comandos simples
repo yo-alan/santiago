@@ -1,0 +1,18 @@
+Para clonar el proyecto:
+	git clone https://github.com/yo-alan/santiago.git
+	
+Para aplicar los cambios realizados:
+	1) Agregamos los archivos que vamos a actualizar (el punto significa "actualizar todo")
+		git add . 
+	2) Verificamos el estado (opcional)
+		git status
+	3) Commiteamos los cambios, y le agregamos un mensaje
+		git commit -m "Un comentario"
+	4) Aplicamos los cambios (nos pedira el usuario y la contraseña)
+		git push
+
+Para actualizar nuestro directorio con los cambios del repositorio:
+	1) Debemos hacer un fetch, para traer los cambios
+		git fetch
+	2) Y por ultimo, para actualizar nuestro directorio aplicamos los cambios del repositorio
+		git merge origin/master
