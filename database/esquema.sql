@@ -8,15 +8,14 @@ CREATE TABLE carrera (
 );
 CREATE TABLE materia (
 	id_carrera varchar(3) NOT NULL,
-	codigo int NOT NULL,
+	codigo_materia int NOT NULL,
 	nombre varchar(100) NOT NULL,
 	anio int,
 	cuatrimestre int,
 
-	CONSTRAINT pk_materia PRIMARY KEY (id_carrera, codigo),
+	CONSTRAINT pk_materia PRIMARY KEY (id_carrera, codigo_materia),
 	CONSTRAINT fk_materia FOREIGN KEY (id_carrera)
-
-	REFERENCES carrera (codigo)
+	REFERENCES carrera (id_carrera)
 );
 CREATE TABLE cursada (
 	id_carrera varchar(3) NOT NULL,
@@ -28,8 +27,7 @@ CREATE TABLE cursada (
 	porc_asistencia real NOT NULL,
 	
 	CONSTRAINT pk_cursada PRIMARY KEY (id_carrera, materia, anio),
-	CONSTRAINT fk_cursada FOREIGN KEY (id_carrera, materia)
-		REFERENCES materia (carrera, codigo)
+	CONSTRAINT fk_cursada FOREIGN KEY (id_carrera, materia) REFERENCES materia (carrera, codigo_materia)
 	
 );
 CREATE TABLE comision (
@@ -40,7 +38,7 @@ CREATE TABLE comision (
 	numero int,
 
 	CONSTRAINT pk_comision PRIMARY KEY (id_comision),
-	CONSTRAINT fk_comison FOREIGN KEY (carrera, materia, anio)
+	CONSTRAINT fk_comision FOREIGN KEY (carrera, materia, anio)
 	REFERENCES cursada (carrera, materia, anio),
 	CONSTRAINT unq_comision UNIQUE (carrera, materia, anio, numero)
 
@@ -52,8 +50,7 @@ CREATE TABLE persona (
 	f_nacimiento date,
 	direccion varchar(100) NOT NULL,
 	documento int not null,
-	CONSTRAINT pk_persona
-		PRIMARY KEY (documento),
+	CONSTRAINT pk_persona PRIMARY KEY (documento),
 	CONSTRAINT chk_doc_valido
 		CHECK (documento between 10000000 and 99999999 )
 );
@@ -67,7 +64,7 @@ CREATE TABLE profesor (
 
 );
 CREATE TABLE alumno (
-	documento  int NOT NULL,
+	documento  int NOT NULL,/*deberia ser pk tambien?*/
 	legajo varchar(6),
 	CONSTRAINT pk_alumno
 		PRIMARY KEY (legajo),
@@ -83,7 +80,7 @@ CREATE TABLE prof_comision (
 	f_hasta date NOT NULL,
 
 	CONSTRAINT pk_prof_comision
-		PRIMARY KEY (profesor, comision, f_desde),
+		PRIMARY KEY (profesor, id_comision, f_desde),
 	CONSTRAINT fk_profesor
 		FOREIGN KEY (profesor)
 		REFERENCES profesor (documento),
@@ -106,25 +103,27 @@ CREATE TABLE clase (
 	hora_salida_profesor time,
 	
 	CONSTRAINT pk_clase PRIMARY KEY(id_clase),
-	CONSTRAINT fk_comision FOREIGN KEY(id_comision)
+	CONSTRAINT fk_comision FOREIGN KEY(comision)
 	REFERENCES comision(id_comision),
-	CONSTRAINT fk_recuperatoria_de FOREIGN KEY(recuperatoria_de)
-	REFERENCES clase(id_clase)
+	CONSTRAINT fk_recuperatoria_de FOREIGN KEY(recuperatoria_de)/*Esto a que hace referencia?*/
+	REFERENCES clase(id_clase)/*estamos dentro de la tabla clase, deberia hacer referncia a otra tabla*/
+	/*Eliminamos este ultimo foreign?*/
+
 );
 CREATE TABLE asistencia (
 	comision int,
-	alumno text,
+	alumno varchar(6),
 	clase int,
-	id serial,/*modificar este serial*/
+	id_asistencia int AUTO_INCREMENT,/*modificado*/
 	presente BOOLEAN,
 	justificada BOOLEAN,
 
-	CONSTRAINT pk_asistencia PRIMARY KEY(id),/*este id corresponde al*/
-	CONSTRAINT fk_comision FOREIGN KEY(id_comision)
+	CONSTRAINT pk_asistencia PRIMARY KEY(id_asistencia),
+	CONSTRAINT fk_comision FOREIGN KEY(comision)
 		REFERENCES comision(id_comision),
 	CONSTRAINT fk_anio FOREIGN KEY(alumno)
 		REFERENCES alumno(legajo),
-	CONSTRAINT fk_clase FOREIGN KEY(id_clase)
+	CONSTRAINT fk_clase FOREIGN KEY(clase)
 		REFERENCES clase(id_clase)
 );
 
