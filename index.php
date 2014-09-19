@@ -3,10 +3,10 @@
     if(isset($_POST['tipoFormulario'])){
         switch($_POST['tipoFormulario']){
             case 'form-alumno': 
-                    include 'controlador/form-alumno.php';
+                    include 'controlador/alumno.php';
                 break;
             case 'form-cursada': 
-                    include 'controlador/form-cursada.php';
+                    include 'controlador/cursada.php';
                 break;
         }
     }

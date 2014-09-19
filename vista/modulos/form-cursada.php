@@ -22,29 +22,29 @@
 		</div>
 		<br>
 		<br>
-			<form method = 'POST' action = 'lo_que_sea.php' class = 'form-horizontal' role = 'form'>
+			<form method = 'POST' action = '../../index.php' class = 'form-horizontal' role = 'form'>
 				<div class = 'form-group'>
 					<label for= 'inicio' class ='col-lg-2 control-label'>Inicio</label>
-					<input type = 'datetime' class = 'form-control datepicker' id = 'inicio'></input>
+					<input type = 'datetime' class = 'form-control datepicker' name = 'inicio'></input>
 				</div>
 				<div class = 'form-group'>
 					<label for = 'fin' class = 'col-lg-2 control-label'>Fin</label>
-					<input type = 'datetime' class = 'form-control datepicker' id = 'fin'>
+					<input type = 'datetime' class = 'form-control datepicker' name = 'fin'>
 				</div>
 				<div class = 'form-group'>
 					<label for = 'año' class = 'col-lg-2 control-label'>Año</label>
-					<input type = 'datetime' class = 'form-control datepicker1' id = 'año'>
+					<input type = 'datetime' class = 'form-control datepicker1' name = 'anio'>
 				</div>
 				<div class = 'form-group'>
 					<label for = 'cuatrimestre' class = 'col-lg-2 control-label'>Cuatrimestre</label>
-					<select class = 'col-lg-8 form-control' id = 'cuatrimestre'>
+					<select class = 'col-lg-8 form-control' name = 'cuatrimestre'>
 						<option>1° cuatrimestre</option>
 						<option>2° cuatrimestre</option>
 					</select>
 				</div>
 				<div class = 'form-group'>
 					<label for = 'materia' class = 'col-lg-2 control-label'>Materia</label>
-					<select class = 'col-lg-2' id = 'materia'>
+					<select class = 'col-lg-2' name = 'materia'>
 						<option>Matemática</option>
 						<option>Base de Datos I</option>
 						<option>Base de Datos II</option>
@@ -54,11 +54,14 @@
 				</div>
 				<div class = 'form-group'>
 					<label for = 'carrera' class = 'col-lg-2 control-label'>Carrera</label>
-					<select class = 'col-lg-2' id = 'carrera'>
+					<select class = 'col-lg-2' name = 'carrera'>
 						<option>Tecnicatura en Software</option>
 						<option>Tecnicatura en Redes</option>
 						<option>Tecnicatura en Enfermería</option>
 					</select>
+				</div>
+					<input type = 'hidden' name='tipoFormulario' value="form-cursada">
+				<div>
 				</div>
 					<button type = 'submit' class =  'btn btn-primary col-md col-md-offset-4'>Enviar</button>
 				<div>
