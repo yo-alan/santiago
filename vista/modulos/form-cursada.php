@@ -25,19 +25,19 @@
 			<form method = 'POST' action = 'lo_que_sea.php' class = 'form-horizontal' role = 'form'>
 				<div class = 'form-group'>
 					<label for= 'inicio' class ='col-lg-2 control-label'>Inicio</label>
-					<input type = 'datetime' class = 'datepicker' id = 'inicio'></input>
+					<input type = 'datetime' class = 'form-control datepicker' id = 'inicio'></input>
 				</div>
 				<div class = 'form-group'>
 					<label for = 'fin' class = 'col-lg-2 control-label'>Fin</label>
-					<input type = 'datetime' class = 'datepicker' id = 'fin'>
+					<input type = 'datetime' class = 'form-control datepicker' id = 'fin'>
 				</div>
 				<div class = 'form-group'>
 					<label for = 'año' class = 'col-lg-2 control-label'>Año</label>
-					<input type = 'datetime' class = 'datepicker1' id = 'año'>
+					<input type = 'datetime' class = 'form-control datepicker1' id = 'año'>
 				</div>
 				<div class = 'form-group'>
 					<label for = 'cuatrimestre' class = 'col-lg-2 control-label'>Cuatrimestre</label>
-					<select class = 'col-lg-2' id = 'cuatrimestre'>
+					<select class = 'col-lg-8 form-control' id = 'cuatrimestre'>
 						<option>1° cuatrimestre</option>
 						<option>2° cuatrimestre</option>
 					</select>
