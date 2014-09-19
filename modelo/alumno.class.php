@@ -60,8 +60,6 @@ class Alumno{
 		
 		$conn = new Conexion();
 		
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
 		if($this->nuevo){//Si el objeto es nuevo se hace un INSERT
 			
 			try{
