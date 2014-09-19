@@ -57,8 +57,24 @@ class Cursada {
 			return;
 		
 		if($this->nuevo){
-			
-			
+			try{
+				$conex = new conexion();
+				
+				$consulta = $conex->prepare('INSER INTO cursada
+				 (id_carrera,materia,anio,f_inicio,f_fin,cuatrimestre,porc_asistencia)
+				  VALUES (:idc,:mat,:ani,:f_i,:f_f,:cua,:por)');
+				  
+				$consulta->bindParam(':idc',$this->id_carrera);
+				$consulta->bindParam(':mat',$this->materia);
+				$consulta->bindParam(':ani',$this->anio);
+				$consulta->bindParam(':f_i',$this->f_inicio);
+				$consulta->bindParam(':f_f',$this->f_fin);
+				$consulta->bindParam(':cua',$this->cuatrimestre);
+				$consulta->bindParam(':por',$this->porc_asistencia);
+
+				$consulta->execute();
+			}catch(PDOException $e){
+				eccho 'Error al insertar registro nuevo: '.$e->getMessage();
 			
 		}
 		else{
