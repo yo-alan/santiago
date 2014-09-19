@@ -4,7 +4,7 @@
    private $host = 'localhost';
    private $nombre_de_base = 'santiago';
    private $usuario = 'root';
-   private $contrasena = 'udc'; 
+   private $contrasena = 'se+9se+9'; 
    
    public function __construct(){
       try{
