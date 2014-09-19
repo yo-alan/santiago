@@ -4,7 +4,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Plantilla básica de alta comisión</title>
+    <title>Plantilla básica de alta cursada</title>
  
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
      <link href="../datepicker/css/datepicker.css" rel="stylesheet" media="screen">
@@ -18,7 +18,7 @@
   <body>
 	 <div class = 'container'>
 		<div>
-			<h1 class = 'text-center'>Alta de nueva Comisión</h1>
+			<h1 class = 'text-center'>Alta de nueva Cursada</h1>
 		</div>
 		<br>
 		<br>
@@ -55,9 +55,9 @@
 				<div class = 'form-group'>
 					<label for = 'carrera' class = 'col-lg-2 control-label'>Carrera</label>
 					<select class = 'col-lg-2' id = 'carrera'>
-						<option>Desarrollador de Software</option>
+						<option>Tecnicatura en Software</option>
 						<option>Tecnicatura en Redes</option>
-						<option>Enfermería</option>
+						<option>Tecnicatura en Enfermería</option>
 					</select>
 				</div>
 					<button type = 'submit' class =  'btn btn-primary col-md col-md-offset-4'>Enviar</button>
