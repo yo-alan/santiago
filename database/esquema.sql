@@ -125,27 +125,84 @@ CREATE TABLE asistencia (
 		REFERENCES clase(id_clase)
 );
 
-
-
-
-
-
-
-
-
-
 INSERT INTO carrera VALUES ('SFW', 'Tenicatura en Software');
 INSERT INTO carrera VALUES ('ENF', 'Tenicatura en Enferemería');
 INSERT INTO carrera VALUES ('RED', 'Tecnicatura en Redes');
 
+--Desarrollo de software
 
-INSERT INTO materia VALUES ('SFW', '10', 'Bases de Datos I', 2, 1);
-INSERT INTO materia VALUES ('SFW', '11', 'Laboratorio Avanzado de Programación', 2, 1);
-INSERT INTO materia VALUES ('ENF', '11', 'Nutrición', 1, 2);
-INSERT INTO materia VALUES ('ENF', '3', 'Anatomia', 1, 1);
-INSERT INTO materia VALUES ('RED', '3', 'Redes I', 1, 2);
+INSERT INTO materia VALUES ('SFW', '1', 'Introducción a la programación', 1, 1);
+INSERT INTO materia VALUES ('SFW', '2', 'Laboratorio de programación', 1, 1);
+INSERT INTO materia VALUES ('SFW', '3', 'Matemática aplicada I', 1, 1);
+INSERT INTO materia VALUES ('SFW', '4', 'Inglés I', 1, 1);
+INSERT INTO materia VALUES ('SFW', '5', 'Técnicas avanzadas de programación', 1, 2);
+INSERT INTO materia VALUES ('SFW', '6', 'Estructura de datos y algoritmos', 1, 2);
+INSERT INTO materia VALUES ('SFW', '7', 'Paradigmans de programación', 1, 2);
+INSERT INTO materia VALUES ('SFW', '8', 'Matématica aplicada II', 1, 2);
+INSERT INTO materia VALUES ('SFW', '9', 'Inglés II', 1, 2);
+INSERT INTO materia VALUES ('SFW', '10', 'Laboratorio Avanzado de Programación II', 2, 1);
+INSERT INTO materia VALUES ('SFW', '11', 'Bases de datos I', 2, 1);
+INSERT INTO materia VALUES ('SFW', '12', 'Programación web I', 2, 1);
+INSERT INTO materia VALUES ('SFW', '13', 'Redes y seguridad informática', 2, 1);
+INSERT INTO materia VALUES ('SFW', '14', 'Ingeniería de software', 2, 2);
+INSERT INTO materia VALUES ('SFW', '15', 'Programación web II', 2, 2);
+INSERT INTO materia VALUES ('SFW', '16', 'Bases de datos II', 2, 2);
+INSERT INTO materia VALUES ('SFW', '17', 'Gestión de proyectos de software', 2, 2);
 
+--Enfermería
 
+INSERT INTO materia VALUES ('ENF', '1', 'Fundamentos de enfermería', 1, 1);
+INSERT INTO materia VALUES ('ENF', '2', 'Física y química biológica', 1, 1);
+INSERT INTO materia VALUES ('ENF', '3', 'Anatomía y fisiología', 1, 1);
+INSERT INTO materia VALUES ('ENF', '4', 'Nutrición', 1, 2);
+INSERT INTO materia VALUES ('ENF', '5', 'Psicología general y evolutiva', 1, 2);
+INSERT INTO materia VALUES ('ENF', '6', 'Nutrición', 1, 2);
+INSERT INTO materia VALUES ('ENF', '7', 'Biosetadística y epidemiología', 1, 2);
+INSERT INTO materia VALUES ('ENF', '8', 'Enfermería del adulto y del anciano', 2, 1);
+INSERT INTO materia VALUES ('ENF', '9', 'Psicología social', 2, 1);
+INSERT INTO materia VALUES ('ENF', '10', 'Farmacología', 2, 1);
+INSERT INTO materia VALUES ('ENF', '11', 'Dietoterapia', 2, 2);
+INSERT INTO materia VALUES ('ENF', '12', 'Enfermería en salud mental y psiquiatría', 2, 2);
+INSERT INTO materia VALUES ('ENF', '13', 'Computación aplicada', 2, 2);
+INSERT INTO materia VALUES ('ENF', '14', 'Enfermería materno-infantil y del adolescente', 3, 1);
+INSERT INTO materia VALUES ('ENF', '15', 'Inglés', 3, 1);
+INSERT INTO materia VALUES ('ENF', '16', 'Enfermería ética y legal', 3, 1);
+INSERT INTO materia VALUES ('ENF', '17', 'Antropología', 3, 2);
+INSERT INTO materia VALUES ('ENF', '18', 'Enfermería en salud comunitaria', 3, 2);
+
+--Redes y telecomunicaciones
+
+INSERT INTO materia VALUES ('RED', '1', 'Expresión y comunicación', 1, 1);
+INSERT INTO materia VALUES ('RED', '2', 'Inglés I', 1, 1);
+INSERT INTO materia VALUES ('RED', '3', 'Matemática aplicada I', 1, 1);
+INSERT INTO materia VALUES ('RED', '4', 'Arquitectura de computadoras I', 1, 1);
+INSERT INTO materia VALUES ('RED', '5', 'Electrónica I', 1, 1);
+INSERT INTO materia VALUES ('RED', '6', 'Física para las telecomunicaciones', 1, 1);
+INSERT INTO materia VALUES ('RED', '7', 'Programación I', 1, 1);
+INSERT INTO materia VALUES ('RED', '8', 'Sistemas operativos I', 1, 2);
+INSERT INTO materia VALUES ('RED', '9', 'Programación II', 1, 2);
+INSERT INTO materia VALUES ('RED', '10', 'Arquitectura de computadoras II', 1, 2);
+INSERT INTO materia VALUES ('RED', '11', 'Física para las telecomunicaciones II', 1, 2);
+INSERT INTO materia VALUES ('RED', '12', 'Legislación de las comunicaciones', 2, 1);
+INSERT INTO materia VALUES ('RED', '13', 'Talleres de tecnología aplicada', 2, 1);
+INSERT INTO materia VALUES ('RED', '14', 'Matemática aplicada II', 2, 1);
+INSERT INTO materia VALUES ('RED', '15', 'Programación III', 2, 1);
+INSERT INTO materia VALUES ('RED', '16', 'Redes', 2, 1);
+INSERT INTO materia VALUES ('RED', '17', 'Electrónica II', 2, 1);
+INSERT INTO materia VALUES ('RED', '18', 'Arquitectura de computadoras III', 2, 1);
+INSERT INTO materia VALUES ('RED', '19', 'Sistemas operativos II', 2, 1);
+INSERT INTO materia VALUES ('RED', '20', 'Gestión y administración empresarial', 2, 2);
+INSERT INTO materia VALUES ('RED', '21', 'Tratamiento de señal', 2, 2);
+INSERT INTO materia VALUES ('RED', '22', 'Equipos y medios de transmisión I', 2, 2);
+INSERT INTO materia VALUES ('RED', '23', 'Actualización tecnológica I', 2, 2);
+INSERT INTO materia VALUES ('RED', '24', 'Transmisión de datos I', 2, 2);
+INSERT INTO materia VALUES ('RED', '25', 'Actualización tecnológica II', 3, 1);
+INSERT INTO materia VALUES ('RED', '26', 'Transmisión de datos II', 3, 1);
+INSERT INTO materia VALUES ('RED', '27', 'Redes de alta velocidad', 3, 1);
+INSERT INTO materia VALUES ('RED', '28', 'Sistemas telefónicos', 3, 1);
+INSERT INTO materia VALUES ('RED', '29', 'Ingeniería de protocolos', 3, 2);
+INSERT INTO materia VALUES ('RED', '30', 'Equipos y medios de transmisión II', 3, 2);
+INSERT INTO materia VALUES ('RED', '31', 'Sistemas operativos III', 3, 2);
 
 INSERT INTO persona VALUES ('Iuliano', 'Gelvez', '1985-08-22', 'Florentino Ameghino 251', 31504948);
 INSERT INTO persona VALUES ('Rupert', 'Huenchuquir', '1988-07-22', 'Florecio Raminnetti 851', 26568987);
@@ -163,8 +220,6 @@ INSERT INTO persona VALUES ('Dario', 'Guzman', '1989-01-01', 'Av. Manuel 90', 35
 INSERT INTO persona VALUES ('Pedro', 'Sanchez', '1987-01-15', 'torraco 445', 20995500);
 INSERT INTO persona VALUES ('Especulapio', 'Nuñez', '1985-06-17', '25 de mayo 658', 28456982);
 
-
-
 INSERT INTO profesor VALUES (35456789);
 INSERT INTO profesor VALUES (98765436);
 INSERT INTO profesor VALUES (12428953);
@@ -172,8 +227,6 @@ INSERT INTO profesor VALUES (48789654);
 INSERT INTO profesor VALUES (20693300);
 INSERT INTO profesor VALUES (32654987);
 INSERT INTO profesor VALUES (20995500);
-
-
 
 INSERT INTO alumno VALUES (31504948, 'POO986');
 INSERT INTO alumno VALUES (26568987, 'LOI569');
@@ -183,10 +236,5 @@ INSERT INTO alumno VALUES (45678900, 'ERT123');
 INSERT INTO alumno VALUES (28456982, 'GOY589');
 INSERT INTO alumno VALUES (20670089, 'HTP889');
 INSERT INTO alumno VALUES (20555664, 'TTN188');
-
-
-
-
-
 
 ROLLBACK;
