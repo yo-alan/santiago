@@ -119,8 +119,6 @@ class Alumno{
 	
 	function setNombre($nombre){
 		
-		if()
-		
 		$this->nombre = $nombre;
 		$this->cambios = true;
 	}

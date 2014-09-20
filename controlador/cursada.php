@@ -1,6 +1,6 @@
 <?php
 	
-	include "../modelo/cursada.class.php";
+	include "modelo/cursada.class.php";
 	
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		
@@ -9,12 +9,23 @@
 			die();
 		}
 		
-		echo "CARRERA". $_POST['carrera']. "<br>";
-		echo "MATERIA". $_POST['materia']. "<br>";
-		echo "ANIO". $_POST['anio']. "<br>";
-		echo "FIN". $_POST['fin']. "<br>";
-		echo "INICIO". $_POST['inicio']. "<br>";
-		echo "CUATRIMESTRE". $_POST['cuatrimestre']. "<br>";
+		$c = new Cursada();
+		
+		$c->setId_carrera($_POST['carrera']);
+		$c->setMateria($_POST['materia']);
+		$c->setAnio($_POST['anio']);
+		$c->setF_inicio($_POST['inicio']);
+		$c->setF_fin($_POST['fin']);
+		$c->setCuatrimestre($_POST['cuatrimestre']);
+		
+		$c->guardar();
+		
+		echo "CARRERA: ". $c->getId_carrera(). "<br>";
+		echo "MATERIA: ". $c->getMateria(). "<br>";
+		echo "ANIO: ". $c->getAnio(). "<br>";
+		echo "FIN: ". $c->getF_fin(). "<br>";
+		echo "INICIO: ". $c->getF_inicio(). "<br>";
+		echo "CUATRIMESTRE: ". $c->getCuatrimestre(). "<br>";
 	}
 	
 	

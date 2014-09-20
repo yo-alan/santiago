@@ -32,7 +32,7 @@
 					<input type = 'datetime' class = 'form-control datepicker' name = 'fin'>
 				</div>
 				<div class = 'form-group'>
-					<label for = 'año' class = 'col-lg-2 control-label'>Año</label>
+					<label for = 'anio' class = 'col-lg-2 control-label'>Año</label>
 					<input type = 'datetime' class = 'form-control datepicker1' name = 'anio'>
 				</div>
 				<div class = 'form-group'>
@@ -45,7 +45,7 @@
 				<div class = 'form-group'>
 					<label for = 'materia' class = 'col-lg-2 control-label'>Materia</label>
 					<select class = 'col-lg-2' name = 'materia'>
-						<option>Matemática</option>
+						<option value="matematica">Matemática</option>
 						<option>Base de Datos I</option>
 						<option>Base de Datos II</option>
 						<option>Ingeniería en Software</option>
@@ -55,9 +55,9 @@
 				<div class = 'form-group'>
 					<label for = 'carrera' class = 'col-lg-2 control-label'>Carrera</label>
 					<select class = 'col-lg-2' name = 'carrera'>
-						<option>Tecnicatura en Software</option>
-						<option>Tecnicatura en Redes</option>
-						<option>Tecnicatura en Enfermería</option>
+						<option value="SFW">Tecnicatura en Software</option>
+						<option value="RED">Tecnicatura en Redes</option>
+						<option value="ENF">Tecnicatura en Enfermería</option>
 					</select>
 				</div>
 					<input type = 'hidden' name='tipoFormulario' value="form-cursada">

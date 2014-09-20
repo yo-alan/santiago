@@ -30,19 +30,19 @@ class Cursada {
 	
 	//INICIO METODOS ESTATICOS
 	
-	function static cursada($id_carrera="", $materia=0, $anio=0){
+	static function cursada($id_carrera="", $materia=0, $anio=0){
 		//METODO ESTATICO QUE DEVUELVE UNA CURSADA ESPECIFICA
 		
 		$c = new Cursada();
 		
-		if($cursada == "" || $materia == 0 || $anio == 0)
+		if($id_carrera == "" || $materia == 0 || $anio == 0)
 			return $c;
 		
 		
 		
 	}
 	
-	function static cursadas(){
+	static function cursadas(){
 		//METODO ESTATICO QUE DEVUELVE TODAS LAS CURSADAS DE LA BASE
 		
 		
@@ -56,26 +56,29 @@ class Cursada {
 		if(!$this->cambios)
 			return;
 		
+		$conn = new Conexion();
+		
 		if($this->nuevo){
-			try{
-				$conex = new conexion();
-				
-				$consulta = $conex->prepare('INSER INTO cursada
-				 (id_carrera,materia,anio,f_inicio,f_fin,cuatrimestre,porc_asistencia)
-				  VALUES (:idc,:mat,:ani,:f_i,:f_f,:cua,:por)');
-				  
-				$consulta->bindParam(':idc',$this->id_carrera);
-				$consulta->bindParam(':mat',$this->materia);
-				$consulta->bindParam(':ani',$this->anio);
-				$consulta->bindParam(':f_i',$this->f_inicio);
-				$consulta->bindParam(':f_f',$this->f_fin);
-				$consulta->bindParam(':cua',$this->cuatrimestre);
-				$consulta->bindParam(':por',$this->porc_asistencia);
-
-				$consulta->execute();
-			}catch(PDOException $e){
-				eccho 'Error al insertar registro nuevo: '.$e->getMessage();
 			
+			try{
+				$sql = 'INSERT INTO cursada(id_carrera, materia, anio, f_inicio, f_fin, cuatrimestre, porc_asistencia)
+						VALUES(:id_carrera, :materia, :anio, :f_inicio, :f_fin, :cuatrimestre, :porc_asistencia)';
+				
+				$consulta = $conn->prepare($sql);
+				  
+				$consulta->bindParam(':id_carrera', $this->id_carrera, PDO::PARAM_STR);
+				$consulta->bindParam(':materia', $this->materia, PDO::PARAM_INT);
+				$consulta->bindParam(':anio', $this->anio, PDO::PARAM_INT);
+				$consulta->bindParam(':f_inicio', $this->f_inicio, PDO::PARAM_STR);
+				$consulta->bindParam(':f_fin', $this->f_fin, PDO::PARAM_STR);
+				$consulta->bindParam(':cuatrimestre', $this->cuatrimestre, PDO::PARAM_INT);
+				$consulta->bindParam(':porc_asistencia', $this->porc_asistencia, PDO::PARAM_STR);
+				
+				$consulta->execute();
+				
+			}catch(PDOException $e){
+				throw new Exception('Error al insertar la nueva cursada: '.$e->getMessage());
+			}
 		}
 		else{
 			
