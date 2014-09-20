@@ -38,10 +38,10 @@
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
 						<label for = 'anio' class = 'control-label'>Año</label>
-						<select class = 'form-control' name = 'cuatrimestre'>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
+						<select class = 'form-control' name = 'anio'>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
 					</select>
 					</div>
 				</div>
@@ -49,8 +49,8 @@
 					<div class = 'form-group col-lg-2'>
 						<label for = 'cuatrimestre' class = 'control-label'>Cuatrimestre</label>
 						<select class = 'form-control' name = 'cuatrimestre'>
-							<option>1</option>
-							<option>2</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
 						</select>
 					</div>
 				</div>
@@ -58,7 +58,8 @@
 					<div class = 'form-group col-lg-2'>
 						<label for = 'materia' class = 'control-label'>Materia</label>
 						<select class = 'form-control' name = 'materia'>
-							<option value="matematica">Matemática</option>
+							<?php //Esto se deberia hacer con un arreglo en php, donde los values son los codigos de la carrera?>
+							<option>Matemática</option>
 							<option>Base de Datos I</option>
 							<option>Base de Datos II</option>
 							<option>Ingeniería en Software</option>

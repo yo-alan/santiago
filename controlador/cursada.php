@@ -19,13 +19,15 @@
 		$c->setCuatrimestre($_POST['cuatrimestre']);
 		
 		$c->guardar();
-		
-		echo "CARRERA: ". $c->getId_carrera(). "<br>";
-		echo "MATERIA: ". $c->getMateria(). "<br>";
-		echo "ANIO: ". $c->getAnio(). "<br>";
-		echo "FIN: ". $c->getF_fin(). "<br>";
-		echo "INICIO: ". $c->getF_inicio(). "<br>";
-		echo "CUATRIMESTRE: ". $c->getCuatrimestre(). "<br>";
+		//~ 
+		//~ echo "CARRERA: ". $c->getId_carrera(). "<br>";
+		//~ echo "MATERIA: ". $c->getMateria(). "<br>";
+		//~ echo "ANIO: ". $c->getAnio(). "<br>";
+		//~ echo "FIN: ". $c->getF_fin(). "<br>";
+		//~ echo "INICIO: ". $c->getF_inicio(). "<br>";
+		//~ echo "CUATRIMESTRE: ". $c->getCuatrimestre(). "<br>";
+		//~ 
+		header("Location: ../index.php");
 	}
 	
 	

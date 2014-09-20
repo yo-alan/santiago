@@ -24,8 +24,8 @@ cd {ruta_proyecto}
 sudo ln -s `pwd` /var/www/santiago
 ```
 
-* Haciendo click en el link de abajo tendras el proyecto funcionando:
+* Haciendo click en el siguiente enlace tendras acceso al proyecto funcionando:
 [http://localhost/santiago/](http://localhost/santiago/)
 
 
-*Nota: En la nueva version de apache el direcctorio ```/var/www/``` es reemplazado por ```/var/www/html/```.*
+*Nota: En la nueva version de apache el directorio ```/var/www/``` es reemplazado por ```/var/www/html/```.*
