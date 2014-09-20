@@ -56,6 +56,24 @@ class Cursada {
 		if(!$this->cambios)
 			return;
 		
+		if($this->id_carrera == "")
+			throw new Exception("La carrera no es válida.");
+		
+		if($this->materia == 0)
+			throw new Exception("La materia no es válida.");
+		
+		if($this->anio == 0)
+			throw new Exception("El año no es válido.");
+		
+		if($this->f_inicio == "")
+			throw new Exception("La fecha de inicio no es válida.");
+		
+		if($this->f_fin == "")
+			throw new Exception("La fecha de finalización no es válida.");
+		
+		if($this->porc_asistencia < 0)
+			throw new Exception("Ocurrió un error.");
+		
 		$conn = new Conexion();
 		
 		if($this->nuevo){
@@ -101,7 +119,14 @@ class Cursada {
 	}
 	
 	function setId_carrera($id_carrera){
+		
+		$carreras = array("SFW", "RED", "ENF");
+		
+		if(!in_array($id_carrera, $carreras))
+			return;
+		
 		$this->id_carrera = $id_carrera;
+		$this->cambios = true;
 	}
 	
 	function getMateria(){
@@ -109,7 +134,11 @@ class Cursada {
 	}
 	
 	function setMateria($materia){
+		
+		//VALIDAR LAS MATERIAS POR CARRERA
+		
 		$this->materia = $materia;
+		$this->cambios = true;
 	}
 	
 	function getAnio(){
@@ -117,7 +146,12 @@ class Cursada {
 	}
 	
 	function setAnio($anio){
+		
+		if($anio > 3 && $anio < 1)
+			return;
+		
 		$this->anio = $anio;
+		$this->cambios = true;
 	}
 	
 	function getF_inicio(){
@@ -125,7 +159,11 @@ class Cursada {
 	}
 	
 	function setF_inicio($f_inicio){
+		
+		//SI LA FECHA DE INICIO ES MAYOR A LA FECHA DE FIN (SIEMPRE QUE NO SEA NULA) RETURN
+		
 		$this->f_inicio = $f_inicio;
+		$this->cambios = true;
 	}
 	
 	function getF_fin(){
@@ -133,7 +171,11 @@ class Cursada {
 	}
 	
 	function setF_fin($f_fin){
+		
+		//SI LA FECHA DE FIN ES MAYOR A LA FECHA DE FIN (SIEMPRE QUE NO SEA NULA) RETURN
+		
 		$this->f_fin = $f_fin;
+		$this->cambios = true;
 	}
 	
 	function getCuatrimestre(){
@@ -141,7 +183,12 @@ class Cursada {
 	}
 	
 	function setCuatrimestre($cuatrimestre){
+		
+		if($cuatrimestre != 1 || $cuatrimestre != 2)
+			return;
+		
 		$this->cuatrimestre = $cuatrimestre;
+		$this->cambios = true;
 	}
 	
 	function getPorc_asistencia(){
@@ -149,7 +196,11 @@ class Cursada {
 	}
 	
 	function setPorc_asistencia($porc_asistencia){
+		
+		//DEBERIA SER UN VALOR CALCULADO EN EL CONTROLADOR.
+		
 		$this->porc_asistencia = $porc_asistencia;
+		$this->cambios = true;
 	}
 	
 }

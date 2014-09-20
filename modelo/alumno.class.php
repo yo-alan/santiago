@@ -58,6 +58,9 @@ class Alumno{
 		if($this->documento == 0)
 			throw new Exception("El documento no es válido.");
 		
+		if($this->direccion == "")
+			throw new Exception("La dirección no es válida.");
+		
 		$conn = new Conexion();
 		
 		if($this->nuevo){//Si el objeto es nuevo se hace un INSERT
@@ -119,6 +122,9 @@ class Alumno{
 	
 	function setNombre($nombre){
 		
+		if(strlen($nombre) < 3)
+			return;
+		
 		$this->nombre = $nombre;
 		$this->cambios = true;
 	}
@@ -128,6 +134,10 @@ class Alumno{
 	}
 	
 	function setApellido($apellido){
+		
+		if(strlen($apellido) < 3)
+			return;
+		
 		$this->apellido = $apellido;
 		$this->cambios = true;
 	}
@@ -137,6 +147,10 @@ class Alumno{
 	}
 	
 	function setDocumento($documento){
+		
+		if($documento < 1000000 && $documento > 99999999)
+			return;
+		
 		$this->documento = $documento;
 		$this->cambios = true;
 	}

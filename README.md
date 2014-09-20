@@ -14,6 +14,10 @@ Consulta el archivos ```git - comandos simples``` en el directorio raiz para ver
 
 
 ## Instrucciones:
+* Configurando la base de datos:
+	Renombrar el archivo ```modelo/conexion.class.base.php``` a ```modelo/conexion.class.php```.
+	En su interior completar los valores como sea necesario.
+
 * Situarse en el directorio del proyecto:
 ```
 cd {ruta_proyecto}
