@@ -23,47 +23,61 @@
 		<br>
 		<br>
 			<form method = 'POST' action = '../../index.php' class = 'form-horizontal' role = 'form'>
-				<div class = 'form-group'>
-					<label for= 'inicio' class ='col-lg-2 control-label'>Inicio</label>
-					<input type = 'datetime' class = 'form-control datepicker' name = 'inicio'></input>
+				<div class = 'row'>
+					<div class = 'form-group col-lg-2'>
+						<label for= 'inicio' class ='control-label'>Inicio</label>
+						<input type = 'datetime' class = 'datepicker form-control' name = 'inicio'></input>
+					</div>
 				</div>
-				<div class = 'form-group'>
-					<label for = 'fin' class = 'col-lg-2 control-label'>Fin</label>
-					<input type = 'datetime' class = 'form-control datepicker' name = 'fin'>
+				<div class = 'row'>
+					<div class = 'form-group col-lg-2'>
+						<label for = 'fin' class = 'control-label'>Fin</label>
+						<input type = 'datetime' class = 'form-control datepicker' name = 'fin'>
+					</div>
 				</div>
-				<div class = 'form-group'>
-					<label for = 'anio' class = 'col-lg-2 control-label'>Año</label>
-					<input type = 'datetime' class = 'form-control datepicker1' name = 'anio'>
-				</div>
-				<div class = 'form-group'>
-					<label for = 'cuatrimestre' class = 'col-lg-2 control-label'>Cuatrimestre</label>
-					<select class = 'col-lg-8 form-control' name = 'cuatrimestre'>
-						<option>1° cuatrimestre</option>
-						<option>2° cuatrimestre</option>
+				<div class = 'row'>
+					<div class = 'form-group col-lg-2'>
+						<label for = 'anio' class = 'control-label'>Año</label>
+						<select class = 'form-control' name = 'cuatrimestre'>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
 					</select>
+					</div>
 				</div>
-				<div class = 'form-group'>
-					<label for = 'materia' class = 'col-lg-2 control-label'>Materia</label>
-					<select class = 'col-lg-2' name = 'materia'>
-						<option value="matematica">Matemática</option>
-						<option>Base de Datos I</option>
-						<option>Base de Datos II</option>
-						<option>Ingeniería en Software</option>
-						<option>Laboratorio de Programación I</option>
-					</select>
+				<div class = 'row'>
+					<div class = 'form-group col-lg-2'>
+						<label for = 'cuatrimestre' class = 'control-label'>Cuatrimestre</label>
+						<select class = 'form-control' name = 'cuatrimestre'>
+							<option>1</option>
+							<option>2</option>
+						</select>
+					</div>
 				</div>
-				<div class = 'form-group'>
-					<label for = 'carrera' class = 'col-lg-2 control-label'>Carrera</label>
-					<select class = 'col-lg-2' name = 'carrera'>
-						<option value="SFW">Tecnicatura en Software</option>
-						<option value="RED">Tecnicatura en Redes</option>
-						<option value="ENF">Tecnicatura en Enfermería</option>
-					</select>
+				<div class = 'row'>
+					<div class = 'form-group col-lg-2'>
+						<label for = 'materia' class = 'control-label'>Materia</label>
+						<select class = 'form-control' name = 'materia'>
+							<option value="matematica">Matemática</option>
+							<option>Base de Datos I</option>
+							<option>Base de Datos II</option>
+							<option>Ingeniería en Software</option>
+							<option>Laboratorio de Programación I</option>
+						</select>
+					</div>
+				</div>
+				<div class = 'row'>
+					<div class = 'form-group col-lg-2'>
+						<label for = 'carrera' class = 'control-label'>Carrera</label>
+						<select class = 'form-control' name = 'carrera'>
+							<option value="SFW">Tecnicatura en Software</option>
+							<option value="RED">Tecnicatura en Redes</option>
+							<option value="ENF">Tecnicatura en Enfermería</option>
+						</select>
+					</div>
 				</div>
 					<input type = 'hidden' name='tipoFormulario' value="form-cursada">
-				<div>
-				</div>
-					<button type = 'submit' class =  'btn btn-primary col-md col-md-offset-4'>Enviar</button>
+					<button type = 'submit' class =  'btn btn-primary col-md col-md-offset-2'>Enviar</button>
 				<div>
 			</div>
 		</form>
@@ -71,14 +85,6 @@
 	  <script>
 		  $(function () {
 			  $('.datepicker').datepicker();
-		  });
-	  </script>
-	  <script>
-		  $(function () {
-			  $('.datepicker1').datepicker({
-				format: " yyyy",
-				viewMode: "years", 
-				minViewMode: "years" });
 		  });
 	  </script>
   </body>
