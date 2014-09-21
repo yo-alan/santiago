@@ -9,6 +9,10 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
      <link href="../datepicker/css/datepicker.css" rel="stylesheet" media="screen">
      <script language = 'JavaScript' src="../js/jquery-1.11.1.min.js"></script>
+<<<<<<< HEAD
+=======
+     <script language = 'JavaScript' src="../js/jquery-ui.min.js"></script>
+>>>>>>> 3e279b447df11941516c5d6e40311540c6b6054f
      <script language = 'JavaScript' src="../js/bootstrap.min.js"></script>
     <script language = 'JavaScript' src="../datepicker/js/bootstrap-datepicker.js"></script>
   </head>
@@ -84,11 +88,15 @@
 	 </div>
 	  <script>
 		  $(function () {
+<<<<<<< HEAD
 			  $('.datepicker').datepicker({
 				  autoclose: true })
 				  .on('changeDate', function(e){
 					  $(this).datepicker('hide');})
 			  
+=======
+			  $('.datepicker').datepicker();
+>>>>>>> 3e279b447df11941516c5d6e40311540c6b6054f
 		  });
 	  </script>
   </body>
