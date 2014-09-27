@@ -79,24 +79,20 @@ class Cursada {
 		if($this->nuevo){
 			
 			try{
-				$sql = 'INSERT INTO cursada(id_carrera, materia, anio, f_inicio, f_fin, cuatrimestre, porc_asistencia)
-						VALUES(:id_carrera, :materia, :anio, :f_inicio, :f_fin, :cuatrimestre, :porc_asistencia)';
+				$conn->beginTransaction();
 				
-				$consulta = $conn->prepare($sql);
-				  
-				$consulta->bindParam(':id_carrera', $this->id_carrera, PDO::PARAM_STR);
-				$consulta->bindParam(':materia', $this->materia, PDO::PARAM_INT);
-				$consulta->bindParam(':anio', $this->anio, PDO::PARAM_INT);
-				$consulta->bindParam(':f_inicio', $this->f_inicio, PDO::PARAM_STR);
-				$consulta->bindParam(':f_fin', $this->f_fin, PDO::PARAM_STR);
-				$consulta->bindParam(':cuatrimestre', $this->cuatrimestre, PDO::PARAM_INT);
-				$consulta->bindParam(':porc_asistencia', $this->porc_asistencia, PDO::PARAM_STR);
+				$sqlCursada = "INSERT INTO cursada(id_carrera, materia, anio, f_inicio, f_fin, cuatrimestre, porc_asistencia)
+				VALUES($this->id_carrera,$this->materia,$this->anio,$this->f_inicio,$this->f_fin,$this->cuatrimestre,$this->porc_asistencia)";
+											
+				$afectados = $conn->exec($sqlCursada);
 				
-				$consulta->execute();
-				
+				$conn->commit();	
+
 			}catch(PDOException $e){
+				$conn->rollBack();
 				throw new Exception('Error al insertar la nueva cursada: '.$e->getMessage());
-			}
+			}				  
+
 		}
 		else{
 			
