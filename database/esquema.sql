@@ -129,7 +129,7 @@ INSERT INTO carrera VALUES ('SFW', 'Tenicatura en Software');
 INSERT INTO carrera VALUES ('ENF', 'Tenicatura en Enferemería');
 INSERT INTO carrera VALUES ('RED', 'Tecnicatura en Redes');
 
---Desarrollo de software
+
 
 INSERT INTO materia VALUES ('SFW', '1', 'Introducción a la programación', 1, 1);
 INSERT INTO materia VALUES ('SFW', '2', 'Laboratorio de programación', 1, 1);
@@ -149,7 +149,7 @@ INSERT INTO materia VALUES ('SFW', '15', 'Programación web II', 2, 2);
 INSERT INTO materia VALUES ('SFW', '16', 'Bases de datos II', 2, 2);
 INSERT INTO materia VALUES ('SFW', '17', 'Gestión de proyectos de software', 2, 2);
 
---Enfermería
+
 
 INSERT INTO materia VALUES ('ENF', '1', 'Fundamentos de enfermería', 1, 1);
 INSERT INTO materia VALUES ('ENF', '2', 'Física y química biológica', 1, 1);
@@ -170,7 +170,7 @@ INSERT INTO materia VALUES ('ENF', '16', 'Enfermería ética y legal', 3, 1);
 INSERT INTO materia VALUES ('ENF', '17', 'Antropología', 3, 2);
 INSERT INTO materia VALUES ('ENF', '18', 'Enfermería en salud comunitaria', 3, 2);
 
---Redes y telecomunicaciones
+
 
 INSERT INTO materia VALUES ('RED', '1', 'Expresión y comunicación', 1, 1);
 INSERT INTO materia VALUES ('RED', '2', 'Inglés I', 1, 1);

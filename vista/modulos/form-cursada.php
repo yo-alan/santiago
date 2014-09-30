@@ -58,11 +58,18 @@
 						<label for = 'materia' class = 'control-label'>Materia</label>
 						<select class = 'form-control' name = 'materia'>
 							<?php //Esto se deberia hacer con un arreglo en php, donde los values son los codigos de la carrera?>
-							<option>Matemática</option>
-							<option>Base de Datos I</option>
-							<option>Base de Datos II</option>
-							<option>Ingeniería en Software</option>
-							<option>Laboratorio de Programación I</option>
+							<option value = 3>Anatomía</option>
+							<option value = 11>Nutrición</option>
+							<option value = 10>Base de Datos I</option>
+							<option value = 1>Fundamentos de la Enfermería</option>
+							<option value = 2>Física y química Biológica</option>
+							<option value = 2>Inglés I</option>
+							<option value = 4>Arquitectura en computadoras</option>
+							<option value = 5>Electrónica I</option>
+							<option value = 7>Programación I</option>
+							<option value = 5>Técnicas Avanzadas de Programación</option>
+							<option value = 8>Matemática aplicada II</option>
+							<option value = 11>Base de Datos II</option>
 						</select>
 					</div>
 				</div>
