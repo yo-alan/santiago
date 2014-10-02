@@ -5,7 +5,7 @@
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		
 		if(empty($_POST))
-			header("Location: ../index.php");
+			header("Location: index.php");
 		
 		$c = new Cursada();
 		
@@ -19,9 +19,10 @@
 		try{
 			$c->guardar();
 		} catch(Exception $e){
-			header("Location: ../index.php");
+			header("Location: index.php");
 		}
-		
+		echo "ERRORRRR";
+		die();
 		//~ echo "CARRERA: ". $c->getId_carrera(). "<br>";
 		//~ echo "MATERIA: ". $c->getMateria(). "<br>";
 		//~ echo "ANIO: ". $c->getAnio(). "<br>";

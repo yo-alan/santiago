@@ -1,14 +1,10 @@
 <?php
-    //CASE QUE EVALUA DONDE REDIRIGIR UN FORMULARIO
-    if(isset($_POST['tipoFormulario'])){
-        switch($_POST['tipoFormulario']){
-            case 'form-alumno': 
-                    include 'controlador/alumno.php';
-                break;
-            case 'form-cursada': 
-                    include 'controlador/cursada.php';
-                break;
-        }
-    }
-
-?>
+    if(isset($_GET['result'])){
+		if($_GET['result'] == 'error')
+			echo "ERROR";
+		if($_GET['result'] == 'exito')
+			echo "EXITO";
+		die();
+	}
+	
+    include "vista/index.php";
