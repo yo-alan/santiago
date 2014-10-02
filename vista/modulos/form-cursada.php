@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <title>Plantilla básica de alta cursada</title>
  
-    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-     <link href="../datepicker/css/datepicker.css" rel="stylesheet" media="screen">
-     <script language = 'JavaScript' src="../js/jquery-1.11.1.min.js"></script>
-     <script language = 'JavaScript' src="../js/bootstrap.min.js"></script>
-    <script language = 'JavaScript' src="../datepicker/js/bootstrap-datepicker.js"></script>
+    <link href="../vista/css/bootstrap.min.css" rel="stylesheet" media="screen">
+     <link href="../vista/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
+     <script language = 'JavaScript' src="../vista/js/jquery-1.11.1.min.js"></script>
+     <script language = 'JavaScript' src="../vista/js/bootstrap.min.js"></script>
+    <script language = 'JavaScript' src="../vista/datepicker/js/bootstrap-datepicker.js"></script>
   </head>
   <br>
   <br>
@@ -21,7 +21,7 @@
 		</div>
 		<br>
 		<br>
-			<form method = 'POST' action = '../../index.php' class = 'form-horizontal' role = 'form'>
+			<form method = 'POST' action = 'cursada.php' class = 'form-horizontal' role = 'form'>
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
 						<label for= 'inicio' class ='control-label'>Inicio</label>
@@ -83,7 +83,7 @@
 						</select>
 					</div>
 				</div>
-					<input type = 'hidden' name='tipoFormulario' value="form-cursada">
+					<input type = 'hidden' name='action' value="agregar">
 					<button type = 'submit' class =  'btn btn-primary col-md col-md-offset-2'>Enviar</button>
 				<div>
 			</div>
