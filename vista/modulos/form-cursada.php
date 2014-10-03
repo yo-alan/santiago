@@ -16,12 +16,10 @@
   <br>
   <body>
 	 <div class = 'container'>
-		<div>
-			<h1 class = 'text-center'>Alta de nueva Cursada</h1>
-		</div>
 		<br>
 		<br>
 			<form method = 'POST' action = 'cursada.php' class = 'form-horizontal' role = 'form'>
+				<legend>Alta Alumno</legend>
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
 						<label for= 'inicio' class ='control-label'>Inicio</label>

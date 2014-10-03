@@ -43,6 +43,7 @@
 		
 		$c = new Cursada();
 		
+		
 		$c->setId_carrera($_POST['carrera']);
 		$c->setMateria($_POST['materia']);
 		$c->setAnio($_POST['anio']);
