@@ -6,22 +6,26 @@
     <meta charset="utf-8">
     <title>Plantilla básica de alta cursada</title>
  
-    <link href="../vista/css/bootstrap.min.css" rel="stylesheet" media="screen">
-     <link href="../vista/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
-     <script language = 'JavaScript' src="../vista/js/jquery-1.11.1.min.js"></script>
-     <script language = 'JavaScript' src="../vista/js/bootstrap.min.js"></script>
-    <script language = 'JavaScript' src="../vista/datepicker/js/bootstrap-datepicker.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+     <link href="../datepicker/css/datepicker.css" rel="stylesheet" media="screen">
+     <script language = 'JavaScript' src="../js/jquery-1.11.1.min.js"></script>
+     <script language = 'JavaScript' src="../js/bootstrap.min.js"></script>
+    <script language = 'JavaScript' src="../datepicker/js/bootstrap-datepicker.js"></script>
   </head>
   <br>
   <br>
   <body>
 	 <div class = 'container'>
+		<ol class = 'breadcrumb'>
+			<li><a href = '../index.php'>Inicio</a></li>
+			<li class = 'active'>Agregar Cursada</li>
+		</ol>
 		<br>
 		<br>
-			<form method = 'POST' action = 'cursada.php' class = 'form-horizontal' role = 'form'>
-				<legend>Alta Alumno</legend>
+			<form method = 'POST' action = '../../controlador/cursada.php' class = 'form-horizontal' role = 'form'>
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
+						<legend>Alta Cursada</legend>
 						<label for= 'inicio' class ='control-label'>Inicio</label>
 						<input type = 'datetime' class = 'datepicker form-control' name = 'inicio'></input>
 					</div>

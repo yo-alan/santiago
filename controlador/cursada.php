@@ -7,7 +7,8 @@
 		$accion = $_GET['action'];
 		
 		if($accion == 'agregar')
-			include('../vista/modulos/form-cursada.php');
+			//include('../vista/modulos/form-cursada.php');
+			header ('Location: ../vista/modulos/form-cursada.php');
 		else if($accion == 'editar')
 			include('../vista/modulos/form-cursada.php');
 		else if($accion == 'eliminar')
@@ -53,9 +54,12 @@
 		
 		try{
 			$c->guardar();
+			
 		} catch(Exception $e){
-			header("Location: ../index.php?result=error&msg=". $e->getMessage());
+			header("Location: ../vista/modulos/msmError.php?msg=". $e->getMessage());
 			die();
 		}
+		header ('Location: ../vista/modulos/msmExito.php');
+		die();
 	}
 		
