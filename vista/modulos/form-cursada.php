@@ -16,12 +16,16 @@
   <br>
   <body>
 	 <div class = 'container'>
+		<ol class = 'breadcrumb'>
+			<li><a href = '../index.php'>Inicio</a></li>
+			<li class = 'active'>Agregar Cursada</li>
+		</ol>
 		<br>
 		<br>
 			<form method = 'POST' action = 'cursada.php' class = 'form-horizontal' role = 'form'>
-				<legend>Alta Alumno</legend>
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
+						<legend>Alta Cursada</legend>
 						<label for= 'inicio' class ='control-label'>Inicio</label>
 						<input type = 'datetime' class = 'datepicker form-control' name = 'inicio'></input>
 					</div>
