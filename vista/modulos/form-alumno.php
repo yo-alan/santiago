@@ -18,7 +18,11 @@
 				<li><a href = '../index.php'>Inicio</a></li>
 				<li class = 'active'>Agregar Alumno</li>
 			</ol>
+<<<<<<< HEAD
 			<form role="form" class="form-horizon tal col-lg-2" method="post" action="../../controlador/alumno.php">
+=======
+			<form role="form" class="form-horizon tal col-lg-2" method="post" action="alumno.php">
+>>>>>>> 4da051fca3e8442f33ba37b3852d76c5249259cd
 				<fieldset>
 					<legend>Alta Alumno</legend>
 					<input type="hidden" name="action" value="agregar">
