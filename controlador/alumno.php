@@ -7,7 +7,8 @@
 		$accion = $_GET['action'];
 		
 		if($accion == 'agregar')
-			include('../vista/modulos/form-alumno.php');
+			//include('../vista/modulos/form-alumno.php');
+			header ('Location: ../vista/modulos/form-alumno.php');
 		else if($accion == 'editar')
 			include('../vista/modulos/form-alumno.php');
 		else if($accion == 'eliminar')
@@ -53,7 +54,9 @@
 		try{
 			$a->guardar();
 		} catch(Exception $e){
-			header("Location: ../index.php?result=error");
+			header("Location: ../vista/modulos/msmError.php?msg".$e->getMessage());
 			die();
 		}
+		header ('Location: ../vista/modulos/msmExito.php');
+		die();
 	}
