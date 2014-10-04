@@ -23,6 +23,8 @@
 		<br>
 		<br>
 			<form method = 'POST' action = '../../controlador/cursada.php' class = 'form-horizontal' role = 'form'>
+			<form method = 'POST' action = '../../controlador/cursada.php' class = 'form-horizontal' role = 'form'>
+			<form method = 'POST' action = 'cursada.php' class = 'form-horizontal' role = 'form'>
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
 						<legend>Alta Cursada</legend>
