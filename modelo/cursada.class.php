@@ -1,6 +1,6 @@
 <?php
 
-include "conexion.class.base.php";
+include "conexion.class.php";
 
 class Cursada {
 	
