@@ -53,6 +53,7 @@
 			 <script>
 				$(function () {
 				$('.datepicker').datepicker({
+					format: "yyyy/mm/dd",
 					autoclose: true })
 					.on('changeDate', function(e){
 						$(this).datepicker('hide');})
