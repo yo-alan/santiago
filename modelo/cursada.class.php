@@ -185,7 +185,7 @@ class Cursada {
 	
 	function setCuatrimestre($cuatrimestre){
 		
-		if($cuatrimestre != 1 || $cuatrimestre != 2)
+		if($cuatrimestre != 1 && $cuatrimestre != 2)
 			return;
 		
 		$this->cuatrimestre = $cuatrimestre;

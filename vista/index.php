@@ -1,11 +1,11 @@
 <html>
 	<head>
 		<title>Bienvenido!!!</title>
-		<link rel="Stylesheet" href="./css/bootstrap.css">
-		<link rel="Stylesheet" href="./css/default.css">
-		<script src="./js/jquery.js"></script>
-		<script src="./js/bootstrap.js"></script>
-		<script src="./js/twitter-bootstrap-hover-dropdown.min.js"></script>
+		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
+		<link rel="Stylesheet" href="../librerias/css/default.css">
+		<script src="../librerias/js/jquery.js"></script>
+		<script src="../librerias/js/bootstrap.js"></script>
+		<script src="../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
 	</head>
 	<body>
 		<header>
