@@ -57,6 +57,16 @@
 				</div>
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
+						<label for = 'carrera' class = 'control-label'>Carrera</label>
+						<select class = 'form-control' name = 'carrera'>
+							<option value="SFW">Tecnicatura en Software</option>
+							<option value="RED">Tecnicatura en Redes</option>
+							<option value="ENF">Tecnicatura en Enfermería</option>
+						</select>
+					</div>
+				</div>
+				<div class = 'row'>
+					<div class = 'form-group col-lg-2'>
 						<label for = 'materia' class = 'control-label'>Materia</label>
 						<select class = 'form-control' name = 'materia'>
 							<?php //Esto se deberia hacer con un arreglo en php, donde los values son los codigos de la carrera?>
@@ -72,16 +82,6 @@
 							<option value = 5>Técnicas Avanzadas de Programación</option>
 							<option value = 8>Matemática aplicada II</option>
 							<option value = 11>Base de Datos II</option>
-						</select>
-					</div>
-				</div>
-				<div class = 'row'>
-					<div class = 'form-group col-lg-2'>
-						<label for = 'carrera' class = 'control-label'>Carrera</label>
-						<select class = 'form-control' name = 'carrera'>
-							<option value="SFW">Tecnicatura en Software</option>
-							<option value="RED">Tecnicatura en Redes</option>
-							<option value="ENF">Tecnicatura en Enfermería</option>
 						</select>
 					</div>
 				</div>
