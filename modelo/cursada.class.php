@@ -1,7 +1,7 @@
 <?php
 
 include "conexion.class.php";
-
+//
 class Cursada {
 	
 	private $cambios;
