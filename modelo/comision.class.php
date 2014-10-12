@@ -1,6 +1,7 @@
 <?php
 
 include "conexion.class.php";
+include "alumno.class.php";
 
 class Comision {
 	
@@ -31,15 +32,33 @@ class Comision {
 		
 		$c = new Comision();
 		
+		$conn = new Conexion();
+		
 		$sql = 'SELECT * FROM comision WHERE id_comision = :id_comision';
-				
-				$consulta = $conn->prepare($sql);
-				  
-				$consulta->bindParam(':id_comision', $this->id_comision, PDO::PARAM_STR);
-				
-				$consulta->execute();
-				
-				
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$consulta->bindParam(':id_comision', $id_comision, PDO::PARAM_INT);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetch();
+			
+			$c->nuevo = false;
+			$c->cambios = false;
+			$c->id_comision = $results['id_comision'];
+			$c->carrera = $results['carrera'];
+			$c->materia = $results['materia'];
+			$c->anio = $results['anio'];
+			$c->numero = $results['numero'];
+			
+		}catch(PDOException $e){
+			
+		}
 		
 		return $c;
 	}
@@ -58,29 +77,29 @@ class Comision {
 		if(!$this->cambios)
 			return;
 		
-		$this->id_comision = 0;
-		$this->carrera = "";
-		$this->materia = 0;
-		$this->anio = 0;
-		$this->numero = 0;
+		if($this->carrera == "")
+			throw new Exception("La carrera no es válida.");
+		if($this->materia == 0)
+			throw new Exception("La materia no es válida.");
+		if($this->anio == 0)
+			throw new Exception("El año no es válida.");
+		if($this->numero == 0)
+			throw new Exception("El numero no es válida.");
 		
 		$conn = new Conexion();
 		
 		if($this->nuevo){
 			
 			try{
-				$sql = 'INSERT INTO comision(id_carrera, materia, anio, f_inicio, f_fin, cuatrimestre, porc_asistencia)
-						VALUES(:id_carrera, :materia, :anio, :f_inicio, :f_fin, :cuatrimestre, :porc_asistencia)';
+				$sql = 'INSERT INTO comision(carrera, materia, anio, numero)
+						VALUES(:carrera, :materia, :anio, :numero)';
 				
 				$consulta = $conn->prepare($sql);
 				  
-				$consulta->bindParam(':id_carrera', $this->id_carrera, PDO::PARAM_STR);
+				$consulta->bindParam(':carrera', $this->carrera, PDO::PARAM_STR);
 				$consulta->bindParam(':materia', $this->materia, PDO::PARAM_INT);
 				$consulta->bindParam(':anio', $this->anio, PDO::PARAM_INT);
-				$consulta->bindParam(':f_inicio', $this->f_inicio, PDO::PARAM_STR);
-				$consulta->bindParam(':f_fin', $this->f_fin, PDO::PARAM_STR);
-				$consulta->bindParam(':cuatrimestre', $this->cuatrimestre, PDO::PARAM_INT);
-				$consulta->bindParam(':porc_asistencia', $this->porc_asistencia, PDO::PARAM_STR);
+				$consulta->bindParam(':numero', $this->numero, PDO::PARAM_INT);
 				
 				$consulta->execute();
 				
@@ -99,13 +118,54 @@ class Comision {
 	
 	function eliminar(){
 		
+		if($this->nuevo)
+			return;
+		
+		$sql = "DELETE FROM comision WHERE id_comision = :id_comision";
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->bindParam(':id_comision', $this->id_comision, PDO::PARAM_INT);
+		
+		try{
+			
+			$consulta->execute();
+			
+		}catch(PDOException $e){
+			throw new Exception('Error al eliminar la comision: '.$e->getMessage());
+		}
 		
 	}
 	
 	function getAlumnos(){
 		
+		$as = array();
 		
+		$sql = "SELECT alumno FROM comision_alumno WHERE comision = :comision";
 		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$consulta->bindParam(':comision', $this->id_comision, PDO::PARAM_INT);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchAll();
+			
+			foreach($results as $r){
+				$a = Alumno::alumno($r['alumno']);
+				
+				array_push($as, $a);
+			}
+			
+		}catch(PDOException $e){
+			throw new Exception('Error al eliminar la comision: '.$e->getMessage());
+		}
+		
+		return $as;
 	}
 	
 	//INICIO GETTERS Y SETTERS
@@ -113,20 +173,16 @@ class Comision {
 	function getId_comision(){
 		return $this->id_comision;
 	}
-	function setId_comision($id_comision){
-		if($id_comision<0){
-			return;
-		}
-		$this->id_comision=$id_comision;
-		$this->cambios=true;
-	}
 	
 	//get y set de carrera
 	function getCarrera(){	
 		return $this->carrera;
 	}
+	
 	function setCarrera($carrera){
+		
 		$carreras = array("SFW", "RED", "ENF");
+		
 		if(!in_array($carrera, $carreras))
 			return;
 		
@@ -138,18 +194,23 @@ class Comision {
 	function getMateria(){	
 		return $this->materia;
 	}
+	
 	function setMateria($materia){
+		
 		if($materia<1)
 			return;
+		
 		$max = 0;
-		if($this->id_carrera=='SFW')
+		if($this->carrera == 'SFW')
 			$max=17;
-		if($this->id_carrera=='ENF')
+		else if($this->carrera == 'ENF')
 			$max=18;
-		if($this->id_carrera=='RED')
+		else if($this->carrera == 'RED')
 			$max=31;
+		
 		if($materia>$max)
 			return;
+		
 		$this->materia=$materia;
 		$this->cambios=true;
 	}
@@ -158,10 +219,14 @@ class Comision {
 	function getAnio(){	
 		return $this->anio;
 	}
+	
 	function setAnio($anio){
-		if($anio>0 && $anio<4)
-		$this->anio=$anio;
-		$this->cambios=true;
+		
+		if($anio < 1 || $anio > 3)
+			return;
+		
+		$this->anio = $anio;
+		$this->cambios = true;
 	}
 	
 	//get y set de numero
@@ -170,9 +235,11 @@ class Comision {
 	}
 	
 	function setNumero($numero){
+		
 		if($numero < 1)
 			return;
 		
 		$this->numero=$numero;
 		$this->cambios=true;
 	}
+}
