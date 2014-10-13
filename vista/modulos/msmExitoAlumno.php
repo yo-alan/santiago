@@ -4,7 +4,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Mensaje de error</title>
+    <title>Mensaje de exito</title>
  
     <link href= "../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
      <link href= "../../librerias/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
@@ -18,12 +18,12 @@
 	 <div class = 'container'>
 		<ol class = 'breadcrumb'>
 			<li><a href = '../../index.php'>Inicio</a></li>
-			<li><a href = './form-cursada.php'>Agregar Cursada</a></li>
-			<li class = 'active'>Error</li>
+			<li><a href = './form-alumno.php'>Agregar Alumno</a></li>
+			<li class = 'active'>Exito</li>
 		</ol>
 		<br>
 		<br>
-		<div><p class = 'text-danger'>Error en la carga: <?php echo $_GET['msg']; ?></p></div>
+		<div><p class = 'text-danger'>La carga ha sido exitosa</p></div>
   </body>
 </html>
 

@@ -54,9 +54,9 @@
 		try{
 			$a->guardar();
 		} catch(Exception $e){
-			header("Location: ../vista/modulos/msmError.php?msg".$e->getMessage());
+			header("Location: ../vista/modulos/msmErrorAlumno.php?msg".$e->getMessage());
 			die();
 		}
-		header ('Location: ../vista/modulos/msmExito.php');
+		header ('Location: ../vista/modulos/msmExitoAlumno.php');
 		die();
 	}

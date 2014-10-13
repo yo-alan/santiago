@@ -11,10 +11,11 @@
      <script language = 'JavaScript' src="../../librerias/js/jquery-1.11.1.min.js"></script>
      <script language = 'JavaScript' src="../../librerias/js/bootstrap.min.js"></script>
     <script language = 'JavaScript' src="../../librerias/datepicker/js/bootstrap-datepicker.js"></script>
+    <script language = 'JavaScript' src="../../librerias/js/selectCursada.js"></script>
   </head>
   <br>
   <br>
-  <body>
+  <body onload = "selectMateria();">
 	 <div class = 'container'>
 		<ol class = 'breadcrumb'>
 			<li><a href = '../index.php'>Inicio</a></li>
@@ -58,7 +59,8 @@
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
 						<label for = 'carrera' class = 'control-label'>Carrera</label>
-						<select class = 'form-control' name = 'carrera'>
+						<select class = 'form-control' name = 'carrera' id = 'carr' onchange = "selectMateria();">
+							<option></option>
 							<option value="SFW">Tecnicatura en Software</option>
 							<option value="RED">Tecnicatura en Redes</option>
 							<option value="ENF">Tecnicatura en Enfermería</option>
@@ -68,20 +70,7 @@
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
 						<label for = 'materia' class = 'control-label'>Materia</label>
-						<select class = 'form-control' name = 'materia'>
-							<?php //Esto se deberia hacer con un arreglo en php, donde los values son los codigos de la carrera?>
-							<option value = 3>Anatomía</option>
-							<option value = 11>Nutrición</option>
-							<option value = 10>Base de Datos I</option>
-							<option value = 1>Fundamentos de la Enfermería</option>
-							<option value = 2>Física y química Biológica</option>
-							<option value = 2>Inglés I</option>
-							<option value = 4>Arquitectura en computadoras</option>
-							<option value = 5>Electrónica I</option>
-							<option value = 7>Programación I</option>
-							<option value = 5>Técnicas Avanzadas de Programación</option>
-							<option value = 8>Matemática aplicada II</option>
-							<option value = 11>Base de Datos II</option>
+						<select class = 'form-control' name = 'materia' id = 'mat'>
 						</select>
 					</div>
 				</div>
