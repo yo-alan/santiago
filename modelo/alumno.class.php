@@ -26,16 +26,44 @@ class Alumno{
 	
 	//INICIO METODOS ESTATICOS
 	
-	static function alumnos(){
-		//Metodo estatico que retorna el listado de alumnos en la base
-		
-		
-		
-	}
-	
 	static function alumno($legajo){
 		//Metodo estatico que retorna un alumno que posea el $legajo
 		
+		$c = new Comision();
+		
+		$conn = new Conexion();
+		
+		$sql = 'SELECT * FROM comision WHERE id_comision = :id_comision';
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$consulta->bindParam(':id_comision', $id_comision, PDO::PARAM_INT);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetch();
+			
+			$c->nuevo = false;
+			$c->cambios = false;
+			$c->id_comision = $results['id_comision'];
+			$c->carrera = $results['carrera'];
+			$c->materia = $results['materia'];
+			$c->anio = $results['anio'];
+			$c->numero = $results['numero'];
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $c;
+	}
+	
+	static function alumnos(){
+		//Metodo estatico que retorna el listado de alumnos en la base
 		
 		
 		

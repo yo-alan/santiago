@@ -18,8 +18,7 @@
 	 <div class = 'container'>
 		<ol class = 'breadcrumb'>
 			<li><a href = '../../index.php'>Inicio</a></li>
-			<li><a href = './form-cursada.php'>Formulario de cursada</a></li>
-			<li><a href = './form-alumno.php'>Formulario de alumno</a></li>
+			<li><a href = './form-cursada.php'>Agregar Cursada</a></li>
 			<li class = 'active'>Exito</li>
 		</ol>
 		<br>
