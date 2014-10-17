@@ -374,6 +374,13 @@ ALTER TABLE `prof_comision`
   ADD CONSTRAINT `fk_profesor` FOREIGN KEY (`profesor`) REFERENCES `profesor` (`documento`),
   ADD CONSTRAINT `fk_comision` FOREIGN KEY (`id_comision`) REFERENCES `comision` (`id_comision`);
 
+--
+--Filtros para la tabla 'comision_alumno'
+--
+ALTER TABLE `comision_alumno`
+  ADD CONSTRAINT `fk_comision1` FOREIGN KEY (`comision`) REFERENCES `comision` (`id_comision`);
+  ADD CONSTRAINT `fk_alumno1` FOREIGN KEY (`alumno`) REFERENCES `alumno` (`legajo`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
