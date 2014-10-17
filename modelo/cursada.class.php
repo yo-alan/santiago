@@ -33,19 +33,77 @@ class Cursada {
 	static function cursada($id_carrera="", $materia=0, $anio=0){
 		//METODO ESTATICO QUE DEVUELVE UNA CURSADA ESPECIFICA
 		
-		$c = new Cursada();
-		
 		if($id_carrera == "" || $materia == 0 || $anio == 0)
 			return $c;
 		
+		$c = new Cursada();
 		
+		$conn = new Conexion();
 		
+		$sql = 'SELECT * FROM cursada WHERE id_carrera = :id_carrera AND materia = :materia AND anio = :anio';
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$consulta->bindParam(':id_carrera', $id_carrera, PDO::PARAM_STR);
+		$consulta->bindParam(':materia', $materia, PDO::PARAM_INT);
+		$consulta->bindParam(':anio', $anio, PDO::PARAM_INT);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetch();
+			
+			$c->nuevo = false;
+			$c->cambios = false;
+			$c->id_carrera = $results['id_carrera'];
+			$c->materia = $results['materia'];
+			$c->anio = $results['anio'];
+			$c->f_inicio = $results['f_inicio'];
+			$c->f_fin = $results['f_fin'];
+			$c->cuatrimestre = $results['cuatrimestre'];
+			$c->porc_asistencia = $results['porc_asistencia'];
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $c;
 	}
 	
 	static function cursadas(){
 		//METODO ESTATICO QUE DEVUELVE TODAS LAS CURSADAS DE LA BASE
 		
+		$cs = array();
 		
+		$conn = new Conexion();
+		
+		$sql = 'SELECT id_carrera, materia, anio FROM cursada';
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			foreach($results as $r){
+				
+				$c = Cursada::cursada($r['id_carrera'], $r['materia'], $r['anio']);
+				
+				array_push($cs, $c);
+			}
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $cs;
 	}
 	
 	//INICIO METODOS DE CLASE
