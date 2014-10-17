@@ -13,9 +13,10 @@
 			include('../vista/modulos/form-cursada.php');
 		else if($accion == 'eliminar')
 			include('../vista/modulos/form-cursada.php');
+        else if($accion == 'listar')
+			header('Location: ../vista/index.php?modulo=list-cursada');
 		else
 			header("Location: ../index.php");
-		
 		die();
 	}
 	

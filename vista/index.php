@@ -1,3 +1,9 @@
+<?php
+$contenido='';
+if(isset($_GET['modulo'])){
+    $contenido='modulos/'.$_GET['modulo'].'.php';
+}
+?>
 <html>
 	<head>
 		<title>Bienvenido!!!</title>
@@ -8,8 +14,8 @@
 		<script src="../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
 	</head>
 	<body>
-		<header>
-			<div class="container">
+		<header >
+			<div class="col-md-12    container">
 				<nav class="navbar navbar-default" role="navigation">
 				  <div class="container-fluid">
 					<div class="navbar-header">
@@ -26,6 +32,7 @@
 						<li class="dropdown">
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Cursadas <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
+                              <li><a href="../controlador/cursada.php?action=listar">Listado</a></li>
 							<li><a href="../controlador/cursada.php?action=agregar">Agregar</a></li>
 						  </ul>
 						</li>
@@ -35,5 +42,8 @@
 				</nav>
 			</div>
 		</header>
+        <div class="col-md-12">
+        <?php include $contenido; ?>
+        </div>
 	</body>
 </html>
