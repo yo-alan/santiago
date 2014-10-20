@@ -7,7 +7,6 @@
 		$accion = $_GET['action'];
 		
 		if($accion == 'agregar')
-			//include('../vista/modulos/form-cursada.php');
 			header ('Location: ../vista/modulos/form-cursada.php');
 		else if($accion == 'editar')
 			include('../vista/modulos/form-cursada.php');
@@ -26,9 +25,9 @@
 	
 	if($accion == 'agregar')
 		agregar();
-	if($accion == 'editar')
+	else if($accion == 'editar')
 		echo "editar";
-	if($accion == 'eliminar')
+	else if($accion == 'eliminar')
 		echo "eliminar";
 	else{
 		header("Location: ../index.php");
@@ -40,17 +39,14 @@
 	
 	function agregar(){
 		
-		include "../modelo/cursada.class.php";
+		include "../modelo/comision.class.php";
 		
-		$c = new Cursada();
+		$c = new Comision();
 		
-		
-		$c->setId_carrera($_POST['carrera']);
+		$c->setCarrera($_POST['carrera']);
 		$c->setMateria($_POST['materia']);
 		$c->setAnio($_POST['anio']);
-		$c->setF_inicio($_POST['inicio']);
-		$c->setF_fin($_POST['fin']);
-		$c->setCuatrimestre($_POST['cuatrimestre']);
+		$c->setNumero($_POST['numero']);
 		
 		try{
 			$c->guardar();
@@ -59,7 +55,7 @@
 			header("Location: ../vista/modulos/msmError.php?msg=". $e->getMessage());
 			die();
 		}
+		
 		header ('Location: ../vista/modulos/msmExito.php');
 		die();
 	}
-		
