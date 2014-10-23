@@ -20,7 +20,6 @@
  
     <link href="../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
      <link href="../../librerias/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
-     <script language = 'JavaScript' src="../../librerias/js/selectCursada.js"></script>
      <script language = 'JavaScript' src="../../librerias/js/jquery-1.11.1.min.js"></script>
      <script language = 'JavaScript' src="../../librerias/js/bootstrap.min.js"></script>
     <script language = 'JavaScript' src="../../librerias/datepicker/js/bootstrap-datepicker.js"></script>
@@ -34,11 +33,18 @@
 				<li class = 'active'>Ver listado</li>
 			</ol>
 		</div>
-		<form method = 'POST' action = '../../controlador/cursada.php' class = 'form-horizontal' role = 'form'>
+		<form method = 'POST' action = '../../controlador/comision.php' class = 'form-horizontal' role = 'form'>
 			<div class = 'form-group col-lg-2'>
-							<label for = 'cursada' class = 'control-label'>Seleccione una cursada</label>
-							<select class = 'form-control' name = 'cursada' id = 'carr' onchange = "selectMaterias();">
-								<option value="RED">Opcion</option>
+							<label for = 'comision' class = 'control-label'>Seleccione una comisión</label>
+							<select class = 'form-control' name = 'comision' id = 'com' onchange = "comisiones();">
+									<?php
+										$consulta_mysql='SELECT numero FROM comision';
+										$resultado_consulta_mysql=mysql_query($consulta_mysql,$conexion);
+										  
+										while($fila=mysql_fetch_array($resultado_consulta_mysql)){
+										    echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
+										}
+									?>
 							</select>
 						</div>
 			<div class = 'container'>
