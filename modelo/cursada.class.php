@@ -8,6 +8,7 @@ class Cursada {
 	private $nuevo;
 	private $id_carrera;
 	private $materia;
+	private $nombre_materia;
 	private $anio;
 	private $f_inicio;
 	private $f_fin;
@@ -20,6 +21,7 @@ class Cursada {
 		$this->nuevo = true;
 		$this->id_carrera = "";
 		$this->materia = 0;
+		$this->nombre_materia = 0;
 		$this->anio = 0;
 		$this->f_inicio = "";
 		$this->f_fin = "";
@@ -40,7 +42,11 @@ class Cursada {
 		
 		$conn = new Conexion();
 		
-		$sql = 'SELECT * FROM cursada WHERE id_carrera = :id_carrera AND materia = :materia AND anio = :anio';
+		$sql = 'SELECT c.*, m.nombre FROM cursada c, materia m
+				WHERE c.id_carrera = :id_carrera
+				AND c.materia = :materia
+				AND c.anio = :anio
+				AND c.materia = m.codigo_materia';
 		
 		$consulta = $conn->prepare($sql);
 		
@@ -65,6 +71,7 @@ class Cursada {
 			$c->f_fin = $results['f_fin'];
 			$c->cuatrimestre = $results['cuatrimestre'];
 			$c->porc_asistencia = $results['porc_asistencia'];
+			$c->nombre_materia = $results['nombre'];
 			
 		}catch(PDOException $e){
 			
@@ -197,6 +204,18 @@ class Cursada {
 		//VALIDAR LAS MATERIAS POR CARRERA
 		
 		$this->materia = $materia;
+		$this->cambios = true;
+	}
+	
+	function getNombre_materia(){
+		return $this->nombre_materia;
+	}
+	
+	function setNombre_materia($nombre_materia){
+		
+		//VALIDAR LAS MATERIAS POR CARRERA
+		
+		$this->nombre_materia = $nombre_materia;
 		$this->cambios = true;
 	}
 	
