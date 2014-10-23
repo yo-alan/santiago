@@ -32,7 +32,7 @@ if(isset($_GET['modulo'])){
 						<li class="dropdown">
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Cursadas <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
-                              <li><a href="../controlador/cursada.php?action=listar">Listado</a></li>
+                              <li><a href="modulos/mostrarListado.php">Listado</a></li>
 							<li><a href="../controlador/cursada.php?action=agregar">Agregar</a></li>
 						  </ul>
 						</li>
