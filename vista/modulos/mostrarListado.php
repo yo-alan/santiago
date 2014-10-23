@@ -36,7 +36,7 @@
 		<form method = 'POST' action = '../../controlador/cursada.php' class = 'form-horizontal' role = 'form'>
 			<div class = 'form-group col-lg-2'>
 							<label for = 'cursada' class = 'control-label'>Seleccione una cursada</label>
-							<select class = 'form-control' name = 'cursada' id = 'cur' onchange = "selectCursada();">
+							<select class = 'form-control' name = 'cursada' id = 'cur' onchange = "cursadas();">
 								<option value="OPT1">Opcion</option>
 							</select>
 						</div>
