@@ -34,7 +34,7 @@
 			</ol>
 		<form method = 'POST' action = '../../controlador/comision.php' class = 'form-horizontal' role = 'form'>
 			<div class = 'form-group col-lg-2'>
-							<label for = 'comision' class = 'control-label'>Seleccione una comisión</label>
+							<label for = 'comision' class = 'control-label'>Comisión</label>
 							<select class = 'form-control' name = 'comision' id = 'com' onchange = "comisiones();">
 									<?php
 										$consulta_mysql='SELECT numero FROM comision';
