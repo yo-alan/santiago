@@ -20,6 +20,7 @@
  
     <link href="../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
      <link href="../../librerias/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
+     <script language = 'JavaScript' src="../../librerias/js/selectCursada.js"></script>
      <script language = 'JavaScript' src="../../librerias/js/jquery-1.11.1.min.js"></script>
      <script language = 'JavaScript' src="../../librerias/js/bootstrap.min.js"></script>
     <script language = 'JavaScript' src="../../librerias/datepicker/js/bootstrap-datepicker.js"></script>
@@ -36,8 +37,8 @@
 		<form method = 'POST' action = '../../controlador/cursada.php' class = 'form-horizontal' role = 'form'>
 			<div class = 'form-group col-lg-2'>
 							<label for = 'cursada' class = 'control-label'>Seleccione una cursada</label>
-							<select class = 'form-control' name = 'cursada' id = 'cur' onchange = "cursadas();">
-								<option value="OPT1">Opcion</option>
+							<select class = 'form-control' name = 'cursada' id = 'carr' onchange = "selectMaterias();">
+								<option value="RED">Opcion</option>
 							</select>
 						</div>
 			<div class = 'container'>
