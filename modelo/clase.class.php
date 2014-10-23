@@ -6,12 +6,32 @@ class Clase {
 	
 	private $cambios;
 	private $nuevo;
-	
+	private $id_clase;
+	private $obligatorio;
+	private $hora_inicio;
+	private $hora_fin;
+	private $aula;
+	private $dictada;
+	private $recuperatoria_de;
+	private $comision;
+	private $profesor;
+	private $hora_ingreso_profesor;
+	private $hora_salida_profesor;
 	
 	function __construct(){
 		
 		$this->cambios = true;
 		$this->nuevo = true;
+		$this->obligatorio;
+		$this->hora_inicio;
+		$this->hora_fin;
+		$this->aula;
+		$this->dictada;
+		$this->recuperatoria_de;
+		$this->comision;
+		$this->profesor;
+		$this->hora_ingreso_profesor;
+		$this->hora_salida_profesor;
 		
 	}
 	
