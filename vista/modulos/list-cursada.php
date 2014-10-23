@@ -1,11 +1,15 @@
 <?php
-    include '../../modelo/cursada.class.php';
-    //$cursadas=Cursada::cursadas();
-    $cursadas='';
 
-    include '../../modelo/comision.class.php';
-    //$comisiones=Comision::comisiones();
+    $cursadas='';
+    if(include '../modelo/cursada.class.php'){
+        $cursadas=Cursada::cursadas();
+    }  
+
     $comisiones='';
+    /*if(include '../modelo/comision.class.php'){
+        //$comisiones=Comision::comisiones();
+    }*/
+        
 ?>
 <ol class = 'breadcrumb'>
     <li><a href = '../index.php'>Inicio</a></li>
@@ -26,12 +30,14 @@
         <tbody>
             <?php foreach($cursadas as $c):?>
             <tr>
-                <td><?php echo $c['id_carrera']?></td>
-                <td><?php echo $c['materia']?></td>
-                <td><?php echo $c['f_inicio']?></td>
-                <td><?php echo $c['f_fin']?></td>
-                <td><?php echo $c['cuatrimestre']?></td>
-                <td><i>+</i></td>
+                <td><?php echo $c->getId_carrera()?></td>
+                <td><?php echo $c->getMateria()?></td>
+                <td><?php echo $c->getF_inicio()?></td>
+                <td><?php echo $c->getF_fin()?></td>
+                <td><?php echo $c->getCuatrimestre()?></td>
+                <td>
+                <i class="btn glyphicon glyphicon-share" data-toggle="modal" data-target="#asignarComision"></i>
+                </td>
             </tr>
             <?php endforeach;?>
             <!--REGISTRO DE PRUEBA-->
