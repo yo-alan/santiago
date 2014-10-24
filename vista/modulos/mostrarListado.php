@@ -29,7 +29,6 @@
 	<body>
 		<div class = "container">
 			<ol class = 'breadcrumb'>
-				<li><a href = '../index.php'>Inicio</a></li>
 				<li class = 'active'>Ver listado</li>
 			</ol>
 		<form method = 'POST' action = '../../controlador/comision.php' class = 'form-horizontal' role = 'form'>
