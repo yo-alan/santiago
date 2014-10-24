@@ -13,6 +13,8 @@
 			include('../vista/modulos/form-alumno.php');
 		else if($accion == 'eliminar')
 			include('../vista/modulos/form-alumno.php');
+        else if($accion == 'listar')
+			header('Location: ../vista/index.php?modulo=mostrarListado');
 		else
 			header("Location: ../index.php");
 		

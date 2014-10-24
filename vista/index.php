@@ -26,6 +26,7 @@ if(isset($_GET['modulo'])){
 						<li class="dropdown">
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Alumnos <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
+                              <li><a href="../controlador/alumno.php?action=listar">Listado</a></li>
 							<li><a href="../controlador/alumno.php?action=agregar">Agregar</a></li>
 						  </ul>
 						</li>
