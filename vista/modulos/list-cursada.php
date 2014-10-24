@@ -7,7 +7,7 @@
 
     $comisiones='';
     /*if(include '../modelo/comision.class.php'){
-        //$comisiones=Comision::comisiones();
+        $comisiones=Comision::comisiones();
     }*/
         
 ?>
@@ -69,7 +69,9 @@
             <label for="idcomision">Elija una Comision:</label>
             <select name="idcomision" id="idcomision">
                 <?php foreach($comisiones as $cm):?>
-                        <option value="<?php echo $cm['idcomision']?>"><?php echo $cm['carrera']?>|<?php echo $cm['materia']?>|<?php echo $cm['anio']?>|<?php echo $cm['numero']?></option>
+                    <option value="<?php echo $cm->getId_comision()?>">
+                            <?php echo $cm->getCarrera()?>|<?php echo $cm->getMateria()?>|<?php echo $cm->getAnio()?>|<?php echo $cm->getNumero()?>
+                    </option>
                 <?php endforeach;?>
             </select>
         </form>
