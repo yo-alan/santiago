@@ -66,7 +66,34 @@ class Comision {
 	static function comisiones(){
 		//METODO ESTATICO QUE DEVUELVE TODAS LAS COMISIONES DE LA BASE
 		
+		$cs = array();
 		
+		$conn = new Conexion();
+		
+		$sql = 'SELECT id_comision FROM comision';
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			foreach($results as $r){
+				
+				$c = Cursada::cursada($r['id_comision']);
+				
+				array_push($cs, $c);
+			}
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $cs;
 	}
 	
 	//INICIO METODOS DE CLASE
