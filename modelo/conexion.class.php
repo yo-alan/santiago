@@ -3,9 +3,9 @@
    
    private $tipo_de_base = 'mysql';
    private $host = 'localhost';
-   private $nombre_de_base = 'santiago';
-   private $usuario = 'root';
-   private $contrasena = 'unichub';
+   private $nombre_de_base = 'database';
+   private $usuario = 'user';
+   private $contrasena = 'pass';
    
    public function __construct(){
 	  
