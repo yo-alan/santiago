@@ -1,22 +1,22 @@
 var sfw = {};
 sfw['0'] = [' '];
-sfw['1'] = ['Introducción a la Programación'];
-sfw['2'] = ['Laboratorio de Programación I'];
-sfw['3'] = ['Matemática Aplicada I'];
-sfw['4'] = ['Inglés I'];
-sfw['5'] = ['Técnicas Avanzadas de Programación'];
-sfw['6'] = ['Estructura de Datos y Algoritmos'];
-sfw['7'] = ['Paradigmas de Programación'];
-sfw['8'] = ['Matemática Aplicada II'];
-sfw['9'] = ['Inglés II'];
-sfw['10'] = ['Laboratorio Avanzado de Programación II'];
-sfw['11'] = ['Base de Datos I'];
-sfw['12'] = ['Programación Web I'];
-sfw['13'] = ['Redes y Seguridad Informática'];
-sfw['14'] = ['Ingeniería de Software'];
-sfw['15'] = ['Programación Web II'];
-sfw['16'] = ['Base de Datos II'];
-sfw['17'] = ['Gestión de Proyectos de Software'];
+sfw['50'] = ['Introducción a la Programación'];
+sfw['51'] = ['Laboratorio de Programación I'];
+sfw['52'] = ['Matemática Aplicada I'];
+sfw['53'] = ['Inglés I'];
+sfw['54'] = ['Técnicas Avanzadas de Programación'];
+sfw['55'] = ['Estructura de Datos y Algoritmos'];
+sfw['56'] = ['Paradigmas de Programación'];
+sfw['57'] = ['Matemática Aplicada II'];
+sfw['58'] = ['Inglés II'];
+sfw['59'] = ['Laboratorio Avanzado de Programación II'];
+sfw['60'] = ['Base de Datos I'];
+sfw['61'] = ['Programación Web I'];
+sfw['62'] = ['Redes y Seguridad Informática'];
+sfw['63'] = ['Ingeniería de Software'];
+sfw['64'] = ['Programación Web II'];
+sfw['65'] = ['Base de Datos II'];
+sfw['66'] = ['Gestión de Proyectos de Software'];
 
 var enf = {};
 enf['0'] = [' '];
@@ -40,37 +40,37 @@ enf['18'] = ['Enfermería en Salud Comunitaria'];
 
 var red = {};
 red['0'] = [' '];
-red['1'] = ['Expresión y Comunicación'];
-red['2'] = ['Inglés I'];
-red['3'] = ['Matemática Aplicada I'];
-red['4'] = ['Arquitectura de Computadoras I'];
-red['5'] = ['Electrónica I'];
-red['6'] = ['Física para las Telecomunicaciones I'];
-red['7'] = ['Programación I'];
-red['8'] = ['Sistemas Operativos I'];
-red['9'] = ['Programación II'];
-red['10'] = ['Arquitectura de Computadoras'];
-red['11'] = ['Física para las Telecomunicaciones II'];
-red['12'] = ['Legislación de las Comunicaciones'];
-red['13'] = ['Talleres de Tecnología Aplicada'];
-red['14'] = ['Matemática Aplicada II'];
-red['15'] = ['Programación III'];
-red['16'] = ['Redes'];
-red['17'] = ['Electrónica II'];
-red['18'] = ['Arquitectura de Computadoras III'];
-red['19'] = ['Sistemas Operativos II'];
-red['20'] = ['Gestión y Administración Empresarial'];
-red['21'] = ['Tratamiento de Señal'];
-red['22'] = ['Equipos y Medios de Transmisión'];
-red['23'] = ['Actualización Tecnológica I'];
-red['24'] = ['Transmisión de Datos I'];
-red['25'] = ['Actualización Tecnológica II'];
-red['26'] = ['Transmisión de Datos II'];
-red['27'] = ['Redes de Alta Velocidad'];
-red['28'] = ['Sistemas Telefónicos'];
-red['29'] = ['Ingeniería de Protocolos'];
-red['30'] = ['Equipos y Medios de Transmisión'];
-red['31'] = ['Sistemas Operativos III'];
+red['19'] = ['Expresión y Comunicación'];
+red['20'] = ['Inglés I'];
+red['21'] = ['Matemática Aplicada I'];
+red['22'] = ['Arquitectura de Computadoras I'];
+red['23'] = ['Electrónica I'];
+red['24'] = ['Física para las Telecomunicaciones I'];
+red['25'] = ['Programación I'];
+red['26'] = ['Sistemas Operativos I'];
+red['27'] = ['Programación II'];
+red['28'] = ['Arquitectura de Computadoras'];
+red['29'] = ['Física para las Telecomunicaciones II'];
+red['30'] = ['Legislación de las Comunicaciones'];
+red['31'] = ['Talleres de Tecnología Aplicada'];
+red['32'] = ['Matemática Aplicada II'];
+red['33'] = ['Programación III'];
+red['34'] = ['Redes'];
+red['35'] = ['Electrónica II'];
+red['36'] = ['Arquitectura de Computadoras III'];
+red['37'] = ['Sistemas Operativos II'];
+red['38'] = ['Gestión y Administración Empresarial'];
+red['39'] = ['Tratamiento de Señal'];
+red['40'] = ['Equipos y Medios de Transmisión'];
+red['41'] = ['Actualización Tecnológica I'];
+red['42'] = ['Transmisión de Datos I'];
+red['43'] = ['Actualización Tecnológica II'];
+red['44'] = ['Transmisión de Datos II'];
+red['45'] = ['Redes de Alta Velocidad'];
+red['46'] = ['Sistemas Telefónicos'];
+red['47'] = ['Ingeniería de Protocolos'];
+red['48'] = ['Equipos y Medios de Transmisión'];
+red['49'] = ['Sistemas Operativos III'];
 
 
 function selectMateria() {
@@ -86,7 +86,7 @@ function selectMateria() {
 	switch(carrera)
 	{
 		case 'RED':
-		for(i = 1; i < 32; i++)
+		for(i = 19; i < 50; i++)
 		{
 			var x = new Option(red[i],i);
 			modelList.options.add(x);
@@ -100,7 +100,7 @@ function selectMateria() {
 		}
 		break;
 		case 'SFW':
-		for(i = 1; i < 18; i++)
+		for(i = 50; i < 67; i++)
 		{
 			var x = new Option(sfw[i],i);
 			modelList.options.add(x);	

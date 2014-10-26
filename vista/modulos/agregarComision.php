@@ -75,13 +75,18 @@
         <form method="post" action = '../../controlador/cursada.php'>
             <input type="hidden" name="idcursada" id="idcursada">
             <label for="idcomision">Elija una Comision:</label>
-            <select name="idcomision" id="idcomision">
-                <?php foreach($comisiones as $cm):?>
-                    <option value="<?php echo $cm->getId_comision()?>">
-                            <?php echo $cm->getCarrera()?>|<?php echo $cm->getMateria()?>|<?php echo $cm->getAnio()?>|<?php echo $cm->getNumero()?>
+            
+				<p id = 'id_carrera'><?php echo $c->getId_carrera()?></p>
+				<br>
+                <p id = 'nombre_materia'><?php echo $c->getNombre_materia()?></p>
+           
+           <!-- <select name="idcomision" id="idcomision">
+                <?php //foreach($comisiones as $cm):?>
+                    <!--<option value="<?php echo $cm->getId_comision()?>">
+                            <?php //echo $cm->getCarrera()?>|<?php //echo $cm->getMateria()?>|<?php //echo $cm->getAnio()?>|<?php //echo $cm->getNumero()?>
                     </option>
-                <?php endforeach;?>
-            </select>
+                <?php //endforeach;?>
+            </select>-->
         </form>
       </div>
       <div class="modal-footer">

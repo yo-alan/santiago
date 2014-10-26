@@ -18,26 +18,31 @@
 			//header('Location: ../vista/index.php?modulo=list-cursada');
 		}else
 			header("Location: ../index.php");
-		die();
+		    die();
 	
 	}
 	
-	if(!isset($_POST['action'])){
+	
+	
+	if(!isset($_POST['action']))
 		header("Location: ../index.php");
-		$accion = $_POST['action'];}
-	if($accion == 'agregar'){
-		agregar();}
-	if($accion == 'editar'){
-		echo "editar";}
-	if($accion == 'eliminar'){
-		echo "eliminar";}
+	
+	$accion = $_POST['action'];
+	
+	if($accion == 'agregar')
+		agregar();
+	if($accion == 'editar')
+		echo "editar";
+	if($accion == 'eliminar')
+		echo "eliminar";
 	else{
 		header("Location: ../index.php");
-		die();}
+		die();
+	}
 	
 	header("Location: ../index.php?result=exito");
 	die();
-	
+
 	function agregar(){
 		
 		include "../modelo/cursada.class.php";
@@ -53,11 +58,12 @@
 		try{
 			$c->guardar();
 			
+			
 		} catch(Exception $e){
 			header("Location: ../vista/modulos/msmError.php?msg=". $e->getMessage());
 			die();
 		}
-		header ('Location: ../vista/modulos/msmExito.php');
-		die();
+			header ('Location: ../vista/modulos/msmExito.php');
+			die();
 	}
 ?>
