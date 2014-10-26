@@ -7,6 +7,7 @@ if(isset($_GET['modulo'])){
 <html>
 	<head>
 		<title>Bienvenido!!!</title>
+		<meta charset="utf-8">
 		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
 		<link rel="Stylesheet" href="../librerias/css/default.css">
 		<script src="../librerias/js/jquery.js"></script>
@@ -35,6 +36,12 @@ if(isset($_GET['modulo'])){
 						  <ul class="dropdown-menu" role="menu">
                               <li><a href="../controlador/cursada.php?action=listar">Listado</a></li>
 							<li><a href="../controlador/cursada.php?action=agregar">Agregar</a></li>
+						  </ul>
+						</li>
+						<li class="dropdown">
+						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Comisión <span class="caret"></span></a>
+						  <ul class="dropdown-menu" role="menu">
+							<li><a href="../controlador/comision.php?action=agregar">Agregar</a></li>
 						  </ul>
 						</li>
 					  </ul>

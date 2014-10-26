@@ -6,9 +6,13 @@
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		$accion = $_GET['action'];
 		
-		if($accion == 'agregar')
-			header ('Location: ../vista/modulos/form-cursada.php');
-		else if($accion == 'editar')
+		if($accion == 'agregar'){
+			include "../modelo/cursada.class.php";
+			$cs = New Cursada();
+			$cp = $cs->cursadas();
+			include "../vista/modulos/agregarComision.php";
+			//header ('Location: ../vista/modulos/form-cursada.php');
+		}else if($accion == 'editar')
 			include('../vista/modulos/form-cursada.php');
 		else if($accion == 'eliminar')
 			include('../vista/modulos/form-cursada.php');

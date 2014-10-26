@@ -32,7 +32,7 @@
                 <th>f_inicio</th>
                 <th>f_fin</th>
                 <th>Cuatr.</th>
-                <!--<th>Asignar Comision</th>-->
+                <th>Asignar Comision</th>
             </tr>
         </thead>
         <tbody>
@@ -43,12 +43,13 @@
                 <td><?php echo $c->getF_inicio()?></td>
                 <td><?php echo $c->getF_fin()?></td>
                 <td><?php echo $c->getCuatrimestre()?></td>
-               <!-- <i class="btn glyphicon glyphicon-share" data-toggle="modal" data-target="#asignarComision"></i>
-                </td>-->
+                <td>
+                <i class="btn glyphicon glyphicon-share" data-toggle="modal" data-target="#asignarComision"></i>
+                </td>
             </tr>
             <?php endforeach;?>
             <!--REGISTRO DE PRUEBA-->
-           <!-- <tr>
+            <tr>
                 <td>00</td>
                 <td>INGENIERIA DE SOFT</td>
                 <td>01-08-2014</td>
@@ -63,7 +64,7 @@
     </table>    
 </div>
 <!-- Modal Asignar Comision a Cursada -->
-<!--<div class="modal fade" id="asignarComision" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="asignarComision" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,18 +76,19 @@
             <input type="hidden" name="idcursada" id="idcursada">
             <label for="idcomision">Elija una Comision:</label>
             <select name="idcomision" id="idcomision">
-                <?php //foreach($comisiones as $cm):?>
-                    <option value="<?php //echo $cm->getId_comision()?>">
-                            <?php //echo $cm->getCarrera()?>|<?php echo $cm->getMateria()?>|<?php echo $cm->getAnio()?>|<?php echo $cm->getNumero()?>
+                <?php foreach($comisiones as $cm):?>
+                    <option value="<?php echo $cm->getId_comision()?>">
+                            <?php echo $cm->getCarrera()?>|<?php echo $cm->getMateria()?>|<?php echo $cm->getAnio()?>|<?php echo $cm->getNumero()?>
                     </option>
-                <?php //endforeach;?>
+                <?php endforeach;?>
             </select>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary">Aplicar Cambios</button>
-      </div>-->
+      </div>
     </div>
   </div>
 </div>
+</html>
