@@ -136,7 +136,9 @@ CREATE TABLE IF NOT EXISTS `comision_alumno` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `comision` int(11) NOT NULL,
   `alumno` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_comision` (`comision`),
+  KEY `fk_alumno` (`alumno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -375,11 +377,11 @@ ALTER TABLE `prof_comision`
   ADD CONSTRAINT `fk_comision` FOREIGN KEY (`id_comision`) REFERENCES `comision` (`id_comision`);
 
 --
---Filtros para la tabla 'comision_alumno'
+-- Filtros para la tabla `comision_alumno`
 --
 ALTER TABLE `comision_alumno`
-  ADD CONSTRAINT `fk_comision1` FOREIGN KEY (`comision`) REFERENCES `comision` (`id_comision`);
-  ADD CONSTRAINT `fk_alumno1` FOREIGN KEY (`alumno`) REFERENCES `alumno` (`legajo`);
+  ADD CONSTRAINT `fk_comision` FOREIGN KEY (`comision`) REFERENCES `comision` (`id_comision`),
+  ADD CONSTRAINT `fk_alumno` FOREIGN KEY (`alumno`) REFERENCES `alumno` (`documento`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
