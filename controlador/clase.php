@@ -5,20 +5,19 @@
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		$accion = $_GET['action'];
 		if($accion == 'agregar'){
-			header ('Location: ../vista/modulos/form-cursada.php');
+			header('Location: ../vista/modulos/form-clase.php');
 		}else if($accion == 'editar'){
-			include('../vista/modulos/form-cursada.php');
+			include('../vista/modulos/form-clase.php');
 		}else if($accion == 'eliminar'){
-			include('../vista/modulos/form-cursada.php');
+			include('../vista/modulos/form-clase.php');
         }else if($accion == 'listar'){
-			include "../modelo/cursada.class.php";
-			$cs = Cursada::cursadas();
-			include "../vista/modulos/list-cursada.php";
-			//header('Location: ../vista/index.php?modulo=list-cursada');
+			include "../modelo/clase.class.php";
+			$cs = Clase::clases();
+			include "../vista/modulos/list-clase.php";
+			//header('Location: ../vista/index.php?modulo=list-clase');
 		}else
 			header("Location: ../index.php");
 		    die();
-	
 	}
 	
 	if(!isset($_POST['action']))
@@ -42,20 +41,22 @@
 
 	function agregar(){
 		
-		include "../modelo/cursada.class.php";
-		$c = new Cursada();
+		include "../modelo/clase.class.php";
+		$c = new Clase();
 		
-		$c->setId_carrera($_POST['carrera']);
-		$c->setMateria($_POST['materia']);
-		$c->setAnio($_POST['anio']);
-		$c->setF_inicio($_POST['inicio']);
-		$c->setF_fin($_POST['fin']);
-		$c->setCuatrimestre($_POST['cuatrimestre']);
+		$c->setObligatorio($_POST['obligatorio']);
+		$c->setHora_inicio($_POST['hora_inicio']);
+		$c->setHora_fin($_POST['hora_fin']);
+		$c->setAula($_POST['aula']);
+		$c->setDictada($_POST['dictada']);
+		$c->setRecuperatoria_de($_POST['recuperatoria_de']);
+		$c->setComision($_POST['comision']);
+		$c->setProfesor($_POST['profesor']);
+		$c->setHora_ingreso_profesor($_POST['hora_ingreso_profesor']);
+		$c->setHora_salida_profesor($_POST['hora_salida_profesor']);
 		
 		try{
 			$c->guardar();
-			
-			
 		} catch(Exception $e){
 			header("Location: ../vista/modulos/msmError.php?msg=". $e->getMessage());
 			die();
@@ -63,4 +64,3 @@
 			header ('Location: ../vista/modulos/msmExito.php');
 			die();
 	}
-?>

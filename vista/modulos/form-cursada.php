@@ -38,10 +38,10 @@
 					<div class = 'form-group col-lg-2'>
 						<label for = 'anio' class = 'control-label'>Año</label>
 						<select class = 'form-control' name = 'anio'>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
 					</div>
 				</div>
 				<div class = 'row'>

@@ -93,8 +93,14 @@ class Clase {
 		if(!$this->cambios)
 			return;
 		
-		if($this->carrera == "")
-			throw new Exception("La carrera no es válida.");
+		if($this->hora_inicio != "")
+			throw new Exception("La hora de inicio no es válida.");
+		
+		if($this->hora_fin != "")
+			throw new Exception("La hora de finalización no es válida.");
+		
+		if($this->aula != "")
+			throw new Exception("El aula no es válida.");
 		
 		$conn = new Conexion();
 		
@@ -102,7 +108,7 @@ class Clase {
 			
 			try{
 				$sql = 'INSERT INTO clase(obligatorio, hora_inicio, hora_fin, aula, dictada, recuperatoria_de, comision, profesor, hora_ingreso_profesor, hora_salida_profesor)
-						VALUES(:obligatorio, :hora_inicio, :hora_fin, :aula, :dictada, :recuperatoria_de, :comision, :profesor, :hora_ingreso_profesor, :hora_salida_profesor)'
+						VALUES(:obligatorio, :hora_inicio, :hora_fin, :aula, :dictada, :recuperatoria_de, :comision, :profesor, :hora_ingreso_profesor, :hora_salida_profesor)';
 				
 				$consulta = $conn->prepare($sql);
 				
@@ -122,7 +128,6 @@ class Clase {
 			}catch(PDOException $e){
 				throw new Exception('Error al insertar la nueva clase: '.$e->getMessage());
 			}
-			
 		}
 		else{
 			
@@ -273,3 +278,4 @@ class Clase {
 		$this->cambios = true;
 	}
 	
+}
