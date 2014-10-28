@@ -35,15 +35,32 @@
 		<form method = 'POST' action = '../../controlador/comision.php' class = 'form-horizontal' role = 'form'>
 			<div class = 'form-group col-lg-2'>
 							<label for = 'comision' class = 'control-label'>Comisión</label>
-							<select class = 'form-control' name = 'comision' id = 'com' onchange = "comisiones();">
-									<?php
-										$consulta_mysql='SELECT numero FROM comision';
-										$resultado_consulta_mysql=mysql_query($consulta_mysql,$conexion);
-										  
-										while($fila=mysql_fetch_array($resultado_consulta_mysql)){
-										    echo "<option value='".$fila['nombre']."'>".$fila['nombre']."</option>";
+							<select class = 'form-control' name = 'comision' id = 'com'>
+									<?php 
+									
+									$conn = new Conexion();
+									
+									$sql = 'SELECT numero FROM comision';
+									
+									$consulta = $conn->prepare($sql);
+									
+									$consulta->setFetchMode(PDO::FETCH_ASSOC);
+
+									try{
+										
+										$consulta->execute();
+										
+										$results = $consulta->fetch();
+										
+									    while($fila=mysql_fetch_array($results)){
+										    echo "<option value='".$fila['numero']."'>".$fila['numero']."</option>";
 										}
-									?>
+									}catch(PDOException $e){
+										
+									}
+									
+									return $c;
+								?>
 							</select>
 						</div>
 			<div class = 'container'>
