@@ -27,9 +27,9 @@
 	
 	$accion = $_POST['action'];
 	
-	if($accion == 'agregar')
+	if($accion == 'agregar'){
 		agregar();
-	else if($accion == 'editar')
+	}else if($accion == 'editar')
 		echo "editar";
 	else if($accion == 'eliminar')
 		echo "eliminar";
@@ -45,6 +45,7 @@
 		
 		include "../modelo/comision.class.php";
 		
+		
 		$c = new Comision();
 		
 		$c->setCarrera($_POST['carrera']);
@@ -56,10 +57,10 @@
 			$c->guardar();
 			
 		} catch(Exception $e){
-			header("Location: ../vista/modulos/msmError.php?msg=". $e->getMessage());
+			header("Location: ../vista/modulos/msmErrorComision.php?msg=". $e->getMessage());
 			die();
 		}
 		
-		header ('Location: ../vista/modulos/msmExito.php');
+		header ('Location: ../vista/modulos/msmExitoComision.php');
 		die();
 	}

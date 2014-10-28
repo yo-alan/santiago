@@ -29,41 +29,30 @@
             <tr>
                 <th>Cod.Carrera</th>
                 <th>Materia</th>
-                <th>f_inicio</th>
-                <th>f_fin</th>
+                <th>Cod_Mat</th>
+                <th>Anio</th>
                 <th>Cuatr.</th>
-                <th>Asignar Comision</th>
+                <th>Agregar Nro de Comision</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach($cp as $c):?>
             <tr>
-                <td><?php echo $c->getId_carrera()?></td>
-                <td><?php echo $c->getNombre_materia()?></td>
-                <td><?php echo $c->getF_inicio()?></td>
-                <td><?php echo $c->getF_fin()?></td>
-                <td><?php echo $c->getCuatrimestre()?></td>
-                <td>
-                <i class="btn glyphicon glyphicon-share" data-toggle="modal" data-target="#asignarComision"></i>
-                </td>
+				<form method="POST" action='./../controlador/comision.php'>
+                <td><input type = 'text' class = 'form-control' name = 'carrera' value = <?php echo $c->getId_carrera()?>></td>
+                <td><input type = 'text' class = 'form-control' name = 'nombre_materia' value =<?php echo $c->getNombre_materia()?>></td>
+                <td><input type = 'text' class = 'form-control' name = 'materia' value =<?php echo $c->getMateria()?>></td>
+                <td><input type = 'text' class = 'form-control' name = 'anio' value =<?php echo $c->getAnio()?>></td>
+                <td><input type = 'text' class = 'form-control' name = 'cuatrimestre' value =<?php echo $c->getCuatrimestre()?>></td>
+                <td><input type = 'text' class = 'form-control' name = 'numero'></td>
+				<td><button type = 'submit' name = 'action' value = 'agregar' class =  'btn btn-primary col-md col-md-offset-6'>Agregar</button></td>
+				</form>
             </tr>
             <?php endforeach;?>
-            <!--REGISTRO DE PRUEBA-->
-            <tr>
-                <td>00</td>
-                <td>INGENIERIA DE SOFT</td>
-                <td>01-08-2014</td>
-                <td>30-11-2014</td>
-                <td>2°</td>
-                <td>
-                    <i class="btn glyphicon glyphicon-share" data-toggle="modal" data-target="#asignarComision"></i>
-                </td>
-            </tr>
-            <!--FIN REGISTRO DE PRUEBA-->
         </tbody>
     </table>    
 </div>
-<!-- Modal Asignar Comision a Cursada -->
+<!-- Modal Asignar Comision a Cursada 
 <div class="modal fade" id="asignarComision" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -87,7 +76,7 @@
                     </option>
                 <?php //endforeach;?>
             </select>-->
-        </form>
+       <!-- </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -95,5 +84,5 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 </html>
