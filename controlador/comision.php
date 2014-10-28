@@ -18,8 +18,7 @@
 			include('../vista/modulos/form-cursada.php');
 		else if($accion == 'listar'){
 			include '../modelo/comision.class.php';
-			$cs = New Comision;
-			$cp = $cs->comisiones();
+			$cp = Comision::comisiones();
 			include '../vista/modulos/list-comision.php';
 			
 		}
@@ -62,7 +61,6 @@
 		
 		try{
 			$c->guardar();
-			
 		} catch(Exception $e){
 			header("Location: ../vista/modulos/msmErrorComision.php?msg=". $e->getMessage());
 			die();

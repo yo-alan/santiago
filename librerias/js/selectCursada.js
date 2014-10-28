@@ -1,23 +1,3 @@
-var sfw = {};
-sfw['0'] = [' '];
-sfw['50'] = ['Introducción a la Programación'];
-sfw['51'] = ['Laboratorio de Programación I'];
-sfw['52'] = ['Matemática Aplicada I'];
-sfw['53'] = ['Inglés I'];
-sfw['54'] = ['Técnicas Avanzadas de Programación'];
-sfw['55'] = ['Estructura de Datos y Algoritmos'];
-sfw['56'] = ['Paradigmas de Programación'];
-sfw['57'] = ['Matemática Aplicada II'];
-sfw['58'] = ['Inglés II'];
-sfw['59'] = ['Laboratorio Avanzado de Programación II'];
-sfw['60'] = ['Base de Datos I'];
-sfw['61'] = ['Programación Web I'];
-sfw['62'] = ['Redes y Seguridad Informática'];
-sfw['63'] = ['Ingeniería de Software'];
-sfw['64'] = ['Programación Web II'];
-sfw['65'] = ['Base de Datos II'];
-sfw['66'] = ['Gestión de Proyectos de Software'];
-
 var enf = {};
 enf['0'] = [' '];
 enf['1'] = ['Fundamentos de Enfermería'];
@@ -72,6 +52,26 @@ red['47'] = ['Ingeniería de Protocolos'];
 red['48'] = ['Equipos y Medios de Transmisión'];
 red['49'] = ['Sistemas Operativos III'];
 
+var sfw = {};
+sfw['0'] = [' '];
+sfw['50'] = ['Introducción a la Programación'];
+sfw['51'] = ['Laboratorio de Programación I'];
+sfw['52'] = ['Matemática Aplicada I'];
+sfw['53'] = ['Inglés I'];
+sfw['54'] = ['Técnicas Avanzadas de Programación'];
+sfw['55'] = ['Estructura de Datos y Algoritmos'];
+sfw['56'] = ['Paradigmas de Programación'];
+sfw['57'] = ['Matemática Aplicada II'];
+sfw['58'] = ['Inglés II'];
+sfw['59'] = ['Laboratorio Avanzado de Programación II'];
+sfw['60'] = ['Base de Datos I'];
+sfw['61'] = ['Programación Web I'];
+sfw['62'] = ['Redes y Seguridad Informática'];
+sfw['63'] = ['Ingeniería de Software'];
+sfw['64'] = ['Programación Web II'];
+sfw['65'] = ['Base de Datos II'];
+sfw['66'] = ['Gestión de Proyectos de Software'];
+
 
 function selectMateria() {
 	var i;
@@ -81,21 +81,21 @@ function selectMateria() {
 	carrera = document.getElementById('carr').value;
 	while (modelList.options.length) 
 	{
-        modelList.remove(0);
-    }
+	    modelList.remove(0);
+	}
 	switch(carrera)
 	{
-		case 'RED':
-		for(i = 19; i < 50; i++)
-		{
-			var x = new Option(red[i],i);
-			modelList.options.add(x);
-		}
-		break;
 		case 'ENF':
 		for(i = 1; i < 19; i++)
 		{
 			var x = new Option(enf[i],i);
+			modelList.options.add(x);
+		}
+		break;
+		case 'RED':
+		for(i = 19; i < 50; i++)
+		{
+			var x = new Option(red[i],i);
 			modelList.options.add(x);
 		}
 		break;

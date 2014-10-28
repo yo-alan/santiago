@@ -23,7 +23,7 @@
 		</ol>
 		<br>
 		<br>
-		<div><p class = 'text-danger'>La carga ha sido exitosa</p></div>
+		<div><p class = 'text-success'>La carga ha sido exitosa</p></div>
   </body>
 </html>
 

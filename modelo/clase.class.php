@@ -93,13 +93,13 @@ class Clase {
 		if(!$this->cambios)
 			return;
 		
-		if($this->hora_inicio != "")
+		if($this->hora_inicio == "")
 			throw new Exception("La hora de inicio no es válida.");
 		
-		if($this->hora_fin != "")
+		if($this->hora_fin == "")
 			throw new Exception("La hora de finalización no es válida.");
 		
-		if($this->aula != "")
+		if($this->aula == "")
 			throw new Exception("El aula no es válida.");
 		
 		$conn = new Conexion();

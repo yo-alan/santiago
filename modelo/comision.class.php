@@ -231,7 +231,7 @@ class Comision {
 		
 		if($materia<1)
 			return;
-		
+		/*
 		$max = 0;
 		if($this->carrera == 'SFW')
 			$max=17;
@@ -242,7 +242,7 @@ class Comision {
 		
 		if($materia>$max)
 			return;
-		
+		*/
 		$this->materia=$materia;
 		$this->cambios=true;
 	}

@@ -380,8 +380,8 @@ ALTER TABLE `prof_comision`
 -- Filtros para la tabla `comision_alumno`
 --
 ALTER TABLE `comision_alumno`
-  ADD CONSTRAINT `fk_comision` FOREIGN KEY (`comision`) REFERENCES `comision` (`id_comision`),
-  ADD CONSTRAINT `fk_alumno` FOREIGN KEY (`alumno`) REFERENCES `alumno` (`documento`);
+  ADD CONSTRAINT `fk_comision1` FOREIGN KEY (`comision`) REFERENCES `comision` (`id_comision`),
+  ADD CONSTRAINT `fk_alumno1` FOREIGN KEY (`alumno`) REFERENCES `alumno` (`documento`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
