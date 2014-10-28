@@ -1,36 +1,27 @@
-<?php
-
-    /*$cursadas='';
-    if(include '../modelo/cursada.class.php'){
-        $cursadas=Cursada::cursadas();
-    }  
-
-    $comisiones='';
-    /*if(include '../modelo/comision.class.php'){
-        $comisiones=Comision::comisiones();
-    }*/
-        
-?>
 <html>
 	<head>
 		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
 		<link rel="Stylesheet" href="../librerias/css/default.css">
+        <link rel="stylesheet" href="../librerias/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="../librerias/css/jquery.dataTables_themeroller.css">
 		<script src="../librerias/js/jquery.js"></script>
 		<script src="../librerias/js/bootstrap.js"></script>
 		<script src="../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+        <script src="../librerias/js/jquery.dataTables.min.js"></script>
+        <script src="../librerias/js/listadosTabla.js"></script>
 	</head>
 <ol class = 'breadcrumb'>
     <li><a href = '../index.php'>Inicio</a></li>
     <li class = 'active'>Listado de Cursadas</li>	
 </ol>
 <div class="jumbotron">
-    <table class="table">
+    <table class="table table-striped tablaData">
         <thead>
             <tr>
                 <th>Cod.Carrera</th>
                 <th>Materia</th>
-                <th>f_inicio</th>
-                <th>f_fin</th>
+                <th>Inicio Cursada</th>
+                <th>Fin Cursada</th>
                 <th>Cuatr.</th>
                 <th>Asignar Comision</th>
             </tr>
@@ -48,18 +39,6 @@
                 </td>
             </tr>
             <?php endforeach;?>
-            <!--REGISTRO DE PRUEBA-->
-           <tr>
-                <td>00</td>
-                <td>INGENIERIA DE SOFT</td>
-                <td>01-08-2014</td>
-                <td>30-11-2014</td>
-                <td>2°</td>
-                <td>
-                    <i class="btn glyphicon glyphicon-share" data-toggle="modal" data-target="#asignarComision"></i>
-                </td>
-            </tr>
-            <!--FIN REGISTRO DE PRUEBA-->
         </tbody>
     </table>    
 </div>
@@ -76,11 +55,11 @@
             <input type="hidden" name="idcursada" id="idcursada">
             <label for="idcomision">Elija una Comision:</label>
             <select name="idcomision" id="idcomision">
-                <?php foreach($comisiones as $cm):?>
+                <?php /*foreach($c1 as $cm):?>
                     <option value="<?php echo $cm->getId_comision()?>">
                             <?php echo $cm->getCarrera()?>|<?php echo $cm->getMateria()?>|<?php echo $cm->getAnio()?>|<?php echo $cm->getNumero()?>
                     </option>
-                <?php endforeach;?>
+                <?php endforeach;*/?>
             </select>
         </form>
       </div>

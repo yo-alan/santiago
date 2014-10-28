@@ -12,6 +12,9 @@
 			include('../vista/modulos/form-cursada.php');
         }else if($accion == 'listar'){
 			include "../modelo/cursada.class.php";
+            /*include '../modelo/comision.class.php';
+			/*$cm = New Comision;
+			$ccm = $cm->comisiones();*/
 			$cs = New Cursada();
 			$cp = $cs->cursadas();
 			include "../vista/modulos/list-cursada.php";
