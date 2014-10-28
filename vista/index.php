@@ -41,6 +41,7 @@ if(isset($_GET['modulo'])){
 						<li class="dropdown">
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Comisión <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
+							<li><a href="../controlador/comision.php?action=listar">Listado</a></li>
 							<li><a href="../controlador/comision.php?action=agregar">Agregar</a></li>
 						  </ul>
 						</li>

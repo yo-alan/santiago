@@ -12,6 +12,7 @@ class Comision {
 	private $materia;
 	private $anio;
 	private $numero;
+	private $nombre_materia;
 	
 	function __construct(){
 		
@@ -22,6 +23,7 @@ class Comision {
 		$this->materia = 0;
 		$this->anio = 0;
 		$this->numero = 0;
+		$this->nombre_materia = " ";
 		
 	}
 	
@@ -34,7 +36,8 @@ class Comision {
 		
 		$conn = new Conexion();
 		
-		$sql = 'SELECT * FROM comision WHERE id_comision = :id_comision';
+		$sql = 'SELECT c.*, m.nombre FROM comision c, materia m WHERE id_comision = :id_comision AND
+		c.materia = m.codigo_materia';
 		
 		$consulta = $conn->prepare($sql);
 		
@@ -55,6 +58,7 @@ class Comision {
 			$c->materia = $results['materia'];
 			$c->anio = $results['anio'];
 			$c->numero = $results['numero'];
+			$c->nombre_materia = $results['nombre'];
 			
 		}catch(PDOException $e){
 			
@@ -72,6 +76,7 @@ class Comision {
 		
 		$sql = 'SELECT id_comision FROM comision';
 		
+		
 		$consulta = $conn->prepare($sql);
 		
 		$consulta->setFetchMode(PDO::FETCH_ASSOC);
@@ -84,7 +89,7 @@ class Comision {
 			
 			foreach($results as $r){
 				
-				$c = Cursada::cursada($r['id_comision']);
+				$c = Comision::comision($r['id_comision']);
 				
 				array_push($cs, $c);
 			}
@@ -268,5 +273,14 @@ class Comision {
 		
 		$this->numero=$numero;
 		$this->cambios=true;
+	}
+	
+	function getNombre_materia(){
+		return $this->nombre_materia;
+	}
+	
+	function setNombre_materia($nombre){
+		$this->nombre_materia = $numero;
+		$this->cambios = true;
 	}
 }

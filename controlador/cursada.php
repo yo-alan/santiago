@@ -12,7 +12,8 @@
 			include('../vista/modulos/form-cursada.php');
         }else if($accion == 'listar'){
 			include "../modelo/cursada.class.php";
-			$cs = Cursada::cursadas();
+			$cs = New Cursada();
+			$cp = $cs->cursadas();
 			include "../vista/modulos/list-cursada.php";
 			//header('Location: ../vista/index.php?modulo=list-cursada');
 		}else

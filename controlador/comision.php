@@ -16,6 +16,13 @@
 			include('../vista/modulos/form-cursada.php');
 		else if($accion == 'eliminar')
 			include('../vista/modulos/form-cursada.php');
+		else if($accion == 'listar'){
+			include '../modelo/comision.class.php';
+			$cs = New Comision;
+			$cp = $cs->comisiones();
+			include '../vista/modulos/list-comision.php';
+			
+		}
 		else
 			header("Location: ../index.php");
 		
