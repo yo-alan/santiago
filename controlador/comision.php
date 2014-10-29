@@ -8,8 +8,7 @@
 		
 		if($accion == 'agregar'){
 			include "../modelo/cursada.class.php";
-			$cs = New Cursada();
-			$cp = $cs->cursadas();
+			$cp = Cursada::cursadas();
 			include "../vista/modulos/agregarComision.php";
 			//header ('Location: ../vista/modulos/form-cursada.php');
 		}else if($accion == 'editar')
