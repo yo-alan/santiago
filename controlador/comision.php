@@ -1,4 +1,6 @@
 <?php
+
+	include '../modelo/conexion.class.php';
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");

@@ -1,6 +1,6 @@
 <?php
 
-include "conexion.class.php";
+
 
 class Clase {
 	

@@ -1,4 +1,6 @@
 <?php
+	
+	include '../modelo/conexion.class.php';
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
 	
@@ -12,7 +14,9 @@
 			include('../vista/modulos/form-cursada.php');
         }else if($accion == 'listar'){
 			include "../modelo/cursada.class.php";
+			include "../modelo/comision.class.php";
 			$cp = Cursada::cursadas();
+			$c1 = Comision::comisiones();
 			include "../vista/modulos/list-cursada.php";
 		}else
 			header("Location: ../index.php");
