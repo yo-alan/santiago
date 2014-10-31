@@ -55,11 +55,11 @@
             <input type="hidden" name="idcursada" id="idcursada">
             <label for="idcomision">Elija una Comision:</label>
             <select name="idcomision" id="idcomision">
-                <?php /*foreach($c1 as $cm):?>
+                <?php foreach($c1 as $cm):?>
                     <option value="<?php echo $cm->getId_comision()?>">
                             <?php echo $cm->getCarrera()?>|<?php echo $cm->getMateria()?>|<?php echo $cm->getAnio()?>|<?php echo $cm->getNumero()?>
                     </option>
-                <?php endforeach;*/?>
+                <?php endforeach;?>
             </select>
         </form>
       </div>
