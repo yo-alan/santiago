@@ -1,6 +1,6 @@
 <?php
 
-
+include "conexion.class.php";
 
 class Alumno{
 	
@@ -29,17 +29,19 @@ class Alumno{
 	static function alumno($legajo){
 		//Metodo estatico que retorna un alumno que posea el $legajo
 		
-		$c = new Comision();
+		$a = new Alumno();
 		
 		$conn = new Conexion();
 		
-		$sql = 'SELECT * FROM comision WHERE id_comision = :id_comision';
+		$sql = 'SELECT nombre, apellido, p.documento, f_nacimiento, legajo, direccion
+				FROM persona p, alumno a
+				WHERE a.documento = p.documento AND legajo = :legajo';
 		
 		$consulta = $conn->prepare($sql);
 		
 		$consulta->setFetchMode(PDO::FETCH_ASSOC);
 		
-		$consulta->bindParam(':id_comision', $id_comision, PDO::PARAM_INT);
+		$consulta->bindParam(':legajo', $legajo, PDO::PARAM_INT);
 		
 		try{
 			
@@ -47,26 +49,53 @@ class Alumno{
 			
 			$results = $consulta->fetch();
 			
-			$c->nuevo = false;
-			$c->cambios = false;
-			$c->id_comision = $results['id_comision'];
-			$c->carrera = $results['carrera'];
-			$c->materia = $results['materia'];
-			$c->anio = $results['anio'];
-			$c->numero = $results['numero'];
+			$a->nombre = $results['nombre'];
+			$a->apellido = $results['apellido'];
+			$a->documento = $results['documento'];
+			$a->f_nacimiento = $results['f_nacimiento'];
+			$a->legajo = $results['legajo'];
+			$a->direccion = $results['direccion'];
+			$a->nuevo = false;
+			$a->cambios = false;
 			
 		}catch(PDOException $e){
 			
 		}
 		
-		return $c;
+		return $a;
 	}
 	
 	static function alumnos(){
-		//Metodo estatico que retorna el listado de alumnos en la base
+		//MMETODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS DE LA BASE
 		
+		$as = array();
 		
+		$conn = new Conexion();
 		
+		$sql = 'SELECT legajo FROM alumno';
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			foreach($results as $r){
+				
+				$a = Alumno::alumno($r['legajo']);
+				
+				array_push($as, $a);
+			}
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $as;
 	}
 	
 	//INICIO METODOS DE CLASE
@@ -88,6 +117,9 @@ class Alumno{
 		
 		if($this->direccion == "")
 			throw new Exception("La dirección no es válida.");
+		
+		if($this->legajo == "")
+			throw new Exception("El número de legajo no es válido.");
 		
 		$conn = new Conexion();
 		
@@ -139,6 +171,32 @@ class Alumno{
 	function eliminar(){
 		//Metodo de clase que elimina un alumno de la base
 		
+		if(!$this->nuevo)
+			return;
+		
+		if($this->documento == 0)
+			return;
+		
+		try{
+			$sql = "DELETE FROM alumno WHERE documento = :documento";
+			
+			$stmt = $conn->prepare($sql);
+			
+			$stmt->bindParam(':documento', $this->documento, PDO::PARAM_INT);
+			
+			$stmt->execute();
+			
+			$sql = "DELETE FROM persona WHERE documento = :documento";
+			
+			$stmt = $conn->prepare($sql);
+			
+			$stmt->bindParam(':documento', $this->documento, PDO::PARAM_INT);
+			
+			$stmt->execute();
+			
+		} catch(PDOException $e){
+			throw new Exception("No pude eliminarme de la base: ". $e->getMessage());
+		}
 		
 	}
 	
