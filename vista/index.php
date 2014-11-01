@@ -57,8 +57,17 @@ if(isset($_GET['modulo'])){
 				</nav>
 			</div>
 		</header>
-        <div class="col-md-12">
-        <?php include $contenido; ?>
-        </div>
+		<article>
+			<?php if(isset($estado)): ?>
+				<div class="container col-md-6 col-md-offset-3 alert alert-<?php echo $estado; ?>" style="width: 50%">
+					<p class="text-<?php echo $estado; ?> text-center">
+						<strong><?php echo $mensaje; ?></strong>
+					</p>
+				</div>
+			<?php endif; ?>
+			<div class="col-md-12">
+				<?php  ?>
+			</div>
+		</article>
 	</body>
 </html>
