@@ -6,7 +6,7 @@ if(isset($_GET['modulo'])){
 ?>
 <html>
 	<head>
-		<title>Bienvenido!!!</title>
+		<title>Bedelía | Pagina de inicio</title>
 		<meta charset="utf-8">
 		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
 		<link rel="Stylesheet" href="../librerias/css/default.css">

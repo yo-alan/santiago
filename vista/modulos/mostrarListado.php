@@ -16,7 +16,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>Listado de alumnos</title>
+    <title>Bedelía | Listado de alumnos</title>
  
     <link href="../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
      <link href="../../librerias/datepicker/css/datepicker.css" rel="stylesheet" media="screen">

@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<title>Bedelía | Listado de cursadas</title>
 		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
 		<link rel="Stylesheet" href="../librerias/css/default.css">
         <link rel="stylesheet" href="../librerias/css/jquery.dataTables.css">

@@ -2,7 +2,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
-		<title>Crear una clase nueva</title>
+		<title>Bedelía | Crear una clase nueva</title>
 		<link href="../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="../../librerias/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
 		<script language = "JavaScript" src="../../librerias/js/jquery-1.11.1.min.js"></script>
