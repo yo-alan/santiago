@@ -1,7 +1,5 @@
 <?php
 
-include "conexion.class.php";
-
 class Alumno{
 	
 	private $nuevo;
