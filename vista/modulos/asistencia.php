@@ -53,38 +53,26 @@
 			</div>
 		</header>
 		<article>
-			<div class='container'>
-				<ol class = 'breadcrumb'>
-					<li><a href = '../index.php'>Inicio</a></li>
-					<li class = 'active'>Alumnos</li>
-				</ol>
-			</div>
 			<div class="container">
-				<div class="jumbotron">
-					<table class="table table-striped tablaData">
+				<div class="table-responsive">
+					<table class="table">
 						<thead>
 							<tr>
-								<th>Apellido</th>
-								<th>Nombre</th>
-								<th>Documento</th>
-								<th>F. Nacimiento</th>
-								<th>Legajo</th>
-								<th>Dirección</th>
+								<th>Alumno</th>
+								<th>Presente</th>
+								<th>Justificado</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach($as as $a):?>
+							<?php foreach($as as $a): ?>
 							<tr>
-								<td><?php echo $a->getApellido()?></td>
-								<td><?php echo $a->getNombre()?></td>
-								<td><?php echo $a->getDocumento()?></td>
-								<td><?php echo $a->getF_nacimiento()?></td>
-								<td><?php echo $a->getLegajo()?></td>
-								<td><?php echo $a->getDireccion()?></td>
+								<td><?php echo $a->getAlumno()?></td>
+								<td></td>
+								<td></td>
 							</tr>
-							<?php endforeach;?>
+							<?php endforeach; ?>
 						</tbody>
-					</table>    
+					</table>
 				</div>
 			</div>
 		</article>
