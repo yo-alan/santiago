@@ -21,14 +21,22 @@
 		<div class="container">
 			<div class="jumbotron">
                 <div>
-                    <form>
-                        <label>Carrera:</label>
-                        <select>
-                            <option></option>
+                    <form action="../controlador/alumno.php" method="post">
+                        <label for="filtroCarrera">Carrera:</label>
+                        <select name="filtroCarrera" id="filtroCarrera">
+                            <?php 
+                            foreach($carrera as $a):
+                                echo "<option value='$a'>$a</option>";
+                            endforeach;
+                            ?>
                         </select>
-                        <label>Cursada:</label>
-                        <select>
-                            <option></option>
+                        <label for="filtroCursada">Cursada:</label>
+                        <select name="filtroCursada" id="filtroCursada">
+                            <?php 
+                            foreach($anios as $a):
+                                echo "<option value='$a'>$a</option>";
+                            endforeach;
+                            ?>
                         </select>
                     </form>
                 </div>

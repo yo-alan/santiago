@@ -15,7 +15,10 @@
                 break;
             case 'eliminar':    include('../vista/modulos/form-alumno.php');
                 break;
-            case 'listar':      $as=Alumno::alumnos();
+            case 'listar':      
+                                $carrera=['ENF','RED','SFW'];
+                                $anios=['2009','2010','2011','2012','2013','2014'];                 
+                                $as=Alumno::alumnos();
                                 include('../vista/modulos/listadoAlumno.php');
                 break;
             default:            header("Location: ../index.php");
@@ -64,3 +67,7 @@
 		header ('Location: ../vista/modulos/msmExitoAlumno.php');
 		die();
 	}
+
+    function aniosHastaFecha(){
+        return $anios=['2009','2010','2011','2012','2013','2014'];
+    }
