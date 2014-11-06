@@ -96,6 +96,59 @@ class Alumno{
 		return $as;
 	}
 	
+	static function alumnosXcursada($anio,$carrera){
+		//MMETODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS de una cursada
+		
+		$as = array();
+		
+		$conn = new Conexion();
+		
+		$sql = 'SELECT
+					alu.documento,per.nombre nombrealumno,per.apellido,com_a.comision,com.carrera,car.nombre nombrecarrera,com.materia,mat.nombre nombremateria,com.anio,cur.cuatrimestre
+				FROM persona per
+				JOIN alumno alu ON per.documento = alu.documento
+				JOIN comision_alumno com_a ON alu.documento = com_a.alumno
+				JOIN comision com ON com_a.comision = com.id_comision
+				JOIN cursada cur ON com.carrera = cur.id_carrera AND com.materia = cur.materia AND com.anio = cur.anio
+				JOIN materia mat ON cur.materia = mat.codigo_materia
+				JOIN carrera car ON mat.id_carrera = car.id_carrera
+				WHERE cur.id_carrera = :nroCarrera AND cur.anio = :anioCursada
+				';
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$consulta->bindParam(':nroCarrera', $carrera, PDO::PARAM_INT);
+		
+		$consulta->bindParam(':anioCursada', $anio, PDO::PARAM_INT);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			/*
+			foreach($results as $r)
+			{
+				
+				$a = Alumno::alumno($r['legajo']);
+				
+				array_push($as, $a);
+			}
+			*/
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		/*return $as;*/
+		
+		return $results;
+		
+	}
+	
 	//INICIO METODOS DE CLASE
 	
 	function guardar(){
