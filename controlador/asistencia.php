@@ -10,6 +10,14 @@
 		
 		switch($accion)
 		{
+			case 'agregar':
+				// Corregir con la vista correcta
+				header('Location: ../vista/modulos/form-asistencia.php')
+				break;
+			case 'eliminar':
+				// Corregir con la vista correcta
+				include('../vista/modulos/form-asistencia.php');
+				break;
 			case 'listar':
 				// Corregir con la vista correcta (pendiente)
 				header('Location: ../vista/index.php?modulo=listado');
@@ -30,10 +38,12 @@
 	
 	$accion = $_POST['action'];
 
+	if($accion == 'agregar')
+		agregar();
 	if($accion == 'editar')
 		echo "editar";
-	if($accion == 'listar')
-		echo "listar";
+	if($accion == 'eliminar')
+		echo "eliminar";
 	else{
 		header("Location: ../index.php");
 		die();
@@ -41,3 +51,7 @@
 	
 	header("Location: ../index.php?result=exito");
 	die();
+
+	/*function agregar(){
+
+	}*/
