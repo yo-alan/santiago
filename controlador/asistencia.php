@@ -12,9 +12,9 @@
 		{
 			case 'listar':
 				// Corregir con la vista correcta (pendiente)
-				header('Location: ../vista/index.php?modulo=listado')
+				header('Location: ../vista/index.php?modulo=listado');
 				break;
-			case 'editar'
+			case 'editar':
 				// Corregir con la vista correcta
 				include('../vista/modulos/form-asistencia.php');
 			default:
