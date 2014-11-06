@@ -1,13 +1,7 @@
-<?php
-$contenido='';
-if(isset($_GET['modulo'])){
-    $contenido='modulos/'.$_GET['modulo'].'.php';
-}
-?>
 <html>
 	<head>
-		<title>Bedelía | Pagina de inicio</title>
 		<meta charset="utf-8">
+		<title>Bedelía | Registro de asistencias</title>
 		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
 		<link rel="Stylesheet" href="../librerias/css/default.css">
 		<script src="../librerias/js/jquery.js"></script>
@@ -59,15 +53,39 @@ if(isset($_GET['modulo'])){
 			</div>
 		</header>
 		<article>
-			<?php if(isset($estado)): ?>
-				<div class="container col-md-6 col-md-offset-3 alert alert-<?php echo $estado; ?>" style="width: 50%">
-					<p class="text-<?php echo $estado; ?> text-center">
-						<strong><?php echo $mensaje; ?></strong>
-					</p>
+			<div class='container'>
+				<ol class = 'breadcrumb'>
+					<li><a href = '../index.php'>Inicio</a></li>
+					<li class = 'active'>Alumnos</li>
+				</ol>
+			</div>
+			<div class="container">
+				<div class="jumbotron">
+					<table class="table table-striped tablaData">
+						<thead>
+							<tr>
+								<th>Apellido</th>
+								<th>Nombre</th>
+								<th>Documento</th>
+								<th>F. Nacimiento</th>
+								<th>Legajo</th>
+								<th>Dirección</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($as as $a):?>
+							<tr>
+								<td><?php echo $a->getApellido()?></td>
+								<td><?php echo $a->getNombre()?></td>
+								<td><?php echo $a->getDocumento()?></td>
+								<td><?php echo $a->getF_nacimiento()?></td>
+								<td><?php echo $a->getLegajo()?></td>
+								<td><?php echo $a->getDireccion()?></td>
+							</tr>
+							<?php endforeach;?>
+						</tbody>
+					</table>    
 				</div>
-			<?php endif; ?>
-			<div class="col-md-12">
-				<?php  ?>
 			</div>
 		</article>
 	</body>
