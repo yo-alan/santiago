@@ -1,5 +1,6 @@
 <?php
-
+	error_reporting(E_ALL);
+	ini_set("display_errors", 1);
 	include '../modelo/conexion.class.php';
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
@@ -12,19 +13,23 @@
 		{
 			case 'agregar':
 				// Corregir con la vista correcta
-				header('Location: ../vista/modulos/form-asistencia.php')
+				header('Location: ../vista/modulos/form-asistencia.php');
 				break;
 			case 'eliminar':
 				// Corregir con la vista correcta
 				include('../vista/modulos/form-asistencia.php');
 				break;
 			case 'listar':
-				// Corregir con la vista correcta (pendiente)
-				header('Location: ../vista/index.php?modulo=listado');
+				include('../modelo/asistencia.class.php');
+				
+				$as = Asistencia::asistencias();
+				
+				include('../vista/modulos/asistencia.php');
 				break;
 			case 'editar':
 				// Corregir con la vista correcta
 				include('../vista/modulos/form-asistencia.php');
+				break;
 			default:
 				header('Location: ../index.php');
 		}
