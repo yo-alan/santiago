@@ -1,26 +1,37 @@
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>Bedelía | Listado de alumnos</title>
-		<link rel="Stylesheet" href="css/bootstrap.css">
-		<link rel="Stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/jquery.dataTables.css">
-        <link rel="stylesheet" href="css/jquery.dataTables_themeroller.css">
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/listadosTabla.js"></script>
+		<title>Bedel&iacute;a | Listado de Alumnos</title>
+		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
+		<link rel="Stylesheet" href="../librerias/css/default.css">
+        <link rel="stylesheet" href="../librerias/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="../librerias/css/jquery.dataTables_themeroller.css">
+		<script src="../librerias/js/jquery.js"></script>
+		<script src="../librerias/js/bootstrap.js"></script>
+		<script src="../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+        <script src="../librerias/js/jquery.dataTables.min.js"></script>
+        <script src="../librerias/js/listadosTabla.js"></script>
 	</head>
 	<body>
 		<div class='container'>
 			<ol class = 'breadcrumb'>
-				<li><a href = 'index.php'>Inicio</a></li>
+				<li><a href = '../vista/index.php'>Inicio</a></li>
 				<li class = 'active'>Alumnos</li>
 			</ol>
 		</div>
 		<div class="container">
 			<div class="jumbotron">
+                <div>
+                    <form>
+                        <label>Carrera:</label>
+                        <select>
+                            <option></option>
+                        </select>
+                        <label>Cursada:</label>
+                        <select>
+                            <option></option>
+                        </select>
+                    </form>
+                </div>
 				<table class="table table-striped tablaData">
 					<thead>
 						<tr>
@@ -29,7 +40,7 @@
 							<th>Documento</th>
 							<th>F. Nacimiento</th>
 							<th>Legajo</th>
-							<th>Dirección</th>
+							<th>Direcci&oacute;n</th>
 						</tr>
 					</thead>
 					<tbody>
