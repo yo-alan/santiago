@@ -1,29 +1,29 @@
 <?php
-
 	include '../modelo/conexion.class.php';
+    include '../modelo/alumno.class.php';
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
+        
 		$accion = $_GET['action'];
-		
-		if($accion == 'agregar')
-			//include('../vista/modulos/form-alumno.php');
-			header ('Location: ../vista/modulos/form-alumno.php');
-		else if($accion == 'editar')
-			include('../vista/modulos/form-alumno.php');
-		else if($accion == 'eliminar')
-			include('../vista/modulos/form-alumno.php');
-        else if($accion == 'listar')
-			header('Location: ../vista/index.php?modulo=mostrarListado');
-		else
-			header("Location: ../index.php");
-		
-		die();
+        switch($accion){
+            case 'agregar':     include ('../vista/modulos/form-alumno.php');
+                break;
+            case 'editar':      include('../vista/modulos/form-alumno.php');
+                break;
+            case 'eliminar':    include('../vista/modulos/form-alumno.php');
+                break;
+            case 'listar':      $as=Alumno::alumnos();
+                                include('../vista/modulos/listadoAlumno.php');
+                break;
+            default:            header("Location: ../index.php");
+                break;
+        }
 	}
 	
-	if(!isset($_POST['action']))
+	/*if(!isset($_POST['action']))
 		header("Location: ../index.php");
 	
 	$accion = $_POST['action'];
@@ -41,7 +41,7 @@
 	
 	header("Location: ../index.php?result=exito");
 	die();
-	
+	*/
 	function agregar(){
 		
 		include "../modelo/alumno.class.php";

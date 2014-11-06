@@ -225,7 +225,7 @@ class Cursada {
 	
 	function setAnio($anio){
 		
-		if($anio > 3 && $anio < 1)
+		if($anio  < 2009)
 			return;
 		
 		$this->anio = $anio;

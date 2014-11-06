@@ -37,11 +37,7 @@
 				<div class = 'row'>
 					<div class = 'form-group col-lg-2'>
 						<label for = 'anio' class = 'control-label'>Año</label>
-						<select class = 'form-control' name = 'anio'>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
+                        <input type = 'text' class = 'form-control' name = 'anio'>
 					</div>
 				</div>
 				<div class = 'row'>

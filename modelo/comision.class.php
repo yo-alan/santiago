@@ -254,7 +254,7 @@ class Comision {
 	
 	function setAnio($anio){
 		
-		if($anio < 1 || $anio > 3)
+		if($anio < 2009)
 			return;
 		
 		$this->anio = $anio;
