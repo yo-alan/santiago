@@ -25,6 +25,8 @@
                                 }
                                 include('../vista/modulos/listadoAlumno.php');
                 break;
+            case 'print':
+                break;
             default:            header("Location: ../index.php");
                 break;
         }

@@ -46,7 +46,7 @@
                         <input type="submit" value="Listar" class=" btn">
                     </form>
                     <div class="col-md-2"></div>
-                    <a href="<?php echo $_SERVER['REQUEST_URI']?>" class="btn btn-primary glyphicon glyphicon-print">&nbsp;Imprimir</a>
+                    <a href="?action=print&filtroCarrera=<?php echo $_GET['filtroCarrera']?>&filtroAnio=<?php echo $_GET['filtroAnio']?>" class="btn btn-primary glyphicon glyphicon-print">&nbsp;Imprimir</a>
                 </div>
 				<table class="table table-striped tablaData">
 					<thead>
@@ -54,9 +54,9 @@
 							<th>Apellido</th>
 							<th>Nombre</th>
 							<th>Documento</th>
-							<th>F. Nacimiento</th>
-							<th>Legajo</th>
-							<th>Direcci&oacute;n</th>
+							<th>Anio</th>
+							<th>Carrera</th>
+							<th>Comision</th>
 						</tr>
 					</thead>
 					<tbody>
