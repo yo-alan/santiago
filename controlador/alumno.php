@@ -9,7 +9,7 @@
         
 		$accion = $_GET['action'];
         switch($accion){
-            case 'agregar':     include ('../vista/modulos/form-alumno.php');
+            case 'agregar':     include('../vista/modulos/form-alumno.php');
                 break;
             case 'editar':      include('../vista/modulos/form-alumno.php');
                 break;
@@ -17,8 +17,12 @@
                 break;
             case 'listar':      
                                 $carrera=['ENF','RED','SFW'];
-                                $anios=['2009','2010','2011','2012','2013','2014'];                 
-                                $as=Alumno::alumnos();
+                                $anios=['2009','2010','2011','2012','2013','2014']; 
+                                if(isset($_GET['filtroCursada']) && isset($_GET['filtroCarrera'])){
+                        $as=Alumno::alumnosXcursada($_GET['filtroCursada'],$_GET['filtroCarrera']);
+                                }else{
+                                $as=array();
+                                }
                                 include('../vista/modulos/listadoAlumno.php');
                 break;
             default:            header("Location: ../index.php");
