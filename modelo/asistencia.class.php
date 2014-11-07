@@ -210,6 +210,11 @@ class Asistencia{
 	
 	function setJustificada($justificada){
 		
+		if($justificada == "true")
+			$justificada = 1;
+		else if($justificada == "false")
+			$justificada = 0;
+		
 		$this->justificada = $justificada;
 		$this->cambios = true;
 	}

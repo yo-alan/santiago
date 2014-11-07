@@ -64,24 +64,28 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php $i = 0; ?>
 							<?php foreach($as as $a): ?>
 							<tr>
-								<td style="display:none;" name="documento" value="<?php echo $a->getDocumento(); ?>"></td>
-								<td><?php echo $a->getApellido(). ", ". $a->getNombre(); ?></td>
+								<td>
+									<input type="hidden" name="alumno<?php echo $i; ?>[documento]" value="<?php echo $a->getDocumento(); ?>">
+									<?php echo $a->getApellido(). ", ". $a->getNombre(); ?>
+								</td>
 								<td>
 									<div class="checkbox">
 										<label>
-											<input type="checkbox" name="presente">
+											<input type="checkbox" name="alumno<?php echo $i; ?>[presente]">
 										</label>
 									</div>
 								</td>
 								<td>
-									<select name="justificada">
-										<option value="false">No</option>
-										<option value="true">Si</option>
+									<select name="alumno<?php echo $i; ?>[justificada]">
+										<option value="0">No</option>
+										<option value="1">Si</option>
 									</select>
 								</td>
 							</tr>
+							<?php $i++; ?>
 							<?php endforeach; ?>
 						</tbody>
 					</table>

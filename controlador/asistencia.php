@@ -61,9 +61,20 @@
 
 	function registrar(){
 		
-		echo $_POST['documento']. "<br>";
-		echo $_POST['presente']. "<br>";
-		echo $_POST['justificada']. "<br>";
+		include "../modelo/asistencia.class.php";
+		
+		for($i = 0; $i < sizeof($_POST)-1; $i++){
+			
+			$a = new Asistencia();
+			
+			$a->setAlumno($_POST['alumno'. $i]['documento']);
+			$a->setPresente(isset($_POST['alumno'. $i]['presente']) ? 1 : 0);
+			$a->setJustificada($_POST['alumno'. $i]['justificada']);
+			
+			$a->guardar();
+			
+		}
+		
 		die();
 		
 	}
