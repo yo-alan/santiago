@@ -20,25 +20,33 @@
 		</div>
 		<div class="container">
 			<div class="jumbotron">
-                <div>
-                    <form action="../controlador/alumno.php" method="post">
-                        <label for="filtroCarrera">Carrera:</label>
-                        <select name="filtroCarrera" id="filtroCarrera">
-                            <?php 
-                            foreach($carrera as $a):
-                                echo "<option value='$a'>$a</option>";
-                            endforeach;
-                            ?>
-                        </select>
-                        <label for="filtroCursada">Cursada:</label>
-                        <select name="filtroCursada" id="filtroCursada">
-                            <?php 
-                            foreach($anios as $a):
-                                echo "<option value='$a'>$a</option>";
-                            endforeach;
-                            ?>
-                        </select>
+                <div class="col-md-12">
+                    <form action="../controlador/alumno.php" method="GET" class="form-inline col-md-10" role="form">
+                            <input type="hidden" name="action" value="listar">
+                        <div class="form-group">
+                            <label for="filtroCarrera">Carrera:</label>
+                            <select name="filtroCarrera" id="filtroCarrera" class="form-control">
+                                <?php 
+                                foreach($carrera as $a):
+                                    echo "<option value='$a'>$a</option>";
+                                endforeach;
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filtroCursada">Cursada:</label>
+                            <select name="filtroCursada" id="filtroCursada" class="form-control">
+                                <?php 
+                                foreach($anios as $a):
+                                    echo "<option value='$a'>$a</option>";
+                                endforeach;
+                                ?>
+                            </select>
+                        </div>    
+                        <input type="submit" value="Listar" class=" btn">
                     </form>
+                    <div class="col-md-2"></div>
+                    <a href="<?php echo $_SERVER['REQUEST_URI']?>" class="btn btn-primary glyphicon glyphicon-print">&nbsp;Imprimir</a>
                 </div>
 				<table class="table table-striped tablaData">
 					<thead>
@@ -52,19 +60,27 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($as as $a):?>
+						<?php
+                        if(count($as)>0){
+                            foreach($as as $a):?>
 						<tr>
-							<td><?php echo $a->getApellido()?></td>
-							<td><?php echo $a->getNombre()?></td>
-							<td><?php echo $a->getDocumento()?></td>
-							<td><?php echo $a->getF_nacimiento()?></td>
-							<td><?php echo $a->getLegajo()?></td>
-							<td><?php echo $a->getDireccion()?></td>
+							<td><?php echo $a['apellido']?></td>
+							<td><?php echo $a['nombrealumno']?></td>
+							<td><?php echo $a['documento']?></td>
+							<td><?php echo $a['anio']?></td>
+							<td><?php echo $a['carrera' ]?></td>
+							<td><?php echo $a['comision']?></td>
 						</tr>
-						<?php endforeach;?>
+						<?php endforeach;
+                        }else{
+                            echo '<tr>
+							         <td></td><td></td><td></td><td></td><td></td><td></td>
+						          </tr>';
+                        }
+                        ?>
 					</tbody>
 				</table>    
-			</div>
+			</div>   
 		</div>
 	</body>
 </html>
