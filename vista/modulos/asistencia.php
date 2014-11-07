@@ -1,7 +1,6 @@
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>Bedelía | Registro de asistencias</title>
+		<title>Bedel&iacute;a | Registro de asistencias</title>
 		<link rel="Stylesheet" href="../librerias/css/bootstrap.css">
 		<link rel="Stylesheet" href="../librerias/css/default.css">
 		<script src="../librerias/js/jquery.js"></script>
@@ -9,8 +8,8 @@
 		<script src="../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
 	</head>
 	<body>
-		<header >
-			<div class="col-md-12    container">
+		<header>
+			<div class="container col-md-12">
 				<nav class="navbar navbar-default" role="navigation">
 				  <div class="container-fluid">
 					<div class="navbar-header">
@@ -33,7 +32,7 @@
 						  </ul>
 						</li>
 						<li class="dropdown">
-						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Comisión <span class="caret"></span></a>
+						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Comisi&oacute;n <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
 							<li><a href="../controlador/comision.php?action=listar">Listado</a></li>
 							<li><a href="../controlador/comision.php?action=agregar">Agregar</a></li>
@@ -43,7 +42,7 @@
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Clases <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
 							<li><a href="../controlador/clase.php?action=agregar">Agregar</a></li>
-							<li><a href="../controlador/asistencia.php?action=listar">Registro de asistencias</a></li>
+							<li><a href="../controlador/asistencia.php?action=registrar">Registro de asistencias</a></li>
 						  </ul>
 						</li>
 					  </ul>
@@ -53,27 +52,45 @@
 			</div>
 		</header>
 		<article>
-			<div class="container">
-				<div class="table-responsive">
-					<table class="table">
+			<div class="container col-md-8 col-md-offset-2 alert alert-success">
+				<form role="form" class="form-horizontal" method="POST" action="asistencia.php">
+					<input type="hidden" name="action" value="registrar">
+					<table class="table table-bordered">
 						<thead>
 							<tr>
 								<th>Alumno</th>
 								<th>Presente</th>
-								<th>Justificado</th>
+								<th>Justificada</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php foreach($as as $a): ?>
 							<tr>
-								<td><?php echo $a->getAlumno()?></td>
-								<td></td>
-								<td></td>
+								<td style="display:none;" name="documento" value="<?php echo $a->getDocumento(); ?>"></td>
+								<td><?php echo $a->getApellido(). ", ". $a->getNombre(); ?></td>
+								<td>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="presente">
+										</label>
+									</div>
+								</td>
+								<td>
+									<select name="justificada">
+										<option value="false">No</option>
+										<option value="true">Si</option>
+									</select>
+								</td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
 					</table>
-				</div>
+					<div class="form-group">
+						<div class="col-md-offset-10">
+							<button type='submit' class='btn btn-primary'>Guardar</button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</article>
 	</body>

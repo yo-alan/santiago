@@ -19,12 +19,14 @@
 				// Corregir con la vista correcta
 				include('../vista/modulos/form-asistencia.php');
 				break;
-			case 'listar':
-				include('../modelo/asistencia.class.php');
+			case 'registrar':
 				
-				$as = Asistencia::asistencias();
+				include('../modelo/alumno.class.php');
+				
+				$as = Alumno::alumnos();
 				
 				include('../vista/modulos/asistencia.php');
+				
 				break;
 			case 'editar':
 				// Corregir con la vista correcta
@@ -43,8 +45,8 @@
 	
 	$accion = $_POST['action'];
 
-	if($accion == 'agregar')
-		agregar();
+	if($accion == 'registrar')
+		registrar();
 	if($accion == 'editar')
 		echo "editar";
 	if($accion == 'eliminar')
@@ -57,6 +59,11 @@
 	header("Location: ../index.php?result=exito");
 	die();
 
-	/*function agregar(){
-
-	}*/
+	function registrar(){
+		
+		echo $_POST['documento']. "<br>";
+		echo $_POST['presente']. "<br>";
+		echo $_POST['justificada']. "<br>";
+		die();
+		
+	}

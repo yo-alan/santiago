@@ -49,7 +49,7 @@ if(isset($_GET['modulo'])){
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Clases <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
 							<li><a href="../controlador/clase.php?action=agregar">Agregar</a></li>
-							<li><a href="../controlador/asistencia.php?action=listar">Registro de asistencias</a></li>
+							<li><a href="../controlador/asistencia.php?action=registrar">Registro de asistencias</a></li>
 						  </ul>
 						</li>
 					  </ul>
