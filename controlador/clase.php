@@ -1,6 +1,7 @@
 <?php
-
-	include '../modelo/conexion.class.php';
+	error_reporting(E_ALL);
+	ini_set("display_errors", 1);
+	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
 	
@@ -38,7 +39,6 @@
 		die();
 	}
 	
-	header("Location: ../index.php?result=exito");
 	die();
 
 	function agregar(){
@@ -59,10 +59,11 @@
 		
 		try{
 			$c->guardar();
+			
+			header('Location: ../vista/modulos/msmExito.php');
 		} catch(Exception $e){
 			header("Location: ../vista/modulos/msmError.php?msg=". $e->getMessage());
-			die();
 		}
-			header ('Location: ../vista/modulos/msmExito.php');
-			die();
+		
+		die();
 	}

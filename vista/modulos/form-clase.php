@@ -76,13 +76,13 @@
 				<div class="form-group">
 					<label for="hora_inicio" class="col-sm-2 control-label">Hora de inicio</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="hora_inicio">
+						<input type="time" class="form-control" name="hora_inicio">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="hora_fin" class="col-sm-2 control-label">Hora de finalizacion</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="hora_fin">
+						<input type="time" class="form-control" name="hora_fin">
 					</div>
 				</div>
 				<div class="form-group">
@@ -118,13 +118,13 @@
 				<div class="form-group">
 					<label for="hora_ingreso_profesor" class="col-sm-2 control-label">Hora ingreso</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="hora_ingreso_profesor">
+						<input type="time" class="form-control" name="hora_ingreso_profesor">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="hora_salida_profesor" class="col-sm-2 control-label">Hora salida</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="hora_salida_profesor">
+						<input type="time" class="form-control" name="hora_salida_profesor">
 					</div>
 				</div>
 				<button type = "submit" class =  "btn btn-primary col-md col-md-offset-4">Guardar</button>

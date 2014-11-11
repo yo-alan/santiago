@@ -1,7 +1,6 @@
 <?php
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
-	include '../modelo/conexion.class.php';
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
@@ -22,8 +21,10 @@
 			case 'registrar':
 				
 				include('../modelo/alumno.class.php');
+				include('../modelo/clase.class.php');
 				
-				$as = Alumno::alumnos();
+				$as = array();
+				//$as = Clase::getAlumnos();
 				
 				include('../vista/modulos/asistencia.php');
 				

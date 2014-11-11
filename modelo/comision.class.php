@@ -1,7 +1,7 @@
 <?php
 
-
-include "alumno.class.php";
+require_once "conexion.class.php";
+require_once "alumno.class.php";
 
 class Comision {
 	

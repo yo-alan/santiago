@@ -1,6 +1,7 @@
 <?php
 
-
+require_once "conexion.class.php";
+require_once "alumno.class.php";
 
 class Clase {
 	
@@ -27,7 +28,7 @@ class Clase {
 		$this->hora_fin;
 		$this->aula;
 		$this->dictada;
-		$this->recuperatoria_de;
+		$this->recuperatoria_de = NULL;
 		$this->comision;
 		$this->profesor;
 		$this->hora_ingreso_profesor;
@@ -158,6 +159,44 @@ class Clase {
 		
 	}
 	
+	function getAlumnos(){
+		
+		$as = array();
+		
+		$sql = 'SELECT a.legajo FROM alumno a, comision_alumno ca, comision c, clase cl
+				WHERE a.documento = ca.alumno
+				AND c.id_comision = ca.comision
+				AND c.id_comision = cl.comision
+				AND cl.id_clase = :id_clase';
+		
+		$conn = new Conexion();
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$consulta->bindParam(':id_clase', $this->id_clase, PDO::PARAM_INT);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			foreach($results as $r){
+				
+				$a = Alumno::alumno($r['legajo']);
+				
+				array_push($as, $a);
+			}
+			
+		}catch(PDOException $e){
+			throw new Exception("Ocurrio un error: ". $e->getMessage());
+		}
+		
+		return $as;
+	}
+	
 	function getObligatorio(){
 		return $this->obligatorio;
 	}
@@ -224,7 +263,8 @@ class Clase {
 	
 	function setRecuperatoria_de($recuperatoria_de){
 		
-		//VALIDACIONES
+		if($this->recuperatoria_de == '')
+			return;
 		
 		$this->recuperatoria_de = $recuperatoria_de;
 		$this->cambios = true;
