@@ -14,7 +14,7 @@
 	<body>
 		<div class='container'>
 			<ol class = 'breadcrumb'>
-				<li><a href = '../vista/index.php'>Inicio</a></li>
+				<li><a href = '../index.php'>Inicio</a></li>
 				<li class = 'active'>Alumnos</li>
 			</ol>
 		</div>
