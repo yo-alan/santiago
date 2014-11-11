@@ -16,8 +16,8 @@
             case 'eliminar':    include('../vista/modulos/form-alumno.php');
                 break;
             case 'listar':      
-                                $carrera=['ENF','RED','SFW'];
-                                $anios=['2009','2010','2011','2012','2013','2014']; 
+                                $carrera=array('ENF','RED','SFW');
+                                $anios=aniosHastaFecha(); 
                                 if(isset($_GET['filtroCursada']) && isset($_GET['filtroCarrera'])){
                         $as=Alumno::alumnosXcursada($_GET['filtroCursada'],$_GET['filtroCarrera']);
                                 }else{
@@ -75,5 +75,10 @@
 	}
 
     function aniosHastaFecha(){
-        return $anios=['2009','2010','2011','2012','2013','2014'];
+        $anios=array();
+        $anioActual=date('Y');
+        for($i=2009; $i <= $anioActual; $i++){
+            $anios[]=$i;
+        }
+        return $anios;
     }
