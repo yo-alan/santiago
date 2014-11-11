@@ -22,7 +22,7 @@ class Alumno{
 		$this->direccion = "";
 	}
 	
-	//INICIO METODOS ESTATICOS
+//----------------- INICIO METODOS ESTATICOS --------------------------------------------
 	
 	static function alumno($legajo){
 		//Metodo estatico que retorna un alumno que posea el $legajo
@@ -96,8 +96,12 @@ class Alumno{
 		return $as;
 	}
 	
-	static function alumnosXcursada($anio,$carrera){
-		//MMETODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS de una cursada
+	static function alumnosXcursada($anio,$carrera)
+        {/*
+         * q hace: devuelve un array asociativo con todos los alumnos de una cursada y carrera
+         * previamente seleccionada.
+         * 
+         */
 		
 		$as = array();
 		
@@ -129,27 +133,34 @@ class Alumno{
 			
 			$results = $consulta->fetchall();
 			
-			/*
-			foreach($results as $r)
-			{
-				
-				$a = Alumno::alumno($r['legajo']);
-				
-				array_push($as, $a);
-			}
-			*/
-			
 		}catch(PDOException $e){
 			
 		}
 		
-		/*return $as;*/
-		
 		return $results;
 		
 	}
+        
+        static function imprimeAlumnosXcursada($anio,$carrera)
+        {/*
+         * q hace: genera un array ezTable() con todos los alumnos de una cursada y carrera
+         * previamente seleccionado.
+         * q devuelve: un objeto Cezpdf conteniendo un ezTable() que debe ser abierta por el controlador correspondiente
+         * para generar un pdf en el navegador
+         * 
+         */
+            
+            $pdf = new Cezpdf('a4','landscape');
+            $pdf->selectFont('../librerias/ezPDF/fonts/Helvetica.afm');
+            $dato = Alumno::alumnosXcursada($anio,$carrera);
 	
-	//INICIO METODOS DE CLASE
+            $pdf->ezTable($dato);
+            //$pdf->ezStream(); esta linea va en el controlador alumno.php en el 'case print:'
+            return $pdf;
+            
+        }
+	
+//------------------- INICIO METODOS DE CLASE ---------------------------------------------------
 	
 	function guardar(){
 		//Metodo de clase que guarda un alumno en la base
