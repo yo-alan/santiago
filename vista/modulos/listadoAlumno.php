@@ -22,7 +22,9 @@
 			<div class="jumbotron">
                 <div class="col-md-12">
                     <form action="../controlador/alumno.php" method="GET" class="form-inline col-md-10" role="form">
-                            <input type="hidden" name="action" value="listar">
+                        <fieldset>
+                            <legend>Seleccione Carrera y Cursada:</legend>
+                        <input type="hidden" name="action" value="listar">
                         <div class="form-group">
                             <label for="filtroCarrera">Carrera:</label>
                             <select name="filtroCarrera" id="filtroCarrera" class="form-control">
@@ -44,6 +46,7 @@
                             </select>
                         </div>    
                         <input type="submit" value="Listar" class=" btn">
+                            </fieldset>    
                     </form>
                     <div class="col-md-2"></div>
                     <a href="?action=print&filtroCarrera=<?php echo $_GET['filtroCarrera']?>&filtroCursada=<?php echo $_GET['filtroCursada']?>" class="btn btn-primary glyphicon glyphicon-print">&nbsp;Imprimir</a>

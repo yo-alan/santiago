@@ -40,7 +40,7 @@
                             <td><?php echo $c->getAnio()?></td>
                             <td><?php echo $c->getNumero()?></td>
                             <td>
-                                <a href="?action=enlazarAlumno"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                <a href="?action=enlazarAlumno&comision=<?php echo $c->getId_comision()?>"><i class="glyphicon glyphicon-list-alt"></i></a>
                             </td>
                         <?php endforeach;?>
                     </tbody>
