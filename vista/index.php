@@ -20,7 +20,7 @@ if(isset($_GET['modulo'])){
 				<nav class="navbar navbar-default" role="navigation">
 				  <div class="container-fluid">
 					<div class="navbar-header">
-					  <a class="navbar-brand" href="#">Inicio</a>
+					  <a class="navbar-brand" href="../index.php">Inicio</a>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					  <ul class="nav navbar-nav">
