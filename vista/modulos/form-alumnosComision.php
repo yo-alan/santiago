@@ -41,11 +41,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($aluEnCom as $al): ?>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $al->getLegajo()?></td>
+                                <td><?php echo $al->getDocumento()?></td>
+                                <td><?php echo $al->getApellido().','.$al->getNombre()?></td>
                             </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -66,11 +68,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($aluSinCom as $al): ?>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><?php echo $al->getLegajo()?></td>
+                                <td><?php echo $al->getDocumento()?></td>
+                                <td><?php echo $al->getApellido().','.$al->getNombre()?></td>
                             </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

@@ -1,5 +1,5 @@
 <head>
-    <meta charset="utf-8">
+    <meta charset="iso-8859-1">
     <title><?php echo $tituloModulo;?></title>
     <link rel="Stylesheet" href="../librerias/css/bootstrap.css">
     <link rel="Stylesheet" href="../librerias/css/default.css">

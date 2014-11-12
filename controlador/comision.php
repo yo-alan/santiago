@@ -3,7 +3,8 @@
 	ini_set("display_errors", 1);
 	include '../modelo/conexion.class.php';
     include '../modelo/comision.class.php';
-    include "../modelo/cursada.class.php";
+    include '../modelo/cursada.class.php';
+    require_once '../modelo/alumno.class.php';
 
     $tituloModulo='Bedel&iacute;a | Gestionar Alumnos de Comisi&oacute;n';
     $miJs='';
@@ -34,6 +35,8 @@
                                 if( isset($_GET['comision']) && ($_GET['comision']!='') ){
                                     $c=$_GET['comision'];
                                     $com=Comision::comision($_GET['comision']);
+                                    $aluEnCom=Alumno::alumnosEnComision($c);
+                                    $aluSinCom=Alumno::alumnoSinComision();
                                     include '../vista/modulos/form-alumnosComision.php';
                                     
                                 }else{

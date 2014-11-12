@@ -95,6 +95,91 @@ class Alumno{
 		
 		return $as;
 	}
+    
+    static function alumnosEnComision($comision){
+		//METODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS DE UNA COMISION
+		
+		$as = array();
+		
+		$conn = new Conexion();
+		
+		$sql = "SELECT 
+                    a.legajo,a.documento,concat(p.apellido,', ',p.nombre) AS nombre 
+                FROM 
+                    comision_alumno ca 
+                JOIN 
+                    alumno a ON ca.alumno=a.documento
+                JOIN 
+                    persona p ON a.documento=p.documento
+                WHERE 
+                    ca.comision = :nroComision;";
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+        $consulta->bindParam(':nroComision', $comision, PDO::PARAM_INT);
+        
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			foreach($results as $r){
+				
+				$a = Alumno::alumno($r['legajo']);
+				
+				array_push($as, $a);
+			}
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $as;
+	}
+    
+    static function alumnoSinComision(){
+		//METODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS SIN UNA COMISION
+		
+		$as = array();
+		
+		$conn = new Conexion();
+		
+		$sql = "SELECT 
+                    ca.*,a.legajo,a.documento,concat(p.apellido,', ',p.nombre) as nombre 
+                FROM 
+                    alumno a 
+                JOIN 
+                    persona p ON a.documento=p.documento
+                LEFT JOIN 
+                    comision_alumno ca ON ca.alumno=a.documento
+                WHERE ca.comision IS NULL;";
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+        
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			foreach($results as $r){
+				
+				$a = Alumno::alumno($r['legajo']);
+				
+				array_push($as, $a);
+			}
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $as;
+	}
 	
 	static function alumnosXcursada($anio,$carrera)
         {/*
