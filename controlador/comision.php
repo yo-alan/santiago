@@ -7,7 +7,7 @@
     require_once '../modelo/alumno.class.php';
 
     $tituloModulo='Bedel&iacute;a | Gestionar Alumnos de Comisi&oacute;n';
-    $miJs='';
+    $miJs='<script src="../librerias/js/alumnosComision.js"></script>';
 
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");

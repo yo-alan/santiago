@@ -9,6 +9,6 @@
     <script src="../librerias/js/bootstrap.js"></script>
     <script src="../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
     <script src="../librerias/js/jquery.dataTables.min.js"></script>
-    <script src="../librerias/js/listadosTabla.js"></script>    </script>
+    <script src="../librerias/js/listadosTabla.js"></script>
     <?php echo $miJs; ?>
 </head>
