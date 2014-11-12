@@ -2,31 +2,49 @@
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 	include '../modelo/conexion.class.php';
-	
+    include '../modelo/comision.class.php';
+    include "../modelo/cursada.class.php";
+
+    $tituloModulo='Bedel&iacute;a | Enlazar Alumnos a comisi&oacute;n';
+    $miJs='';
+
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		$accion = $_GET['action'];
 		
-		if($accion == 'agregar'){
-			include "../modelo/cursada.class.php";
-			$cp = Cursada::cursadas();
-			include "../vista/modulos/agregarComision.php";
-			//header ('Location: ../vista/modulos/form-cursada.php');
-		}else if($accion == 'editar')
-			include('../vista/modulos/form-cursada.php');
-		else if($accion == 'eliminar')
-			include('../vista/modulos/form-cursada.php');
-		else if($accion == 'listar'){
-			include '../modelo/comision.class.php';
-			$cp = Comision::comisiones();
-			include '../vista/modulos/list-comision.php';
-			
-		}
-		else
-			header("Location: ../index.php");
-		
+         switch($accion){
+            case 'agregar':     $cp = Cursada::cursadas();
+                                include "../vista/modulos/agregarComision.php";
+                break;
+            case 'editar':      include('../vista/modulos/form-cursada.php');
+                break;
+            case 'eliminar':    include('../vista/modulos/form-cursada.php');
+                break;
+            case 'listar':      $cp = Comision::comisiones();
+                                include '../vista/modulos/list-comision.php';
+                break;
+            case 'addAlumno':   
+                                $breadcrumb='<ol class="breadcrumb col-md-12">
+                                              <li><a href="../index.php">Inicio</a></li>
+                                              <li><a href="../controlador/comision.php?action=listar">Listado Comisiones</a></li>
+                                              <li class="active">Enlazar Alumno</li>
+                                            </ol>';
+                                if( isset($_GET['comision']) && ($_GET['comision']!='') ){
+                                    $c=$_GET['comision'];
+                                    $com=Comision::comision($_GET['comision']);
+                                    include '../vista/modulos/form-alumnosComision.php';
+                                    
+                                }else{
+                                echo 'no hay comision';
+                                }
+                break;
+            case 'print':
+                break;
+            default:            header("Location: ../index.php");
+                break;
+        }
 		die();
 	}
 	
