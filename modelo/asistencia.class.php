@@ -200,6 +200,7 @@ class Asistencia{
 	
 	function setPresente($presente){
 		
+		$this->justificada = NULL;
 		$this->presente = $presente;
 		$this->cambios = true;
 	}
@@ -209,6 +210,9 @@ class Asistencia{
 	}
 	
 	function setJustificada($justificada){
+		
+		if($this->presente == 1)
+			return;
 		
 		if($justificada == "true")
 			$justificada = 1;

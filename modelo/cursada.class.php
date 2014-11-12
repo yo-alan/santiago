@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Cursada {
 	
 	private $cambios;
