@@ -5,7 +5,7 @@
     include '../modelo/comision.class.php';
     include "../modelo/cursada.class.php";
 
-    $tituloModulo='Bedel&iacute;a | Enlazar Alumnos a comisi&oacute;n';
+    $tituloModulo='Bedel&iacute;a | Gestionar Alumnos de Comisi&oacute;n';
     $miJs='';
 
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
@@ -29,7 +29,7 @@
                                 $breadcrumb='<ol class="breadcrumb col-md-12">
                                               <li><a href="../index.php">Inicio</a></li>
                                               <li><a href="../controlador/comision.php?action=listar">Listado Comisiones</a></li>
-                                              <li class="active">Enlazar Alumno</li>
+                                              <li class="active">Gestionar Alumnos</li>
                                             </ol>';
                                 if( isset($_GET['comision']) && ($_GET['comision']!='') ){
                                     $c=$_GET['comision'];

@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
     <?php include '../vista/header.php'?>
     <body>
@@ -31,15 +31,49 @@
                 <div class="panel-heading">
                     Alumnos en Comision
                 </div>
-                <div class="panel-body">pepe</div>
+                <div class="panel-body">
+                    <table class="table table-striped tablaData-simple" id="tablaEnComision">
+                        <thead>
+                            <tr>
+                                <th>Legajo</th>
+                                <th>DNI</th>
+                                <th>Apellido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>    
         </div>
         <div class="container col-md-6">
-            <div class="panel panel-info">
+            <div class="panel panel-warning">
                 <div class="panel-heading">
                     Alumnos sin Comision
                 </div>    
-                <div class="panel-body">pompin</div>
+                <div class="panel-body">
+                    <table class="table table-striped tablaData-simple" id="tablaSinComision">
+                        <thead>
+                            <tr>
+                                <th>Legajo</th>
+                                <th>DNI</th>
+                                <th>Apellido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </body>

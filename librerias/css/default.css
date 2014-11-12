@@ -3,6 +3,6 @@ body {
     margin: 0;
 }
 
-table td {
+table td,table th {
     text-align: center;
 }
