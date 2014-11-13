@@ -2,6 +2,7 @@
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 	
+	include_once "../modelo/clase.class.php";
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
 	
@@ -14,7 +15,7 @@
 		}else if($accion == 'eliminar'){
 			include('../vista/modulos/form-clase.php');
         }else if($accion == 'listar'){
-			include "../modelo/clase.class.php";
+			include_once "../modelo/clase.class.php";
 			$cs = Clase::clases();
 			include "../vista/modulos/list-clase.php";
 			//header('Location: ../vista/index.php?modulo=list-clase');
@@ -43,7 +44,6 @@
 
 	function agregar(){
 		
-		include "../modelo/clase.class.php";
 		$c = new Clase();
 		
 		$c->setObligatorio($_POST['obligatorio']);

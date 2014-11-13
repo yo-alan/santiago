@@ -18,6 +18,15 @@
 				// Corregir con la vista correcta
 				include('../vista/modulos/form-asistencia.php');
 				break;
+			case 'seleccionarClase':
+				
+				include('../modelo/clase.class.php');
+				
+				$cs = Clase::clases();
+				
+				include('../vista/modulos/seleccionarClase.php');
+				
+				break;
 			case 'registrar':
 				
 				include('../modelo/alumno.class.php');

@@ -1,6 +1,6 @@
 <?php
-	include '../modelo/conexion.class.php';
-    include '../modelo/alumno.class.php';
+	include_once '../modelo/conexion.class.php';
+	include_once "../modelo/alumno.class.php";
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
@@ -52,8 +52,6 @@
 	die();
 	*/
 	function agregar(){
-		
-		include "../modelo/alumno.class.php";
 		
 		$a = new Alumno();
 		

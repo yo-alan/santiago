@@ -1,6 +1,6 @@
 <?php
 	
-	include '../modelo/conexion.class.php';
+	include_once '../modelo/conexion.class.php';
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
 	
@@ -13,8 +13,8 @@
 		}else if($accion == 'eliminar'){
 			include('../vista/modulos/form-cursada.php');
         }else if($accion == 'listar'){
-			include "../modelo/cursada.class.php";
-			include "../modelo/comision.class.php";
+			include_once "../modelo/cursada.class.php";
+			include_once "../modelo/comision.class.php";
 			$cp = Cursada::cursadas();
 			$c1 = Comision::comisiones();
 			include "../vista/modulos/list-cursada.php";
@@ -45,7 +45,7 @@
 
 	function agregar(){
 		
-		include "../modelo/cursada.class.php";
+		include_once "../modelo/cursada.class.php";
 		$c = new Cursada();
 		
 		$c->setId_carrera($_POST['carrera']);
@@ -63,7 +63,7 @@
 			header("Location: ../vista/modulos/msmError.php?msg=". $e->getMessage());
 			die();
 		}
-			header ('Location: ../vista/modulos/msmExito.php');
-			die();
+		header ('Location: ../vista/modulos/msmExito.php');
+		die();
 	}
 ?>

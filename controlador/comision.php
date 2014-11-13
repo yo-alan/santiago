@@ -1,9 +1,9 @@
 <?php
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
-	include '../modelo/conexion.class.php';
-    include '../modelo/comision.class.php';
-    include '../modelo/cursada.class.php';
+	include_once '../modelo/conexion.class.php';
+    include_once '../modelo/comision.class.php';
+    include_once '../modelo/cursada.class.php';
     require_once '../modelo/alumno.class.php';
 
     $tituloModulo='Bedel&iacute;a | Gestionar Alumnos de Comisi&oacute;n';
@@ -103,7 +103,7 @@
 	
 	function agregar(){
 		
-		include "../modelo/comision.class.php";
+		include_once "../modelo/comision.class.php";
 		
 		
 		$c = new Comision();
@@ -115,11 +115,11 @@
 		
 		try{
 			$c->guardar();
+			
+			header('Location: ../vista/modulos/msmExitoComision.php');
 		} catch(Exception $e){
 			header("Location: ../vista/modulos/msmErrorComision.php?msg=". $e->getMessage());
-			die();
 		}
 		
-		header ('Location: ../vista/modulos/msmExitoComision.php');
 		die();
 	}
