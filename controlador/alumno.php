@@ -1,6 +1,7 @@
 <?php
 	include_once '../modelo/conexion.class.php';
 	include_once "../modelo/alumno.class.php";
+	include_once '../librerias/ezPDF/class.ezpdf.php';
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
@@ -19,13 +20,15 @@
                                 $carrera=array('ENF','RED','SFW');
                                 $anios=aniosHastaFecha(); 
                                 if(isset($_GET['filtroCursada']) && isset($_GET['filtroCarrera'])){
-                        $as=Alumno::alumnosXcursada($_GET['filtroCursada'],$_GET['filtroCarrera']);
+									$as=Alumno::alumnosXcursada($_GET['filtroCursada'],$_GET['filtroCarrera']);
                                 }else{
-                                $as=array();
+									$as=array();
                                 }
                                 include('../vista/modulos/listadoAlumno.php');
                 break;
             case 'print':
+				$pdf=Alumno::imprimeAlumnosXcursada($_GET['filtroCursada'],$_GET['filtroCarrera']);
+				$pdf->ezStream();
                 break;
             default:            header("Location: ../index.php");
                 break;
