@@ -64,7 +64,7 @@ class Alumno{
 	}
 	
 	static function alumnos(){
-		//MMETODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS DE LA BASE
+		//METODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS DE LA BASE
 		
 		$as = array();
 		

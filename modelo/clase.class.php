@@ -1,6 +1,7 @@
 <?php
 
 require_once "conexion.class.php";
+//require_once "profesor.class.php";
 require_once "alumno.class.php";
 
 class Clase {
@@ -69,6 +70,7 @@ class Clase {
 			$c->dictada = $results['dictada'];
 			$c->recuperatoria_de = $results['recuperatoria_de'];
 			$c->comision = $results['comision'];
+			//$c->profesor = Profesor::profesor($results['profesor']);
 			$c->profesor = $results['profesor'];
 			$c->hora_ingreso_profesor = $results['hora_ingreso_profesor'];
 			$c->hora_salida_profesor = $results['hora_salida_profesor'];
@@ -83,7 +85,34 @@ class Clase {
 	static function clases(){
 		//METODO ESTATICO QUE DEVUELVE TODAS LAS CLASES DE LA BASE
 		
+		$cs = array();
 		
+		$conn = new Conexion();
+		
+		$sql = 'SELECT id_clase FROM clase';
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+			foreach($results as $r){
+				
+				$c = Clase::clase($r['id_clase']);
+				
+				array_push($cs, $c);
+			}
+			
+		}catch(PDOException $e){
+			
+		}
+		
+		return $cs;
 	}
 	
 	//INICIO METODOS DE CLASE

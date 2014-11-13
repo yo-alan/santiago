@@ -20,7 +20,7 @@
 				break;
 			case 'seleccionarClase':
 				
-				include('../modelo/clase.class.php');
+				include_once '../modelo/clase.class.php';
 				
 				$cs = Clase::clases();
 				
@@ -29,8 +29,8 @@
 				break;
 			case 'registrar':
 				
-				include('../modelo/alumno.class.php');
-				include('../modelo/clase.class.php');
+				include_once '../modelo/alumno.class.php';
+				include_once '../modelo/clase.class.php';
 				
 				$cs = Clase::clases();
 				$as = array();
@@ -71,7 +71,7 @@
 
 	function registrar(){
 		
-		include "../modelo/asistencia.class.php";
+		include_once "../modelo/asistencia.class.php";
 		
 		for($i = 0; $i < sizeof($_POST)-1; $i++){
 			

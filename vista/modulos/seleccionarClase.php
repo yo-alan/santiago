@@ -54,46 +54,33 @@
 		<article>
 			<div class="container col-md-8 col-md-offset-2 jumbotron">
 				<form role="form" class="form-horizontal" method="POST" action="asistencia.php">
-					<input type="hidden" name="action" value="registrar">
 					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>Alumno</th>
-								<th>Presente</th>
-								<th>Justificada</th>
+								<th>Comision</th>
+								<th>Materia</th>
+								<th>Profesor</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php $i = 0; ?>
-							<?php foreach($as as $a): ?>
+							<?php foreach($cs as $c): ?>
 							<tr>
 								<td>
-									<input type="hidden" name="alumno<?php echo $i; ?>[documento]" value="<?php echo $a->getDocumento(); ?>">
-									<?php echo $a->getApellido(). ", ". $a->getNombre(); ?>
+									<?php echo $c->getComision()->getNumero(); ?>
 								</td>
 								<td>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="alumno<?php echo $i; ?>[presente]">
-										</label>
-									</div>
+									<?php echo $c->getComision()->getMateria(); ?>
 								</td>
 								<td>
-									<select name="alumno<?php echo $i; ?>[justificada]">
-										<option value="0">No</option>
-										<option value="1">Si</option>
-									</select>
+									<?php echo $c->getProfesor(); ?>
+								</td>
+								<td>
+									<a href="alumno.php?action=registrar&clase=<?php echo $c->getId_clase(); ?>"></a>
 								</td>
 							</tr>
-							<?php $i++; ?>
 							<?php endforeach; ?>
 						</tbody>
 					</table>
-					<div class="form-group">
-						<div class="col-md-offset-10">
-							<button type='submit' class='btn btn-primary'>Guardar</button>
-						</div>
-					</div>
 				</form>
 			</div>
 		</article>
