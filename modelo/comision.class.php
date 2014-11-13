@@ -303,4 +303,24 @@ class Comision {
 			}
 		
 	}
+    
+    function quitarAlumnoEnComision($comision,$alumno){
+		//METODO QUE QUITA UN ALUMNO DE UNA COMISION
+		
+		$conn = new Conexion($comision,$alumno);
+			
+			try{
+				$sql = "DELETE FROM comision_alumno WHERE comision=? AND alumno=?;";
+				
+				$consulta = $conn->prepare($sql);
+				  
+				$consulta->bindParam(1, $comision, PDO::PARAM_INT);
+                $consulta->bindParam(2, $alumno, PDO::PARAM_INT);
+				$consulta->execute();
+				
+			}catch(PDOException $e){
+				throw new Exception('Error al insertar el nuevo alumno: '.$e->getMessage());
+			}
+		
+	}
 }

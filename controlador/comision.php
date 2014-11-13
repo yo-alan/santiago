@@ -33,7 +33,19 @@
                                     $c=$_GET['comision'];
                                     $com=Comision::comision($_GET['comision']);
                                     $aluEnCom=Alumno::alumnosEnComision($c);
-                                    $aluSinCom=Alumno::alumnoSinComision();
+                                    
+                                    /*validacion de 30 Alumnos,uso 7 como limite de prueba*/
+                                    if(count($aluEnCom) < 7){
+                                        $tituloTabla='Alumnos en esta comisi&oacute;n';
+                                        $clase='col-md-6';
+                                        $mostrarTabla=true;
+                                        $aluSinCom=Alumno::alumnoSinComision();
+                                    }else{
+                                        $tituloTabla='Alumnos en esta comisi&oacute;n(COMISION COMPLETA)';
+                                        $clase='col-md-12';
+                                        $mostrarTabla=false;
+                                    }
+                                    
                                     include '../vista/modulos/form-alumnosComision.php';
                                 }else{
                                     echo 'no hay comision';
@@ -64,16 +76,24 @@
                                             $comision=$_POST['addComision'];
                                             $newAlumno= new Comision();
                                             $newAlumno->guardarAlumnoEnComision($comision,$alumno);
-                                            header('Location: ?action=addAlumno&comision=2');
+                                        }
+                    break;
+                case 'quitarAlumno': 
+                                        if( isset($_POST['rmAlumno']) && isset($_POST['rmComision']) ){
+                                            $alumno=$_POST['rmAlumno'];
+                                            $comision=$_POST['rmComision'];
+                                            $newAlumno= new Comision();
+                                            $newAlumno->quitarAlumnoEnComision($comision,$alumno);
                                         }
                     break;
                 default:                header("Location: ../index.php");
                                         die();
                     break;
             }
+            header('Location: ?action=addAlumno&comision=2');
         }else{
-            echo 'redirijo a index';
-            //header("Location: ../index.php");
+            //echo 'redirijo a index';
+            header("Location: ../index.php");
         }
     }
 

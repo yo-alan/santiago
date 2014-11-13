@@ -14,6 +14,10 @@ $(function(){
             mensaje="<p>Ud. Esta a punto de quitar a "+alumno+" de esta comision.</p><p>Esta Seguro?</p>";
             console.log(alumno+'-'+mensaje);
         $('#modalQuitarAlumno .mensaje').html(mensaje);
-        $('#modalQuitarAlumno form .addAlumno').val(dni);
+        $('#modalQuitarAlumno form .rmAlumno').val(dni);
+    });
+    
+    $('#siEliminar , #siAgregar').click(function(){
+        $(this).closest('.modal').find('form').submit();
     });
 });
