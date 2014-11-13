@@ -38,9 +38,8 @@
                                     $aluEnCom=Alumno::alumnosEnComision($c);
                                     $aluSinCom=Alumno::alumnoSinComision();
                                     include '../vista/modulos/form-alumnosComision.php';
-                                    
                                 }else{
-                                echo 'no hay comision';
+                                    echo 'no hay comision';
                                 }
                 break;
             case 'print':
