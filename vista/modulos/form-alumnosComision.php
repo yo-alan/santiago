@@ -46,8 +46,8 @@
                             <tr>
                                 <td><?php echo $al->getLegajo()?></td>
                                 <td class="dni"><?php echo $al->getDocumento()?></td>
-                                <td><?php echo $al->getApellido().','.$al->getNombre()?></td>
-                                <td><a class="quitarAlumno glyphicon glyphicon-chevron-right"></a></td>
+                                <td class="nombre"><?php echo $al->getApellido().','.$al->getNombre()?></td>
+                                <td><a class="quitarAlumno glyphicon glyphicon-chevron-right" data-toggle="modal" data-target="#modalQuitarAlumno"></a></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -93,18 +93,41 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Agregar Alumno a Comision</h4>
+        <h4 class="modal-title" id="myModalLabel">Agregar alumno a comisi&oacute;n</h4>
       </div>
       <div class="modal-body">
           <div class="mensaje"></div>
           <form action="" method="post">
-              <input type="hidden" name="addAlumno">
-              <input type="hidden" name="addComision">
+              <input type="hidden" name="addAlumno" class="addAlumno">
+              <input type="hidden" name="addComision" value="<?php echo $_GET['comision']?>">
           </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary">Si</button>
+        <button type="button" class="btn btn-primary">Si, Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Quitar Alumno a Comision-->
+<div class="modal fade" id="modalQuitarAlumno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Quitar alumno de la comisi&oacute;n</h4>
+      </div>
+      <div class="modal-body">
+          <div class="mensaje"></div>
+          <form action="" method="post">
+              <input type="hidden" name="addAlumno" class="addAlumno">
+              <input type="hidden" name="addComision" value="<?php echo $_GET['comision']?>">
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger">Si,Eliminar</button>
       </div>
     </div>
   </div>
