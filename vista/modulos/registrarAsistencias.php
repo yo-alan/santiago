@@ -42,7 +42,7 @@
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Clases <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
 							<li><a href="../controlador/clase.php?action=agregar">Agregar</a></li>
-							<li><a href="../controlador/asistencia.php?action=registrar">Registro de asistencias</a></li>
+							<li><a href="../controlador/asistencia.php?action=seleccionarClase">Registro de asistencias</a></li>
 						  </ul>
 						</li>
 					  </ul>
@@ -53,14 +53,6 @@
 		</header>
 		<article>
 			<div class="container col-md-8 col-md-offset-2 jumbotron">
-				<div class="container">
-					<label>Clase: </label>
-					<select name="clase">
-						<?php foreach($cs as $c): ?>
-							<option value="<?php echo ""; ?>"><?php echo ""; ?></option>
-						<?php endforeach; ?>
-					</select>
-				</div>
 				<form role="form" class="form-horizontal" method="POST" action="asistencia.php">
 					<input type="hidden" name="action" value="registrar">
 					<table class="table table-bordered">
@@ -80,17 +72,17 @@
 									<?php echo $a->getApellido(). ", ". $a->getNombre(); ?>
 								</td>
 								<td>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" name="alumno<?php echo $i; ?>[presente]">
-										</label>
+									<div class="form-group">
+										<input type="checkbox" name="alumno<?php echo $i; ?>[presente]">
 									</div>
 								</td>
 								<td>
-									<select name="alumno<?php echo $i; ?>[justificada]">
-										<option value="0">No</option>
-										<option value="1">Si</option>
-									</select>
+									<div class="form-group col-md-6">
+										<select class="form-control" name="alumno<?php echo $i; ?>[justificada]">
+											<option value="0">No</option>
+											<option value="1">Si</option>
+										</select>
+									</div>
 								</td>
 							</tr>
 							<?php $i++; ?>
