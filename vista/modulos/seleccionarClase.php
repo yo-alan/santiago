@@ -81,6 +81,13 @@
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
+						<?php if(!sizeof($cs)): ?>
+						<tfoot>
+							<tr>
+								<td colspan="4">No hay clases cargadas.</td>
+							</tr>
+						</tfoot>
+						<?php endif; ?>
 					</table>
 				</form>
 			</div>
