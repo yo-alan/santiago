@@ -237,8 +237,7 @@ class Alumno{
             
             $pdf = new Cezpdf('a4','landscape');
             $pdf->selectFont('../librerias/ezPDF/fonts/Helvetica.afm');
-            $dato = Alumno::alumnosXcursada($anio,$carrera);
-	
+            $dato = Alumno::alumnosXcursada($anio,$carrera);	
             $pdf->ezTable($dato);
             //$pdf->ezStream(); esta linea va en el controlador alumno.php en el 'case print:'
             return $pdf;
