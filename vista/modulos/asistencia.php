@@ -52,7 +52,15 @@
 			</div>
 		</header>
 		<article>
-			<div class="container col-md-8 col-md-offset-2 alert alert-success">
+			<div class="container col-md-8 col-md-offset-2 jumbotron">
+				<div class="container">
+					<label>Clase: </label>
+					<select name="clase">
+						<?php foreach($cs as $c): ?>
+							<option value="<?php echo ""; ?>"><?php echo ""; ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
 				<form role="form" class="form-horizontal" method="POST" action="asistencia.php">
 					<input type="hidden" name="action" value="registrar">
 					<table class="table table-bordered">

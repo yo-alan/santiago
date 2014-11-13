@@ -23,8 +23,8 @@
 				include('../modelo/alumno.class.php');
 				include('../modelo/clase.class.php');
 				
+				$cs = Clase::clases();
 				$as = array();
-				//$as = Clase::getAlumnos();
 				
 				include('../vista/modulos/asistencia.php');
 				
