@@ -42,7 +42,7 @@
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Clases <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
 							<li><a href="../controlador/clase.php?action=agregar">Agregar</a></li>
-							<li><a href="../controlador/asistencia.php?action=registrar">Registro de asistencias</a></li>
+							<li><a href="../controlador/asistencia.php?action=seleccionarClase">Registro de asistencias</a></li>
 						  </ul>
 						</li>
 					  </ul>
@@ -60,6 +60,7 @@
 								<th>Comision</th>
 								<th>Materia</th>
 								<th>Profesor</th>
+								<th>Registrar asistencias</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -69,13 +70,13 @@
 									<?php echo $c->getComision()->getNumero(); ?>
 								</td>
 								<td>
-									<?php echo $c->getComision()->getMateria(); ?>
+									<?php echo $c->getComision()->getNombre_materia(); ?>
 								</td>
 								<td>
 									<?php echo $c->getProfesor(); ?>
 								</td>
 								<td>
-									<a href="alumno.php?action=registrar&clase=<?php echo $c->getId_clase(); ?>"></a>
+									<a href="asistencia.php?action=registrar&clase=<?php echo $c->getId_clase(); ?>"><i class="glyphicon glyphicon-check"></i></a>
 								</td>
 							</tr>
 							<?php endforeach; ?>

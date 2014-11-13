@@ -1,5 +1,7 @@
 <?php
 
+include_once "conexion.class.php";
+
 class Asistencia{
 	
 	private $nuevo;
