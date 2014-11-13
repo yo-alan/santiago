@@ -97,9 +97,11 @@
       </div>
       <div class="modal-body">
           <div class="mensaje"></div>
-          <form action="" method="post">
+          <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+              <input type="hidden" name="action" value="agregarAlumno">
               <input type="hidden" name="addAlumno" class="addAlumno">
               <input type="hidden" name="addComision" value="<?php echo $_GET['comision']?>">
+              <input type="submit" value="go">
           </form>
       </div>
       <div class="modal-footer">

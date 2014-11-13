@@ -9,10 +9,7 @@
     $tituloModulo='Bedel&iacute;a | Gestionar Alumnos de Comisi&oacute;n';
     $miJs='<script src="../librerias/js/alumnosComision.js"></script>';
 
-	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
-		header("Location: ../index.php");
-	
-	if($_SERVER['REQUEST_METHOD'] == 'GET'){
+	if( ($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['action']) ){
 		$accion = $_GET['action'];
 		
          switch($accion){
@@ -48,25 +45,40 @@
                 break;
         }
 		die();
-	}
+	}else{
+    
+        if( ($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['action']) ){
+            
+            $accion = $_POST['action'];
+
+            switch($accion){
+                case 'agregar':         agregar();
+                    break;
+                case 'editar':
+                    break;
+                case 'eliminar':
+                    break;
+                case 'agregarAlumno': 
+                                        if( isset($_POST['addAlumno']) && isset($_POST['addComision']) ){
+                                            $alumno=$_POST['addAlumno'];
+                                            $comision=$_POST['addComision'];
+                                            $newAlumno= new Comision();
+                                            $newAlumno->guardarAlumnoEnComision($comision,$alumno);
+                                            header('Location: ?action=addAlumno&comision=2');
+                                        }
+                    break;
+                default:                header("Location: ../index.php");
+                                        die();
+                    break;
+            }
+        }else{
+            echo 'redirijo a index';
+            //header("Location: ../index.php");
+        }
+    }
+
 	
-	if(!isset($_POST['action']))
-		header("Location: ../index.php");
-	
-	$accion = $_POST['action'];
-	
-	if($accion == 'agregar'){
-		agregar();
-	}else if($accion == 'editar')
-		echo "editar";
-	else if($accion == 'eliminar')
-		echo "eliminar";
-	else{
-		header("Location: ../index.php");
-		die();
-	}
-	
-	header("Location: ../index.php?result=exito");
+	//header("Location: ../index.php?result=exito");
 	die();
 	
 	function agregar(){

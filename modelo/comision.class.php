@@ -283,4 +283,24 @@ class Comision {
 		$this->nombre_materia = $numero;
 		$this->cambios = true;
 	}
+    
+    function guardarAlumnoEnComision($comision,$alumno){
+		//METODO QUE GUARDA UN ALUMNO EN UNA COMISION
+		
+		$conn = new Conexion();
+			
+			try{
+				$sql = "INSERT INTO comision_alumno (comision, alumno) VALUES (?, ?);";
+				
+				$consulta = $conn->prepare($sql);
+				  
+				$consulta->bindParam(1, $comision, PDO::PARAM_INT);
+				$consulta->bindParam(2, $alumno, PDO::PARAM_INT);
+				$consulta->execute();
+				
+			}catch(PDOException $e){
+				throw new Exception('Error al insertar el nuevo alumno: '.$e->getMessage());
+			}
+		
+	}
 }
