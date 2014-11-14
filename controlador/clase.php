@@ -9,7 +9,9 @@
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		$accion = $_GET['action'];
 		if($accion == 'agregar'){
-			header('Location: ../vista/modulos/form-clase.php');
+			$miJs = "";
+			$tituloModulo = "Agregar clase nueva";
+			include '../vista/modulos/form-clase.php';
 		}else if($accion == 'editar'){
 			include('../vista/modulos/form-clase.php');
 		}else if($accion == 'eliminar'){

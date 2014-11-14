@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-	<?php include '../header.php';?>
+	<?php include '../vista/header.php';?>
 	<body>
-		<?php include '../menu.php';?>
+		<?php include '../vista/menu.php';?>
 		<div class="container col-md-8 col-md-offset-2 jumbotron">
 			<legend>Alta de clase</legend>
 			<form role="form" class="form-horizontal col-md-12 col-md-offset-2" method="POST" action="../../controlador/clase.php">
