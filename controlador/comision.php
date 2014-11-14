@@ -6,14 +6,15 @@
     include_once '../modelo/cursada.class.php';
     require_once '../modelo/alumno.class.php';
 
-    $tituloModulo='Bedel&iacute;a | Gestionar Alumnos de Comisi&oacute;n';
+    
     $miJs='<script src="../librerias/js/alumnosComision.js"></script>';
 
 	if( ($_SERVER['REQUEST_METHOD'] == 'GET') && isset($_GET['action']) ){
 		$accion = $_GET['action'];
 		
          switch($accion){
-            case 'agregar':     $cp = Cursada::cursadas();
+            case 'agregar':     $tituloModulo='Bedel&iacute;a | Listado de Comisiones';
+                                $cp = Cursada::cursadas();
                                 include "../vista/modulos/agregarComision.php";
                 break;
             case 'editar':      include('../vista/modulos/form-cursada.php');
@@ -23,7 +24,7 @@
             case 'listar':      $cp = Comision::comisiones();
                                 include '../vista/modulos/list-comision.php';
                 break;
-            case 'addAlumno':   
+            case 'addAlumno':   $tituloModulo='Bedel&iacute;a | Gestionar Alumnos de Comisi&oacute;n';
                                 $breadcrumb='<ol class="breadcrumb col-md-12">
                                               <li><a href="../index.php">Inicio</a></li>
                                               <li><a href="../controlador/comision.php?action=listar">Listado Comisiones</a></li>

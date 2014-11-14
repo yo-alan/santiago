@@ -1,18 +1,23 @@
 <?php
 	
 	include_once '../modelo/conexion.class.php';
+    
+    $miJs='<script src="../librerias/js/selectCursada.js"></script>';
+
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET'){
 		$accion = $_GET['action'];
 		if($accion == 'agregar'){
-			header ('Location: ../vista/modulos/form-cursada.php');
+            $tituloModulo='Bedel&iacute;a | Agregar cursada';
+			include ('../vista/modulos/form-cursada.php');
 		}else if($accion == 'editar'){
 			include('../vista/modulos/form-cursada.php');
 		}else if($accion == 'eliminar'){
 			include('../vista/modulos/form-cursada.php');
         }else if($accion == 'listar'){
+            $tituloModulo='Bedel&iacute;a | Listado de cursada';
 			include_once "../modelo/cursada.class.php";
 			include_once "../modelo/comision.class.php";
 			$cp = Cursada::cursadas();

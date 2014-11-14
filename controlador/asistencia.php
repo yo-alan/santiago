@@ -1,6 +1,8 @@
 <?php
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
+
+    $miJs='';
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
@@ -19,7 +21,7 @@
 				include('../vista/modulos/form-asistencia.php');
 				break;
 			case 'seleccionarClase':
-				
+				$tituloModulo='Bedel&iacute;a | Registro de asistencias';
 				include_once '../modelo/clase.class.php';
 				
 				$cs = Clase::clases();

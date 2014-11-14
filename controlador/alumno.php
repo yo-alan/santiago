@@ -2,6 +2,9 @@
 	include_once '../modelo/conexion.class.php';
 	include_once "../modelo/alumno.class.php";
 	include_once '../librerias/ezPDF/class.ezpdf.php';
+
+    
+    $miJs='<script src="../librerias/js/alumnosComision.js"></script>';
 	
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 		header("Location: ../index.php");
@@ -10,13 +13,14 @@
         
 		$accion = $_GET['action'];
         switch($accion){
-            case 'agregar':     include('../vista/modulos/form-alumno.php');
+            case 'agregar':     $tituloModulo='Bedel&iacute;a | Alta de alumno';
+                                include('../vista/modulos/form-alumno.php');
                 break;
             case 'editar':      include('../vista/modulos/form-alumno.php');
                 break;
             case 'eliminar':    include('../vista/modulos/form-alumno.php');
                 break;
-            case 'listar':      
+            case 'listar':      $tituloModulo='Bedel&iacute;a | Listado de Alumnos';
                                 $carrera=array('ENF','RED','SFW');
                                 $anios=aniosHastaFecha(); 
                                 if(isset($_GET['filtroCursada']) && isset($_GET['filtroCarrera'])){
