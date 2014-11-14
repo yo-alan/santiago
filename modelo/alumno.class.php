@@ -363,6 +363,9 @@ class Alumno{
 		if(strlen($nombre) < 3)
 			return;
 		
+		if(!ctype_alpha($nombre))
+			return;
+		
 		$this->nombre = $nombre;
 		$this->cambios = true;
 	}
@@ -374,6 +377,9 @@ class Alumno{
 	function setApellido($apellido){
 		
 		if(strlen($apellido) < 3)
+			return;
+		
+		if(!ctype_alpha($apellido))
 			return;
 		
 		$this->apellido = $apellido;
@@ -407,7 +413,27 @@ class Alumno{
 	}
 	
 	function setLegajo($legajo){
-		$this->legajo = $legajo;
+		
+		if(strlen($legajo) != 6)
+			return;
+		
+		if(!ctype_alpha($legajo[0]))
+			return;
+		if(!ctype_alpha($legajo[1]))
+			return;
+		if(!ctype_alpha($legajo[2]))
+			return;
+		if(!ctype_digit($legajo[3]))
+			return;
+		if(!ctype_digit($legajo[4]))
+			return;
+		if(!ctype_digit($legajo[5]))
+			return;
+		
+		if($this->legajo == strtoupper($legajo))
+			return;
+		
+		$this->legajo = strtoupper($legajo);
 		$this->cambios = true;
 	}
 	
