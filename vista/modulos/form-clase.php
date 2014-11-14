@@ -7,6 +7,7 @@
 			<legend>Alta de clase</legend>
 			<form role="form" class="form-horizontal col-md-12 col-md-offset-2" method="POST" action="../../controlador/clase.php">
 				<input type="hidden" name="action" value="agregar">
+				<input type="hidden" name="comision" value="<?php echo $comision ?>">
 				<div class="form-group">
 					<label for="obligatorio" class="col-sm-2 control-label">Obligatorio</label>
 					<div class="col-sm-4">
@@ -47,12 +48,6 @@
 					<label for="recuperatoria_de" class="col-sm-2 control-label">Recuperatoria</label>
 					<div class="col-sm-4">
 						<input type="text" class="form-control" name="recuperatoria_de">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="comision" class="col-sm-2 control-label">Comision</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" name="comision">
 					</div>
 				</div>
 				<div class="form-group">

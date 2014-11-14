@@ -10,17 +10,32 @@
 		$accion = $_GET['action'];
 		if($accion == 'agregar'){
 			$miJs = "";
-			$tituloModulo = "Agregar clase nueva";
+			$tituloModulo = "Bedelía | Agregar clase nueva";
+			
+			$comision = "";
+			
+			if(isset($_GET["comision"]))
+				$comision = $_GET["comision"];
+			
 			include '../vista/modulos/form-clase.php';
 		}else if($accion == 'editar'){
 			include('../vista/modulos/form-clase.php');
 		}else if($accion == 'eliminar'){
 			include('../vista/modulos/form-clase.php');
+        }else if($accion == 'seleccionarComision'){
+			include_once "../modelo/comision.class.php";
+			
+			$miJs = "";
+			$tituloModulo = "Bedelía | Seleccionar una comision";
+			
+			$cs = Comision::comisiones();
+			
+			include "../vista/modulos/seleccionarComision.php";
+			
         }else if($accion == 'listar'){
 			include_once "../modelo/clase.class.php";
 			$cs = Clase::clases();
 			include "../vista/modulos/list-clase.php";
-			//header('Location: ../vista/index.php?modulo=list-clase');
 		}else
 			header("Location: ../index.php");
 		    die();
