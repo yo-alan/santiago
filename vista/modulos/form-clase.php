@@ -1,63 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<title>Bedelía | Crear una clase nueva</title>
-		<link href="../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<link href="../../librerias/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
-		<link href="../../librerias/css/default.css" rel="Stylesheet">
-		<script language = "JavaScript" src="../../librerias/js/jquery-1.11.1.min.js"></script>
-		<script language = "JavaScript" src="../../librerias/js/bootstrap.min.js"></script>
-		<script language = "JavaScript" src="../../librerias/datepicker/js/bootstrap-datepicker.js"></script>
-		<script src="../../librerias/js/bootstrap.js"></script>
-		<script src="../../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
-	</head>
+	<?php include '../header.php';?>
 	<body>
-		<header>
-			<div class="col-md-12 container">
-				<nav class="navbar navbar-default" role="navigation">
-				  <div class="container-fluid">
-					<div class="navbar-header">
-					  <a class="navbar-brand" href="../index.php">Inicio</a>
-					</div>
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					  <ul class="nav navbar-nav">
-						<li class="dropdown">
-						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Alumnos <span class="caret"></span></a>
-						  <ul class="dropdown-menu" role="menu">
-                              <li><a href="../../controlador/alumno.php?action=listar">Listado</a></li>
-							<li><a href="../../controlador/alumno.php?action=agregar">Agregar</a></li>
-						  </ul>
-						</li>
-						<li class="dropdown">
-						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Cursadas <span class="caret"></span></a>
-						  <ul class="dropdown-menu" role="menu">
-                              <li><a href="../../controlador/cursada.php?action=listar">Listado</a></li>
-							<li><a href="../../controlador/cursada.php?action=agregar">Agregar</a></li>
-						  </ul>
-						</li>
-						<li class="dropdown">
-						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Comisión <span class="caret"></span></a>
-						  <ul class="dropdown-menu" role="menu">
-							<li><a href="../../controlador/comision.php?action=agregar">Agregar</a></li>
-						  </ul>
-						</li>
-						<li class="dropdown">
-						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Clases <span class="caret"></span></a>
-						  <ul class="dropdown-menu" role="menu">
-							<li><a href="../../controlador/clase.php?action=agregar">Agregar</a></li>
-							<li><a href="../../controlador/asistencia.php?action=seleccionarClase">Registro de asistencias</a></li>
-						  </ul>
-						</li>
-					  </ul>
-					</div><!-- /.navbar-collapse -->
-				  </div><!-- /.container-fluid -->
-				</nav>
-			</div>
-		</header>
+		<?php include '../menu.php';?>
 		<div class="container col-md-8 col-md-offset-2 jumbotron">
-			<form role="form" class="form-horizontal" method="POST" action="../../controlador/clase.php">
-				<legend>Alta de clase</legend>
+			<legend>Alta de clase</legend>
+			<form role="form" class="form-horizontal col-md-12 col-md-offset-2" method="POST" action="../../controlador/clase.php">
 				<input type="hidden" name="action" value="agregar">
 				<div class="form-group">
 					<label for="obligatorio" class="col-sm-2 control-label">Obligatorio</label>
@@ -83,7 +31,7 @@
 				<div class="form-group">
 					<label for="aula" class="col-sm-2 control-label">Aula</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="aula">
+						<input type="number" class="form-control" name="aula">
 					</div>
 				</div>
 				<div class="form-group">

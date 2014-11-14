@@ -5,7 +5,7 @@
 		<?php include '../vista/menu.php';?>
 		<div class="container">
 			<div class = 'jumbotron'>
-				<form role="form" class="form-horizon tal col-lg-2" method="post" action="../controlador/alumno.php">
+				<form role="form" class="form-horizontal col-lg-2" method="post" action="../controlador/alumno.php">
 					<fieldset>
 						<legend>Alta Alumno</legend>
 						<input type="hidden" name="action" value="agregar">
