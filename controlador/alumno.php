@@ -39,7 +39,7 @@
         }
 	}
 	
-	/*if(!isset($_POST['action']))
+	if(!isset($_POST['action']))
 		header("Location: ../index.php");
 	
 	$accion = $_POST['action'];
@@ -57,7 +57,7 @@
 	
 	header("Location: ../index.php?result=exito");
 	die();
-	*/
+	
 	function agregar(){
 		
 		$a = new Alumno();
