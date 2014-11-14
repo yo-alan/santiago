@@ -157,7 +157,8 @@ class Alumno{
                     comision_alumno ca ON ca.alumno=a.documento
                 LEFT JOIN
                     comision c ON ca.comision=c.id_comision
-                WHERE (c.anio!=? OR c.carrera!=? OR c.materia!=?) OR ca.comision IS NULL;";
+                WHERE (c.anio!=? OR c.carrera!=? OR c.materia!=?) OR ca.comision IS NULL
+                GROUP BY documento;";
 		
 		$consulta = $conn->prepare($sql);
 		
