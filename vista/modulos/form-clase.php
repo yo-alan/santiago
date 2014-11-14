@@ -5,10 +5,10 @@
 		<title>Bedelía | Crear una clase nueva</title>
 		<link href="../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
 		<link href="../../librerias/datepicker/css/datepicker.css" rel="stylesheet" media="screen">
+		<link href="../../librerias/css/default.css" rel="Stylesheet">
 		<script language = "JavaScript" src="../../librerias/js/jquery-1.11.1.min.js"></script>
 		<script language = "JavaScript" src="../../librerias/js/bootstrap.min.js"></script>
 		<script language = "JavaScript" src="../../librerias/datepicker/js/bootstrap-datepicker.js"></script>
-		<link rel="Stylesheet" href="../../librerias/css/default.css">
 		<script src="../../librerias/js/bootstrap.js"></script>
 		<script src="../../librerias/js/twitter-bootstrap-hover-dropdown.min.js"></script>
 	</head>
@@ -46,6 +46,7 @@
 						  <a href="#" class="dropdown-toggle" data-hover="dropdown">Clases <span class="caret"></span></a>
 						  <ul class="dropdown-menu" role="menu">
 							<li><a href="../../controlador/clase.php?action=agregar">Agregar</a></li>
+							<li><a href="../../controlador/asistencia.php?action=seleccionarClase">Registro de asistencias</a></li>
 						  </ul>
 						</li>
 					  </ul>
@@ -54,13 +55,7 @@
 				</nav>
 			</div>
 		</header>
-		<div class = "container">
-			<ol class = "breadcrumb">
-				<li><a href="../index.php">Inicio</a></li>
-				<li class = "active">Crear clase</li>
-			</ol>
-		</div>
-		<div class = "container">
+		<div class="container col-md-8 col-md-offset-2 jumbotron">
 			<form role="form" class="form-horizontal" method="POST" action="../../controlador/clase.php">
 				<legend>Alta de clase</legend>
 				<input type="hidden" name="action" value="agregar">
@@ -94,7 +89,10 @@
 				<div class="form-group">
 					<label for="dictada" class="col-sm-2 control-label">Dictada</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" name="dictada">
+						<select class="form-control" name="dictada">
+							<option value="si">Si</option>
+							<option value="no">No</option>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">

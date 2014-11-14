@@ -29,13 +29,16 @@
 				break;
 			case 'registrar':
 				
+				if(!isset($_GET['clase']))
+					header("Location: ../index.php");
+				
 				include_once '../modelo/alumno.class.php';
 				include_once '../modelo/clase.class.php';
 				
-				$cs = Clase::clases();
-				$as = array();
+				$c = Clase::clase($_GET['clase']);
+				$as = $c->getAlumnos();
 				
-				include('../vista/modulos/asistencia.php');
+				include('../vista/modulos/registrarAsistencias.php');
 				
 				break;
 			case 'editar':

@@ -3,6 +3,7 @@
 require_once "conexion.class.php";
 //require_once "profesor.class.php";
 require_once "alumno.class.php";
+require_once "comision.class.php";
 
 class Clase {
 	
@@ -24,6 +25,7 @@ class Clase {
 		
 		$this->cambios = true;
 		$this->nuevo = true;
+		$this->id_clase = 0;
 		$this->obligatorio;
 		$this->hora_inicio;
 		$this->hora_fin;
@@ -69,7 +71,7 @@ class Clase {
 			$c->aula = $results['aula'];
 			$c->dictada = $results['dictada'];
 			$c->recuperatoria_de = $results['recuperatoria_de'];
-			$c->comision = $results['comision'];
+			$c->comision = Comision::comision($results['comision']);
 			//$c->profesor = Profesor::profesor($results['profesor']);
 			$c->profesor = $results['profesor'];
 			$c->hora_ingreso_profesor = $results['hora_ingreso_profesor'];
@@ -224,6 +226,10 @@ class Clase {
 		}
 		
 		return $as;
+	}
+	
+	function getId_clase(){
+		return $this->id_clase;
 	}
 	
 	function getObligatorio(){
