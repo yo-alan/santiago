@@ -21,7 +21,7 @@
 				include('../vista/modulos/form-asistencia.php');
 				break;
 			case 'seleccionarClase':
-				$tituloModulo='Bedel&iacute;a | Registro de asistencias';
+				$tituloModulo='Bedel&iacute;a | Seleccionar una clase';
 				include_once '../modelo/clase.class.php';
 				
 				$cs = Clase::clases();
@@ -30,6 +30,8 @@
 				
 				break;
 			case 'registrar':
+				
+				$tituloModulo='Bedel&iacute;a | Registro de asistencias';
 				
 				if(!isset($_GET['clase']))
 					header("Location: ../index.php");
