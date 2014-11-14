@@ -32,6 +32,9 @@
                                 if( isset($_GET['comision']) && ($_GET['comision']!='') ){
                                     $c=$_GET['comision'];
                                     $com=Comision::comision($_GET['comision']);
+                                    $anio=$com->getAnio();
+                                    $carrera=$com->getCarrera();
+                                    $materia=$com->getMateria();
                                     $aluEnCom=Alumno::alumnosEnComision($c);
                                     
                                     /*validacion de 30 Alumnos,uso 7 como limite de prueba*/
@@ -39,7 +42,7 @@
                                         $tituloTabla='Alumnos en esta comisi&oacute;n';
                                         $clase='col-md-6';
                                         $mostrarTabla=true;
-                                        $aluSinCom=Alumno::alumnoSinComision();
+                                        $aluSinCom=Alumno::alumnoSinComision($anio,$carrera,$materia);
                                     }else{
                                         $tituloTabla='Alumnos en esta comisi&oacute;n(COMISION COMPLETA)';
                                         $clase='col-md-12';

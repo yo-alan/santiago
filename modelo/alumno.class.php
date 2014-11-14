@@ -140,7 +140,7 @@ class Alumno{
 		return $as;
 	}
     
-    static function alumnoSinComision(){
+    static function alumnoSinComision($anio,$carrera,$materia){
 		//METODO ESTATICO QUE RETORNA TODOS LOS ALUMNOS SIN UNA COMISION
 		
 		$as = array();
@@ -155,11 +155,17 @@ class Alumno{
                     persona p ON a.documento=p.documento
                 LEFT JOIN 
                     comision_alumno ca ON ca.alumno=a.documento
-                WHERE ca.comision IS NULL;";
+                LEFT JOIN
+                    comision c ON ca.comision=c.id_comision
+                WHERE (c.anio!=? OR c.carrera!=? OR c.materia!=?) OR ca.comision IS NULL;";
 		
 		$consulta = $conn->prepare($sql);
 		
 		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+        
+        $consulta->bindParam(1, $anio, PDO::PARAM_INT);
+        $consulta->bindParam(2, $carrera, PDO::PARAM_STR);
+        $consulta->bindParam(3, $materia, PDO::PARAM_INT);
         
 		try{
 			
