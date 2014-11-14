@@ -90,7 +90,7 @@
                                         die();
                     break;
             }
-            header('Location: ?action=addAlumno&comision=2');
+            header('Location: ?action=addAlumno&comision='.$comision);
         }else{
             //echo 'redirijo a index';
             header("Location: ../index.php");
