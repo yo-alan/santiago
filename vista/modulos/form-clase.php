@@ -5,7 +5,7 @@
 		<?php include '../vista/menu.php';?>
 		<div class="container col-md-8 col-md-offset-2 jumbotron">
 			<legend>Alta de clase</legend>
-			<form role="form" class="form-horizontal col-md-12 col-md-offset-2" method="POST" action="../../controlador/clase.php">
+			<form role="form" class="form-horizontal col-md-12 col-md-offset-2" method="POST" action="../controlador/clase.php">
 				<input type="hidden" name="action" value="agregar">
 				<input type="hidden" name="comision" value="<?php echo $comision ?>">
 				<div class="form-group">

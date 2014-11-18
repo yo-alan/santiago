@@ -32,6 +32,13 @@
                             </td>
                         <?php endforeach;?>
                     </tbody>
+						<?php if(!sizeof($cs)): ?>
+						<tfoot>
+							<tr>
+								<td colspan="5">No hay comisiones cargadas.</td>
+							</tr>
+						</tfoot>
+						<?php endif; ?>
                 </table>    
             </div>
         </div>
