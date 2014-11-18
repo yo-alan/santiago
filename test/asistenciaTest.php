@@ -6,7 +6,7 @@
 	
 	class asistenciaTest extends PHPUnit_Framework_TestCase{
 		
-		protected $conexion;
+		/*protected $conexion;
 		protected $asist;
 		protected $clas;
 		
@@ -15,13 +15,29 @@
 			$this->conexion = new Conexion(); 
 			$this->asist = Asistencia::asistencias();
 			$this->clas = Clase::clases();
-		}
+		}*/
 		
 		public function testPresente(){
+			
+			try{
+			$objeto = new Asistencia();
+			$objeto->setPresente('1');
+			$objeto->setJustificada('1');
+			
+			$objeto->guardar();
+		}catch(Exception $e)
+		{
+			return;
+		}
+			echo 'no fallo';
+			
+		}
+		
+		/*public function testPresente(){
 			/*Test que valida que todo alumno ausente tenga un valor de justificado o injustificado.
 			 * A su vez evalua que un alumno presente no tenga ningún valor en la columna "justificado"*/
 			
-			$prueba1 = array('1', null);
+			/*$prueba1 = array('1', null);
 			foreach($this->asist as $objeto)
 			{
 				$arreglo[0] = $objeto->getPresente();
@@ -36,7 +52,7 @@
 						break;
 				}
 			}	
-		}
+		}*/
 		
 		public function testClases_con_Asist(){
 			
