@@ -284,11 +284,51 @@ class Comision {
 		$this->cambios = true;
 	}
     
+    function comisionCompleta($comision){
+        //METODO QUE VERIFICA SI UNA COMISION ESTA COMPLETA
+        $as = false;
+		
+		$conn = new Conexion();
+		
+		$sql = "SELECT 
+                    a.legajo,a.documento,concat(p.apellido,', ',p.nombre) AS nombre 
+                FROM 
+                    comision_alumno ca 
+                JOIN 
+                    alumno a ON ca.alumno=a.documento
+                JOIN 
+                    persona p ON a.documento=p.documento
+                WHERE 
+                    ca.comision = :nroComision;";
+		
+		$consulta = $conn->prepare($sql);
+		
+		$consulta->setFetchMode(PDO::FETCH_ASSOC);
+		
+        $consulta->bindParam(':nroComision', $comision, PDO::PARAM_INT);
+        
+		try{
+			
+			$consulta->execute();
+			
+			$results = $consulta->fetchall();
+			
+		}catch(PDOException $e){
+			
+		}
+		
+        if( count($results) == 30 ){
+            $as=true;
+        }
+		return $as;
+    }
+    
     function guardarAlumnoEnComision($comision,$alumno){
 		//METODO QUE GUARDA UN ALUMNO EN UNA COMISION
 		
 		$conn = new Conexion();
-			
+		
+        if(!$this->comisionCompleta($comision)){
 			try{
 				$sql = "INSERT INTO comision_alumno (comision, alumno) VALUES (?, ?);";
 				
@@ -301,6 +341,7 @@ class Comision {
 			}catch(PDOException $e){
 				throw new Exception('Error al insertar el nuevo alumno: '.$e->getMessage());
 			}
+        }
 		
 	}
     
