@@ -37,6 +37,13 @@
 							<?php $i++; ?>
 							<?php endforeach; ?>
 						</tbody>
+						<?php if(!sizeof($as)): ?>
+						<tfoot>
+							<tr>
+								<td colspan="3">No hay alumnos cargados.</td>
+							</tr>
+						</tfoot>
+						<?php endif; ?>
 					</table>
 					<div class="form-group">
 						<div class="col-md-offset-10">
