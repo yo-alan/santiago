@@ -33,6 +33,7 @@
             case 'print':
 				$pdf=Alumno::imprimeAlumnosXcursada($_GET['filtroCursada'],$_GET['filtroCarrera']);
 				$pdf->ezStream();
+		die();
                 break;
             default:            header("Location: ../index.php");
                 break;
