@@ -11,36 +11,36 @@
 		public function testPresente(){
 			
 			try{
-			$objeto = new Asistencia();
-			$objeto->setPresente('1');
-			$objeto->setJustificada('1');
+				$objeto = new Asistencia();
+				$objeto->setPresente('1');
+				$objeto->setJustificada('1');
+				
+				$objeto->guardar();
+			}catch(Exception $e)
+			{
+				return;
+			}
 			
-			$objeto->guardar();
-		}catch(Exception $e)
-		{
-			return;
-		}
 			echo "fallo el primero \n";
 			
 		}
 		
 		public function testClases_con_Asist(){
-			try{
-				
-			$objeto = new Asistencia();
-			$objeto->setClase(null);
-			$objeto->setAlumno(null);
-			$objeto->guardar();
-		}catch(Exception $e)
-		{
-			return;
-		}
 		
-		echo 'fallo el segundo';
+			try{
+					
+				$objeto = new Asistencia();
+				$objeto->setClase(null);
+				$objeto->setAlumno(null);
+				$objeto->guardar();
+			}catch(Exception $e)
+			{
+				return;
+			}
+			
+			echo 'fallo el segundo';
 			
 		}
 	}
-
-?>
 
 ?>

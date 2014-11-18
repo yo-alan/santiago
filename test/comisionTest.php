@@ -23,9 +23,8 @@
             $docAlumno=0;
             
             foreach($this->arrayLegajoAlumn as $objeto){
-                $alumno->alumno($objeto);
-                $docAlumno = $alumno['documento'];
-                $comision->guardarAlumnoEnComision($nroComision,$docAlumno);
+                $docAlumno = $objeto->getDocumento();
+                $this->comision->guardarAlumnoEnComision($nroComision,$docAlumno);
                 $cantAlumnInsertados++;
             }
             

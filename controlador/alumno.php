@@ -73,10 +73,9 @@
 		try{
 			$a->guardar();
 		} catch(Exception $e){
-			header("Location: ../vista/modulos/msmErrorAlumno.php?msg".$e->getMessage());
-			die();
+			//MENSAJE DE ERROR
 		}
-		header ('Location: ../vista/modulos/msmExitoAlumno.php');
+		header ('Location: ../controlador/alumno.php?action=agregar');
 		die();
 	}
 

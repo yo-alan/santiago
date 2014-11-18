@@ -11,7 +11,7 @@
 	  
 	  try{
 			parent::__construct($this->tipo_de_base.':host='.$this->host.';dbname='.$this->nombre_de_base, $this->usuario, $this->contrasena);
-		 
+			$this->exec("set names utf-8");
 	  }catch(PDOException $e){
 			echo 'No se puede conectar a la base de datos. Detalle: ' . $e->getMessage();
 			exit;

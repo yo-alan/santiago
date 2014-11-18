@@ -8,9 +8,9 @@
                     <thead>
                         <tr>
                             <th>Carrera</th>
-                            <th>Número Comisión</th>
+                            <th>N&uacute;mero Comisi&oacute;n</th>
                             <th>Materia</th>
-                            <th>Año</th>
+                            <th>A&ntilde;o</th>
                             <th>Agregar clase</th>
                         </tr>
                     </thead>
